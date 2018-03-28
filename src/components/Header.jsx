@@ -23,7 +23,7 @@ export default class Header extends React.Component {
           .header__container {
             height: 100px;
             line-height: 100px;
-            width: 894px;
+            width: 950px;
             margin: 0 auto;
           }
 

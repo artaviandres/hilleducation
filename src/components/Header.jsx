@@ -6,8 +6,8 @@ import colors from '../variables';
 export default class Header extends React.Component {
   render() {
     return (
-      <div className="header__container">
-        <div>
+      <div className="header">
+        <div className="header__container">
           <img src={Logo} width="200px" />
           <a>Home</a>
           <a className="margin">About us</a>
@@ -16,12 +16,19 @@ export default class Header extends React.Component {
           <Button marginLeft="20px">LOG IN</Button>
         </div>
         <style jsx>{`
+          .header {
+            width: 100vw;
+            background-color: ${colors.white};
+          }
           .header__container {
-            background-color: #FAFAFA;
             height: 100px;
             line-height: 100px;
-            width: 100vw;
-            display: inline-block;
+            width: 894px;
+            margin: 0 auto;
+          }
+
+          .header__container div {
+            margin-top: -30px;
           }
 
           .header__container img {

@@ -10,29 +10,18 @@ export default class Header extends React.Component {
         <div className="header__container">
           <img src={Logo} width="200px" />
           <a>Home</a>
-          <a className="margin">About us</a>
-          <a className="margin">Contact us</a>
-          <a className="margin">HEA Associates</a>
-          <Button marginLeft="20px">LOG IN</Button>
+          <a>About us</a>
+          <a>Contact us</a>
+          <a>HEA Associates</a>
+          <Button>LOG IN</Button>
         </div>
         <style jsx>{`
-          .header {
-            width: 100vw;
-            background-color: ${colors.white};
-          }
           .header__container {
+            display: flex;
+            width: 100%;
             height: 100px;
-            line-height: 100px;
-            width: 950px;
-            margin: 0 auto;
-          }
-
-          .header__container div {
-            margin-top: -30px;
-          }
-
-          .header__container img {
-            margin-right: 90px;
+            justify-content: center;
+            align-items: center;
           }
           
           a {
@@ -40,16 +29,13 @@ export default class Header extends React.Component {
             font-weight: 600;
             color: ${colors.black};
             padding-right: 20px;
+            padding-left: 20px;
+            border-left: 1px solid ${colors.gray};
           }
           
           a:hover {
             text-decoration: underline;
             text-decoration-color: ${colors.blue};
-          }
-          
-          .margin {
-            padding-left: 20px;
-            border-left: 1px solid ${colors.gray};
           }
         `}</style>
       </div>

@@ -2,7 +2,9 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import FaCircle from 'react-icons/lib/fa/circle';
 import Quotes from '../assets/images/Quotes-01.svg';
+import Button from '../components/Button';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
@@ -24,8 +26,21 @@ export default class Landing extends React.Component {
           </div>
           
         </div> */}
+        <div className="section">
+          <div className="section__1">
+            <div>
+              <h1 className="section__text-header">Maximize TRS <br />& SS Benefits</h1>
+              <p className="section__text-paragraph">
+                If you are married or have a partner, this<br />
+                information is vital for you to understand the ways<br />
+                in which WEP/GPO will affect you in retirement.
+              </p>
+            </div>
+          </div>
+          <div className="section__2" />
+        </div>
         <Grid fluid>
-          <Row center="xs">
+          {/* <Row center="xs">
             <Col xs={6}>
               <div className="section__text">
                 <h1 className="section__text-header">Maximize TRS & SS Benefits</h1>
@@ -39,7 +54,7 @@ export default class Landing extends React.Component {
             <Col xs={6}>
               <img src={Couple} className="couple__image" />
             </Col>
-          </Row>
+          </Row> */}
           <Row center="xs">
             <Col xs={12}>
               <h1 style={{ fontSize: 40 + 'px' }}>Testimonials</h1>
@@ -86,7 +101,18 @@ export default class Landing extends React.Component {
               </div>
             </Col>
           </Row>
-          <Row>
+        </Grid>
+        <div className="contactContainer">
+          <div className="contactContainer_1" />
+          <div className="contactContainer_2">
+            <div>
+              <h1>Contact us today so that we can plan a seminar for your school district!</h1>
+              <Button reverse={true}>CONTACT US</Button>
+            </div>
+          </div>
+        </div>
+        <Footer />
+          {/* <Row>
             <img src={People} className="contact-image" />
             <Col xs={6} />
             <Col xs={6}>
@@ -94,13 +120,7 @@ export default class Landing extends React.Component {
 
               </div>
             </Col>
-          </Row>
-          <Row center="xs">
-            <Col xs={12}>
-              <img src={Logo} className="footer-image" />
-            </Col>
-          </Row>
-        </Grid>
+          </Row> */}
         <style jsx>{`
 
           .landing__container {
@@ -140,14 +160,10 @@ export default class Landing extends React.Component {
 
           .section__text-header {
             font-size: 40px;
-            margin: 13vh auto 0 auto;
-            width: 330px;
           }
 
           .section__text-paragraph {
             color: ${colors.darkGray};
-            margin: 15px auto 0 auto;
-            width: 390px;
             font-weight: 200;
             font-size: 18px;
           }
@@ -177,16 +193,52 @@ export default class Landing extends React.Component {
 
           .contactContainer {
             height: 500px;
-            width: 101.5%;
-            margin-top: -500px;
-            background: linear-gradient(to right, ${colors.blue} , ${colors.darkBlue});
-            opacity: 0.8;
-            z-index: 1000;
+            width: 100%;
+            background-image: url("${People}");
+            background-size: 100% 500px;
+            display: flex;
+            margin-top: 30px;
           }
 
-          .footer-image {
-            width: 200px;
-            margin: 20px 0;
+          .contactContainer_1 {
+            height: 100%;
+            width: 50%;
+          }
+
+          .contactContainer_2 {
+            height: 100%;
+            width: 50%;
+            background-color: rgba(11, 92, 206, 0.66);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .contactContainer_2 h1 {
+            color: ${colors.white};
+            padding: 0 85px;
+            font-weight: 500;
+          }
+
+          .section {
+            display: flex;
+            width: 100%;
+            height: 500px;
+          }
+
+          .section__1 {
+            width: 50%;
+            height: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .section__2 {
+            width: 50%;
+            height: 100;
+            background-image: url("${Couple}");
+            background-size: 100% 500px;
           }
         `}</style>
       </div>
@@ -194,6 +246,8 @@ export default class Landing extends React.Component {
   }
 }
 
+// background: linear-gradient(to right, ${colors.blue} , ${colors.darkBlue});
+// opacity: 0.8;
 
 {/* <div className="content"><div className="wildcard" style={{ background: `url(${key.picture}) 50% 50%` }}></div>
 <div className="wildcard__content">

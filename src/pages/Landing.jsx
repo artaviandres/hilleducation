@@ -1,9 +1,12 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import FaQuote from 'react-icons/lib/fa/quote-left';
+import FaCircle from 'react-icons/lib/fa/circle';
+import Quotes from '../assets/images/Quotes-01.svg';
 import Header from '../components/Header';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
+import People from '../assets/images/people.jpg';
+import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
 
 export default class Landing extends React.Component {
@@ -39,21 +42,62 @@ export default class Landing extends React.Component {
           </Row>
           <Row center="xs">
             <Col xs={12}>
-              <h1 style={{ fontSize: 50 + 'px' }}>Testimonials</h1>
+              <h1 style={{ fontSize: 40 + 'px' }}>Testimonials</h1>
             </Col>
           </Row>
           <Row center="xs">
             <Col xs={6}>
-              <FaQuote color={colors.blue} size={60} />
-              <br />
-              <p style={{ color: colors.darkGray }}>
-                Teachers and other school personnel will gain <br />
-                valuable knowledge regarding WEP/GPO in order to <br />
-                plan for their future and retirement in this seminar
-              </p>
+              <div className="quotesContainer">
+                <img src={Quotes} width="7%" />
+                <br />
+                <p style={{ color: colors.darkGray, width: 50 + '%', margin: '25px auto 0 auto' }}>
+                  Teachers and other school personnel will gain
+                  valuable knowledge regarding WEP/GPO in order to 
+                  plan for their future and retirement in this seminar.
+                </p>
+                <hr />
+                <p style={{ color: colors.black, width: 50 + '%', margin: '5px auto 0 auto' }}>
+                  Jan Crow, retired, Assistant Principal;<br />
+                  Cy Fair ISD
+                </p>
+              </div>
             </Col>
             <Col xs={6}>
-              <FaQuote color={colors.blue} size={60} />
+              <div className="quotesContainer">
+                <img src={Quotes} width="7%" />
+                <br />
+                <p style={{ color: colors.darkGray, width: 50 + '%', margin: '25px auto 0 auto' }}>
+                Teachers and all other school personnel will gain 
+                valuable knowledge regarding WEP/GPO in order to 
+                plan for their future and retirement in this seminar. 
+                </p>
+                <hr />
+                <p style={{ color: colors.black, width: 50 + '%', margin: '5px auto 0 auto' }}>
+                  Jan Crow, retired, Assistant Principal;<br />
+                  Cy Fair ISD
+                </p>
+              </div>
+            </Col>
+          </Row>
+          <Row center="xs">
+            <Col xs={12}>
+              <div className="dotsContainer">
+                <FaCircle size="11" color={colors.black} /><FaCircle size="11" color={colors.lightGray} /><FaCircle size="11" color={colors.lightGray} />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <img src={People} className="contact-image" />
+            <Col xs={6} />
+            <Col xs={6}>
+              <div className="contactContainer">
+
+              </div>
+            </Col>
+          </Row>
+          <Row center="xs">
+            <Col xs={12}>
+              <img src={Logo} className="footer-image" />
             </Col>
           </Row>
         </Grid>
@@ -86,7 +130,7 @@ export default class Landing extends React.Component {
           }
           .couple__image {
             width: 100%;
-            height: 600px;
+            height: 450px;
           }
 
           .section__text {
@@ -95,8 +139,8 @@ export default class Landing extends React.Component {
           }
 
           .section__text-header {
-            font-size: 50px;
-            margin: 20vh auto 0 auto;
+            font-size: 40px;
+            margin: 13vh auto 0 auto;
             width: 330px;
           }
 
@@ -106,6 +150,43 @@ export default class Landing extends React.Component {
             width: 390px;
             font-weight: 200;
             font-size: 18px;
+          }
+
+          hr {
+            width: 50%;
+          }
+
+          .quotesContainer {
+            
+          }
+
+          .dotsContainer {
+            margin-top: 30px;
+          }
+
+          .dotsContainer svg {
+            margin-right: 5px;
+            cursor: pointer;
+          }
+
+          .contact-image {
+            height: 500px;
+            width: 100%;
+            margin-top: 50px;
+          }
+
+          .contactContainer {
+            height: 500px;
+            width: 101.5%;
+            margin-top: -500px;
+            background: linear-gradient(to right, ${colors.blue} , ${colors.darkBlue});
+            opacity: 0.8;
+            z-index: 1000;
+          }
+
+          .footer-image {
+            width: 200px;
+            margin: 20px 0;
           }
         `}</style>
       </div>
@@ -122,9 +203,9 @@ export default class Landing extends React.Component {
 
 
 // .picture_back {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   z-index: -1000;
-//   width: 100%;
-// }
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   z-index: -1000;
+  //   width: 100%;
+  // }

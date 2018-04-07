@@ -9,6 +9,7 @@ import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
 import Logo from '../assets/images/logo-hea.svg';
+import Stats from '../assets/images/stats.svg';
 import colors from '../variables';
 
 export default class Landing extends React.Component {
@@ -16,16 +17,24 @@ export default class Landing extends React.Component {
     return (
       <div className="landing__container">
         <Header />
-        {/* <div className="content">
-          <div
-            className="wildcard"
-            style={{ background: `url(${PictureBack}) 50% 50%`, backgroundSize: 100 + 'vw', backgroundRepeat: 'no-repeat' }}
-          ></div>
-          <div className="wildcard__content">
-            <p>hey</p>
+        <div className="main__section">
+          <h1>
+            Protect your retirement savings
+          </h1>
+          <p>
+            Social Security benefits of million of public school employees accross <br />
+            America are negatively affected by social security law (WEP/GPO).
+          </p>
+          <Button>ABOUT US</Button>
+          <div className="main__section--block">
+            <div className="main__section--block_1">
+              <img src={Stats} className="stats" />
+            </div>
+            <div className="main__section--block_2">
+              <p>Our national network of associates provides free seminars<br /> for public school employees to inform and educate you<br /> about the impact of WEP/GPO on your retirement income<br /> so that you can better prepare for retirement.</p>
+            </div>
           </div>
-          
-        </div> */}
+        </div>
         <div className="section">
           <div className="section__1">
             <div>
@@ -40,21 +49,6 @@ export default class Landing extends React.Component {
           <div className="section__2" />
         </div>
         <Grid fluid>
-          {/* <Row center="xs">
-            <Col xs={6}>
-              <div className="section__text">
-                <h1 className="section__text-header">Maximize TRS & SS Benefits</h1>
-                <p className="section__text-paragraph">
-                  If you are married or have a partner, this
-                  information is vital for you to understand the ways
-                  in which WEP/GPO will affect you in retirement.
-                </p>
-              </div>
-            </Col>
-            <Col xs={6}>
-              <img src={Couple} className="couple__image" />
-            </Col>
-          </Row> */}
           <Row center="xs">
             <Col xs={12}>
               <h1 style={{ fontSize: 40 + 'px' }}>Testimonials</h1>
@@ -106,21 +100,12 @@ export default class Landing extends React.Component {
           <div className="contactContainer_1" />
           <div className="contactContainer_2">
             <div>
-              <h1>Contact us today so that we can plan a seminar for your school district!</h1>
+              <h1>Contact us today so that<br /> we can plan a seminar<br /> for your school district!</h1>
               <Button reverse={true}>CONTACT US</Button>
             </div>
           </div>
         </div>
         <Footer />
-          {/* <Row>
-            <img src={People} className="contact-image" />
-            <Col xs={6} />
-            <Col xs={6}>
-              <div className="contactContainer">
-
-              </div>
-            </Col>
-          </Row> */}
         <style jsx>{`
 
           .landing__container {
@@ -224,6 +209,7 @@ export default class Landing extends React.Component {
             display: flex;
             width: 100%;
             height: 500px;
+            margin-top: 200px;
           }
 
           .section__1 {
@@ -240,26 +226,68 @@ export default class Landing extends React.Component {
             background-image: url("${Couple}");
             background-size: 100% 500px;
           }
+
+          .main__section {
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            width: 100%;
+            background-image: url("${PictureBack}");
+            background-size: 100% 700px;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .main__section h1 {
+            color: white;
+            font-weight: 550;
+            font-size: 3em;
+            margin: 0;
+          }
+
+          .main__section p {
+            color: white;
+            font-weight: 200;
+            font-size: 20px;
+          }
+
+          .main__section--block {
+            height: 200px;
+            width: 60%;
+            min-width: 500px;
+            background-color: white;
+            position: absolute;
+            margin-top: 350px;
+            box-shadow: 1px 1px 18px #888888;
+            display: flex;
+          }
+
+          .main__section--block_1 {
+            height: 100%;
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .stats {
+            height: 70px;
+            width: 70px;
+          }
+
+          .main__section--block_2 {
+            height: 100%;
+            width: 70%;
+            display: flex;
+            align-items: center;
+          }
+
+          .main__section--block_2 p {
+            color: black;
+            font-size: 16px;
+          }
         `}</style>
       </div>
     );
   }
 }
-
-// background: linear-gradient(to right, ${colors.blue} , ${colors.darkBlue});
-// opacity: 0.8;
-
-{/* <div className="content"><div className="wildcard" style={{ background: `url(${key.picture}) 50% 50%` }}></div>
-<div className="wildcard__content">
-<h2>Título de Colección de Fotos</h2>
-</div>
-</div> */}
-
-
-// .picture_back {
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   z-index: -1000;
-  //   width: 100%;
-  // }

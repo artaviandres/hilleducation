@@ -15,7 +15,7 @@ export default class Button extends React.Component {
           button {
             border: none;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 400;
             height: 40px;
             outline: 0;

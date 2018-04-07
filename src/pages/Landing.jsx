@@ -48,7 +48,14 @@ export default class Landing extends React.Component {
           </div>
           <div className="section__2" />
         </div>
-        <Grid fluid>
+        <div className="testimonialsContainer">
+          <h1>Testimonials</h1>
+          <div className="testimonials__underline" />
+          <div className="testimonials">
+
+          </div>
+        </div>
+        {/* <Grid fluid>
           <Row center="xs">
             <Col xs={12}>
               <h1 style={{ fontSize: 40 + 'px' }}>Testimonials</h1>
@@ -95,7 +102,7 @@ export default class Landing extends React.Component {
               </div>
             </Col>
           </Row>
-        </Grid>
+        </Grid> */}
         <div className="contactContainer">
           <div className="contactContainer_1" />
           <div className="contactContainer_2">
@@ -107,37 +114,10 @@ export default class Landing extends React.Component {
         </div>
         <Footer />
         <style jsx>{`
-
           .landing__container {
             width: 100vw;
             overflow-x: hidden;
           }
-          .content {
-            float: left;
-            width: 100%;
-            margin-bottom: 50px;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 100;
-            height: 800px;
-          }
-          .wildcard {
-            position: absolute;
-            height: 800px;
-            width: 100%;
-            filter: blur(5px) brightness(50%);
-            -webkit-filter: blur(5px) brightness(50%);
-            z-index: 0;
-          }
-          .wildcard__content {
-            overflow: hidden;
-            position: relative;
-            z-index: 10;
-          }
-          .couple__image {
-            width: 100%;
-            height: 450px;
-          }
-
           .section__text {
             text-align: left;
             width: 100%;
@@ -155,10 +135,6 @@ export default class Landing extends React.Component {
 
           hr {
             width: 50%;
-          }
-
-          .quotesContainer {
-            
           }
 
           .dotsContainer {
@@ -208,13 +184,13 @@ export default class Landing extends React.Component {
           .section {
             display: flex;
             width: 100%;
-            height: 500px;
-            margin-top: 200px;
+            height: 400px;
+            margin-top: 180px;
           }
 
           .section__1 {
             width: 50%;
-            height: 100;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -222,18 +198,18 @@ export default class Landing extends React.Component {
 
           .section__2 {
             width: 50%;
-            height: 100;
+            height: 100%;
             background-image: url("${Couple}");
-            background-size: 100% 500px;
+            background-size: 100% 400px;
           }
 
           .main__section {
             display: flex;
             flex-direction: column;
-            height: 700px;
+            height: 600px;
             width: 100%;
             background-image: url("${PictureBack}");
-            background-size: 100% 700px;
+            background-size: 100% 600px;
             justify-content: center;
             align-items: center;
           }
@@ -257,7 +233,7 @@ export default class Landing extends React.Component {
             min-width: 500px;
             background-color: white;
             position: absolute;
-            margin-top: 350px;
+            margin-top: 305px;
             box-shadow: 1px 1px 18px #888888;
             display: flex;
           }
@@ -285,6 +261,34 @@ export default class Landing extends React.Component {
           .main__section--block_2 p {
             color: black;
             font-size: 16px;
+          }
+
+          .testimonialsContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+            height: 400px;
+          }
+
+          .testimonialsContainer h1 {
+            font-size: 40px;
+            margin: 0;
+          }
+
+          .testimonials__underline {
+            width: 70px;
+            height: 3px;
+            background-color: ${colors.blue};
+            margin-top: 10px;
+            box-shadow: 1px 1px 18px #888888;
+          }
+
+          .testimonials {
+            width: 100%;
+            height: 400px;
+            margin-top: 50px;
           }
         `}</style>
       </div>

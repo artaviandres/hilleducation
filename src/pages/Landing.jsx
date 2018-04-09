@@ -10,9 +10,18 @@ import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
 import Logo from '../assets/images/logo-hea.svg';
 import Stats from '../assets/images/stats.svg';
+import Gradient from '../assets/images/gradient.png';
 import colors from '../variables';
 
 export default class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover: false,
+      activeDot: 1,
+    };
+
+  }
   render() {
     return (
       <div className="landing__container">
@@ -26,9 +35,15 @@ export default class Landing extends React.Component {
             America are negatively affected by social security law (WEP/GPO).
           </p>
           <Button>ABOUT US</Button>
-          <div className="main__section--block">
+          <div
+            className="main__section--block"
+            onMouseEnter={() => this.setState({ hover: true })}
+            onMouseLeave={() => this.setState({ hover: false })}
+          >
             <div className="main__section--block_1">
-              <img src={Stats} className="stats" />
+              <div>
+                <img src={Stats} className="stats" />
+              </div>
             </div>
             <div className="main__section--block_2">
               <p>Our national network of associates provides free seminars<br /> for public school employees to inform and educate you<br /> about the impact of WEP/GPO on your retirement income<br /> so that you can better prepare for retirement.</p>
@@ -52,57 +67,35 @@ export default class Landing extends React.Component {
           <h1>Testimonials</h1>
           <div className="testimonials__underline" />
           <div className="testimonials">
-
+            <div className="testimonials__wrapper wrapper__1">
+              <div className="testimonials__card">
+                <img src={Quotes} />
+                <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
+                <div className="testimonials__card-hr" />
+                <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>
+              </div>
+            </div>
+            <div className="testimonials__wrapper wrapper__2">
+              <div className="testimonials__card">
+                <img src={Quotes} />
+                <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
+                <div className="testimonials__card-hr" />
+                <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>
+              </div>
+            </div>
+          </div>
+          <div className="dotsContainer">
+            <a onClick={() => this.setState({ activeDot: 1 })}>
+              <FaCircle size={12} color={this.state.activeDot === 1 ? '#4D4D4D' : '#BFBFBF'} />
+            </a>
+            <a onClick={() => this.setState({ activeDot: 2 })}>
+              <FaCircle size={12} color={this.state.activeDot === 2 ? '#4D4D4D' : '#BFBFBF'} />
+            </a>
+            <a onClick={() => this.setState({ activeDot: 3 })}>
+              <FaCircle size={12} color={this.state.activeDot === 3 ? '#4D4D4D' : '#BFBFBF'} />
+            </a>
           </div>
         </div>
-        {/* <Grid fluid>
-          <Row center="xs">
-            <Col xs={12}>
-              <h1 style={{ fontSize: 40 + 'px' }}>Testimonials</h1>
-            </Col>
-          </Row>
-          <Row center="xs">
-            <Col xs={6}>
-              <div className="quotesContainer">
-                <img src={Quotes} width="7%" />
-                <br />
-                <p style={{ color: colors.darkGray, width: 50 + '%', margin: '25px auto 0 auto' }}>
-                  Teachers and other school personnel will gain
-                  valuable knowledge regarding WEP/GPO in order to 
-                  plan for their future and retirement in this seminar.
-                </p>
-                <hr />
-                <p style={{ color: colors.black, width: 50 + '%', margin: '5px auto 0 auto' }}>
-                  Jan Crow, retired, Assistant Principal;<br />
-                  Cy Fair ISD
-                </p>
-              </div>
-            </Col>
-            <Col xs={6}>
-              <div className="quotesContainer">
-                <img src={Quotes} width="7%" />
-                <br />
-                <p style={{ color: colors.darkGray, width: 50 + '%', margin: '25px auto 0 auto' }}>
-                Teachers and all other school personnel will gain 
-                valuable knowledge regarding WEP/GPO in order to 
-                plan for their future and retirement in this seminar. 
-                </p>
-                <hr />
-                <p style={{ color: colors.black, width: 50 + '%', margin: '5px auto 0 auto' }}>
-                  Jan Crow, retired, Assistant Principal;<br />
-                  Cy Fair ISD
-                </p>
-              </div>
-            </Col>
-          </Row>
-          <Row center="xs">
-            <Col xs={12}>
-              <div className="dotsContainer">
-                <FaCircle size="11" color={colors.black} /><FaCircle size="11" color={colors.lightGray} /><FaCircle size="11" color={colors.lightGray} />
-              </div>
-            </Col>
-          </Row>
-        </Grid> */}
         <div className="contactContainer">
           <div className="contactContainer_1" />
           <div className="contactContainer_2">
@@ -138,12 +131,17 @@ export default class Landing extends React.Component {
           }
 
           .dotsContainer {
-            margin-top: 30px;
+            margin-top: 50px;
           }
 
           .dotsContainer svg {
             margin-right: 5px;
             cursor: pointer;
+          }
+
+          .dotsContainer a {
+            border: none;
+            padding: 0;
           }
 
           .contact-image {
@@ -153,10 +151,10 @@ export default class Landing extends React.Component {
           }
 
           .contactContainer {
-            height: 500px;
+            height: 600px;
             width: 100%;
             background-image: url("${People}");
-            background-size: 100% 500px;
+            background-size: 100% 600px;
             display: flex;
             margin-top: 30px;
           }
@@ -169,7 +167,8 @@ export default class Landing extends React.Component {
           .contactContainer_2 {
             height: 100%;
             width: 50%;
-            background-color: rgba(11, 92, 206, 0.66);
+            background-image: url("${Gradient}");
+            background-size: 100% 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -178,13 +177,14 @@ export default class Landing extends React.Component {
           .contactContainer_2 h1 {
             color: ${colors.white};
             padding: 0 85px;
+            font-size: 44px;
             font-weight: 500;
           }
 
           .section {
             display: flex;
             width: 100%;
-            height: 400px;
+            height: 500px;
             margin-top: 180px;
           }
 
@@ -200,7 +200,7 @@ export default class Landing extends React.Component {
             width: 50%;
             height: 100%;
             background-image: url("${Couple}");
-            background-size: 100% 400px;
+            background-size: 100% 500px;
           }
 
           .main__section {
@@ -216,25 +216,26 @@ export default class Landing extends React.Component {
 
           .main__section h1 {
             color: white;
-            font-weight: 550;
+            font-weight: 1000;
             font-size: 3em;
             margin: 0;
           }
 
           .main__section p {
             color: white;
-            font-weight: 200;
+            font-weight: 100;
             font-size: 20px;
           }
 
           .main__section--block {
             height: 200px;
-            width: 60%;
+            width: 50%;
             min-width: 500px;
+            max-width: 720px;
             background-color: white;
             position: absolute;
             margin-top: 305px;
-            box-shadow: 1px 1px 18px #888888;
+            box-shadow: 0 0 18px #BDBDBD;
             display: flex;
           }
 
@@ -246,9 +247,23 @@ export default class Landing extends React.Component {
             align-items: center;
           }
 
+          .main__section--block_1 div {
+            border-radius: 50%;
+            border: ${this.state.hover ? '3px solid #42a5f6' : '1px solid #D8D8D8'};
+            box-shadow: ${this.state.hover ? '0' : '0 0 22px #E6E6E6'};
+            -webkit-transition: all 0.25s ease;
+            -moz-transition: all 0.25s ease;
+            transition: all 0.20s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 110px;
+            height: 110px;
+          }
+
           .stats {
-            height: 70px;
-            width: 70px;
+            height: 60px;
+            width: 60px;
           }
 
           .main__section--block_2 {
@@ -269,7 +284,7 @@ export default class Landing extends React.Component {
             align-items: center;
             margin-top: 50px;
             width: 100%;
-            height: 400px;
+            height: 550px;
           }
 
           .testimonialsContainer h1 {
@@ -287,8 +302,54 @@ export default class Landing extends React.Component {
 
           .testimonials {
             width: 100%;
-            height: 400px;
             margin-top: 50px;
+            display: flex;
+          }
+
+          .testimonials__wrapper {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 100%;
+            margin-top: 20px;
+          }
+
+          .wrapper__1 {
+            justify-content: flex-end;
+            margin-right: 15px;
+          }
+
+          .wrapper__2 {
+            justify-content: flex-start;
+            margin-left: 15px;
+          }
+
+          .testimonials__card {
+            background-color: #FCFCFC;
+            height: 75%;
+            width: 420px;
+            box-shadow: 0 0 20px #E6E6E6;
+            padding: 40px;
+          }
+
+          .testimonials__card img {
+            width: 45px;
+          }
+
+          .testimonials__card p {
+            font-size: 14px;
+            font-weight: 100;
+          }
+
+          .testimonials__card-hr {
+            width: 40px;
+            height: 1px;
+            margin-top: 50px;
+            background-color: black;
+          }
+
+          .testimonials__author {
+            font-weight: 600 !important;
           }
         `}</style>
       </div>

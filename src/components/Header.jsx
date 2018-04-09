@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
@@ -8,12 +9,16 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         <div className="header__container">
-          <img src={Logo} width="200px" />
-          <a>Home</a>
+          <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" /></a>
+          <a style={{ border: 'none'}}>Home</a>
           <a>About us</a>
           <a>Contact us</a>
           <a>HEA Associates</a>
-          <Button>LOG IN</Button>
+          <Button>
+            <Link to='/login' style={{ textDecoration: 'none', border: 'none', color: 'white', fontSize: '16' + 'px', fontWeight: '400' }}>
+              LOG IN
+            </Link>
+          </Button>
         </div>
         <style jsx>{`
           .header__container {

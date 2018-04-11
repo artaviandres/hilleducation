@@ -5,6 +5,7 @@ import Quotes from '../assets/images/Quotes-01.svg';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Modal from '../components/Modal';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
@@ -105,6 +106,7 @@ export default class Landing extends React.Component {
             </div>
           </div>
         </div>
+        <Modal show={true} />
         <Footer />
         <style jsx>{`
           .landing__container {

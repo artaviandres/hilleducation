@@ -6,6 +6,8 @@ const colors = {
     darkGray: '#979797',
     lightGray: '#BFBFBF',
     white: '#fff',
+    inputGray: '#A6A6A6',
+    inputFontColor: '#808080',
 };
 
 export default colors;

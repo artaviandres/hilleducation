@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Button from './Button';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
@@ -14,10 +13,8 @@ export default class Header extends React.Component {
           <a>About us</a>
           <a>Contact us</a>
           <a>HEA Associates</a>
-          <Button>
-            <Link to='/login' style={{ textDecoration: 'none', border: 'none', color: 'white', fontSize: '16' + 'px', fontWeight: '400' }}>
+          <Button click={this.props.onToggleModal}>
               LOG IN
-            </Link>
           </Button>
         </div>
         <style jsx>{`

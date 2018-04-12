@@ -20,13 +20,27 @@ export default class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
+      showModal: false
     };
 
   }
+
+  openModal = () => {
+    this.setState({
+      showModal: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      showModal: false,
+    });
+  }
+
   render() {
     return (
       <div className="landing__container">
-        <Header />
+        <Header onToggleModal={() => this.openModal()} />
         <div className="main__section">
           <h1>
             Protect your retirement savings
@@ -106,7 +120,7 @@ export default class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <Modal show={true} />
+        <Modal show={this.state.showModal} onToggleModal={() => this.closeModal()} />
         <Footer />
         <style jsx>{`
           .landing__container {

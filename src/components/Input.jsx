@@ -24,9 +24,9 @@ export default class Input extends React.Component {
   render() {
     const { type } = this.state;
     return (
-      <div className="input__container">
+      <div className="input__container" style={{ marginTop: this.props.marginTop }}>
         <span>{this.props.name}</span>
-        <input type={type} id={this.props.id} />
+        <input type={type} id={this.props.id} maxLength={this.props.maxLength} />
 
         {type === 'password' ? <a onClick={() => this.toggleVisibility()}><MdEye size={20} color={colors.inputGray} /></a> : null }
         <style>{`
@@ -48,16 +48,18 @@ export default class Input extends React.Component {
             margin: 0 auto;
           }
 
+          .input__container span {
+            color: ${colors.inputGray};
+            margin-left: 54px;
+            font-weight: 100;
+          }
+
           .input__container a {
             padding: 0;
             border: 0;
             position: absolute;
             margin-top: 33px;
             margin-left: 365px;
-          }
-
-          .input__container span {
-            margin-left: 20px;
           }
 
           input:focus {

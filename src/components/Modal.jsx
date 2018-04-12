@@ -13,7 +13,7 @@ export default class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalType: 'asdassa',
+      modalType: 'login',
       showError: false,
       showSuccess: false,
       message: '',
@@ -164,7 +164,7 @@ export default class Modal extends React.Component {
                 </form>
                 <div className="forgot__container">
                   <p>Forgot Password?</p>
-                  <a>Click Here</a>
+                  <a onClick={() => this.setState({ modalType: 'forgot' })}>Click Here</a>
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">

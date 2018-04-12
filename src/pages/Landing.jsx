@@ -20,7 +20,7 @@ export default class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
-      showModal: true
+      showModal: false
     };
 
   }

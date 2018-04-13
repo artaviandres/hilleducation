@@ -29,6 +29,8 @@ export default class Modal extends React.Component {
     this.logout = this.logout.bind(this);
     this.resetPassword = this.resetPassword.bind(this);
     this.closeForgot = this.closeForgot.bind(this);
+    this.goBackForgot = this.goBackForgot.bind(this);
+    this.goToForgot = this.goToForgot.bind(this);
   }
 
   checkStatus() {
@@ -112,14 +114,15 @@ export default class Modal extends React.Component {
         switch(e.code) {
           case 'auth/invalid-email':
             this.setState({
-              error: e.message
+              message: e.message
             });
             break;
           case 'auth/user-not-found':
             this.setState({
-              error: 'The user does not exist in our database. Please contact hill@education.com for further instructions.'
+              message: 'The user does not exist in our database. Please contact hill@education.com for further instructions.'
             });
             break;
+          default:
         }
     })
   }
@@ -127,8 +130,30 @@ export default class Modal extends React.Component {
   closeForgot() {
     this.setState({
       modalType: 'login',
+      showError: false,
+      showSuccess: false,
+      message: '',
     });
     this.props.onToggleModal();
+  }
+
+  goBackForgot() {
+    this.setState({
+      modalType: 'login',
+      showError: false,
+      showSuccess: false,
+      message: '',
+      email: '',
+    });
+  }
+  
+  goToForgot() {
+    this.setState({
+      modalType: 'forgot',
+      showError: false,
+      showSuccess: false,
+      message: '',
+    });
   }
   
   render() {
@@ -173,11 +198,11 @@ export default class Modal extends React.Component {
                 </form>
                 <div className="forgot__container">
                   <p>Forgot Password?</p>
-                  <a onClick={() => this.setState({ modalType: 'forgot' })}>Click Here</a>
+                  <a onClick={() => this.goToForgot()}>Click Here</a>
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">
-                <a className="modal__back" onClick={() => this.setState({ modalType: 'login' })}><MdArrowLeft size={20} /></a>
+                <a className="modal__back" onClick={() => this.goBackForgot()}><MdArrowLeft size={20} /></a>
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
                 <h1>Forgot Password?</h1>
                 <form onSubmit={this.resetPassword} style={{ width: '340' + 'px' }}>

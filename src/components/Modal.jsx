@@ -2,6 +2,7 @@ import React from 'react';
 import MdClose from 'react-icons/lib/md/close';
 import FaDanger from 'react-icons/lib/fa/exclamation-triangle';
 import FaCheck from 'react-icons/lib/fa/check';
+import MdArrowLeft from 'react-icons/lib/md/arrow-back';
 import firebase from 'firebase';
 import Input from './Input';
 import Button from './Button';
@@ -27,6 +28,7 @@ export default class Modal extends React.Component {
     this.checkStatus = this.checkStatus.bind(this);
     this.logout = this.logout.bind(this);
     this.resetPassword = this.resetPassword.bind(this);
+    this.closeForgot = this.closeForgot.bind(this);
   }
 
   checkStatus() {
@@ -121,6 +123,13 @@ export default class Modal extends React.Component {
         }
     })
   }
+
+  closeForgot() {
+    this.setState({
+      modalType: 'login',
+    });
+    this.props.onToggleModal();
+  }
   
   render() {
     return (
@@ -168,6 +177,8 @@ export default class Modal extends React.Component {
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">
+                <a className="modal__back" onClick={() => this.setState({ modalType: 'login' })}><MdArrowLeft size={20} /></a>
+                <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
                 <h1>Forgot Password?</h1>
                 <form onSubmit={this.resetPassword} style={{ width: '340' + 'px' }}>
                   <Input
@@ -212,6 +223,25 @@ export default class Modal extends React.Component {
             margin-left: 200px;
             margin-top: 5px;
           }
+          
+          .modal__close--forgot {
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: -220px;
+          }
+
+          .modal__back {
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            position: absolute;
+            margin-left: -200px;
+            margin-top: -220px;
+          }
+
           .modal__container {
             height: 100vh;
             width: 100vw;

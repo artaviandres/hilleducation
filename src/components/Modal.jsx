@@ -26,7 +26,6 @@ export default class Modal extends React.Component {
     this.submitRegister = this.submitRegister.bind(this);
     this.submitLogin = this.submitLogin.bind(this);
     this.checkStatus = this.checkStatus.bind(this);
-    this.logout = this.logout.bind(this);
     this.resetPassword = this.resetPassword.bind(this);
     this.closeForgot = this.closeForgot.bind(this);
     this.goBackForgot = this.goBackForgot.bind(this);
@@ -80,19 +79,13 @@ export default class Modal extends React.Component {
             break;
         }
       });
-      loginPromise.then((response) => console.log("logged in!!!!", response));
+      loginPromise.then((response) => this.props.onLogin(response));
     } else {
       this.setState({
         showError: true,
         error: 'Wrong email syntax'
       });
     }
-  }
-
-  logout() {
-    const auth = firebase.auth();
-    auth.signOut();
-    this.setState({ email: '', password: '', user: {} });
   }
 
   uuidv4() {

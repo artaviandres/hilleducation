@@ -2,10 +2,10 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import FaCircle from 'react-icons/lib/fa/circle';
 import Quotes from '../assets/images/Quotes-01.svg';
-import Button from '../components/Button';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Modal from '../components/Modal';
+import Button from './Button';
+import Header from './Header';
+import Footer from './Footer';
+import Modal from './Modal';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
@@ -13,8 +13,11 @@ import Logo from '../assets/images/logo-hea.svg';
 import Stats from '../assets/images/stats.svg';
 import Gradient from '../assets/images/gradient.png';
 import colors from '../variables';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as UserActions from '../actions/user';
 
-export default class Landing extends React.Component {
+class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +25,6 @@ export default class Landing extends React.Component {
       activeDot: 1,
       showModal: false
     };
-
   }
 
   openModal = () => {
@@ -37,10 +39,18 @@ export default class Landing extends React.Component {
     });
   }
 
+  logout = () => {
+    this.props.actions.logout();
+  }
+
   render() {
     return (
       <div className="landing__container">
-        <Header onToggleModal={() => this.openModal()} />
+        <Header
+          onToggleModal={() => this.openModal()}
+          userData={this.props.user}
+          logout={() => this.logout()}
+        />
         <div className="main__section">
           <div className="in-down">
             <h1>
@@ -122,7 +132,11 @@ export default class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <Modal show={this.state.showModal} onToggleModal={() => this.closeModal()} />
+        <Modal
+          show={this.state.showModal}
+          onToggleModal={() => this.closeModal()}
+          onLogin={this.props.actions.addUser}
+        />
         <Footer />
         <style jsx>{`
           .landing__container {
@@ -438,3 +452,17 @@ export default class Landing extends React.Component {
     );
   }
 }
+
+function mapStatetoProps(state, props) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(UserActions, dispatch)
+  }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(Landing);

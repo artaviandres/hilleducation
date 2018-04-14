@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css'
-import Landing from './pages/Landing';
-import Login from './pages/Login';
+import Landing from './components/Landing';
+
+import { Provider } from 'react-redux';
+import Store from './store';
+
+const StoreInstance = Store();
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/login" component={Login} />
-    </div>
-  </BrowserRouter>,
+  <Provider store={StoreInstance}>
+    <Landing />
+  </Provider>,
   document.getElementById('root'));

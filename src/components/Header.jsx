@@ -1,9 +1,17 @@
 import React from 'react';
+import firebase from 'firebase';
 import Button from './Button';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
 
 export default class Header extends React.Component {
+  checkUserStatus = () => {
+    if(this.props.userData.length === 0) {
+      return <Button click={this.props.onToggleModal}>LOGIN</Button>
+    } else {
+      return <Button click={this.props.logout}>LOGOUT</Button>
+    }
+  }
   render() {
     return (
       <div className="header">
@@ -13,9 +21,7 @@ export default class Header extends React.Component {
           <a>About us</a>
           <a>Contact us</a>
           <a>HEA Associates</a>
-          <Button click={this.props.onToggleModal}>
-              LOG IN
-          </Button>
+          {this.checkUserStatus()}
         </div>
         <style jsx>{`
           .header__container {

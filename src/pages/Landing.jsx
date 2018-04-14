@@ -42,14 +42,16 @@ export default class Landing extends React.Component {
       <div className="landing__container">
         <Header onToggleModal={() => this.openModal()} />
         <div className="main__section">
-          <h1>
-            Protect your retirement savings
-          </h1>
-          <p>
-            Social Security benefits of million of public school employees accross <br />
-            America are negatively affected by social security law (WEP/GPO).
-          </p>
-          <Button>ABOUT US</Button>
+          <div className="in-down">
+            <h1>
+              Protect your retirement savings
+            </h1>
+            <p>
+              Social Security benefits of million of public school employees accross <br />
+              America are negatively affected by social security law (WEP/GPO).
+            </p>
+            <Button>ABOUT US</Button>
+          </div>
           <div
             className="main__section--block"
             onMouseEnter={() => this.setState({ hover: true })}
@@ -202,6 +204,7 @@ export default class Landing extends React.Component {
             width: 100%;
             height: 500px;
             margin-top: 180px;
+            background-color: ${colors.sectionGray};
           }
 
           .section__1 {
@@ -265,7 +268,7 @@ export default class Landing extends React.Component {
 
           .main__section--block_1 div {
             border-radius: 50%;
-            border: ${this.state.hover ? '3px solid #42a5f6' : '1px solid #D8D8D8'};
+            border: ${this.state.hover ? '2px solid' + colors.blue : '1px solid #D8D8D8'};
             box-shadow: ${this.state.hover ? '0' : '0 0 22px #E6E6E6'};
             -webkit-transition: all 0.25s ease;
             -moz-transition: all 0.25s ease;
@@ -366,6 +369,69 @@ export default class Landing extends React.Component {
 
           .testimonials__author {
             font-weight: 600 !important;
+          }
+
+          @-webkit-keyframes fadeInDown {
+            from {
+              opacity:0;
+              -webkit-transform: translatey(-80px);
+              -moz-transform: translatey(-80px);
+              -o-transform: translatey(-80px);
+              transform: translatey(-80px);
+            }
+            to {
+              opacity:1;
+              -webkit-transform: translatey(0);
+              -moz-transform: translatey(0);
+              -o-transform: translatey(0);
+              transform: translatey(0);
+            }
+          }
+          @-moz-keyframes fadeInDown {
+            from {
+              opacity:0;
+              -webkit-transform: translatey(-80px);
+              -moz-transform: translatey(-80px);
+              -o-transform: translatey(-80px);
+              transform: translatey(-80px);
+            }
+            to {
+              opacity:1;
+              -webkit-transform: translatey(0);
+              -moz-transform: translatey(0);
+              -o-transform: translatey(0);
+              transform: translatey(0);
+            }
+          }
+          @keyframes fadeInDown {
+            from {
+              opacity:0;
+              -webkit-transform: translatey(-80px);
+              -moz-transform: translatey(-80px);
+              -o-transform: translatey(-80px);
+              transform: translatey(-80px);
+            }
+            to {
+              opacity:1;
+              -webkit-transform: translatey(0);
+              -moz-transform: translatey(0);
+              -o-transform: translatey(0);
+              transform: translatey(0);
+            }
+          }
+          .in-down {
+            -webkit-animation-name: fadeInDown;
+            -moz-animation-name: fadeInDown;
+            -o-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+            -webkit-animation-fill-mode: both;
+            -moz-animation-fill-mode: both;
+            -o-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-duration: 1s;
+            -moz-animation-duration: 1s;
+            -o-animation-duration: 1s;
+            animation-duration: 1s;
           }
         `}</style>
       </div>

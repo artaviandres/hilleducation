@@ -8,6 +8,7 @@ const colors = {
     white: '#fff',
     inputGray: '#A6A6A6',
     inputFontColor: '#808080',
+    sectionGray: '#FAFAFA',
 };
 
 export default colors;

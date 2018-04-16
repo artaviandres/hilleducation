@@ -6,6 +6,7 @@ import Button from './Button';
 import Header from './Header';
 import Footer from './Footer';
 import Modal from './Modal';
+import Growl from './Growl';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import People from '../assets/images/people.jpg';
@@ -23,7 +24,8 @@ class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
-      showModal: false
+      showModal: false,
+      growl: true,
     };
   }
 
@@ -43,6 +45,12 @@ class Landing extends React.Component {
     this.props.actions.logout();
   }
 
+  onGrowlClose = () => {
+    this.setState({
+      growl: false,
+    });
+  }
+
   render() {
     return (
       <div className="landing__container">
@@ -51,6 +59,9 @@ class Landing extends React.Component {
           userData={this.props.user}
           logout={() => this.logout()}
         />
+        <Growl type="danger" isEnabled={this.state.growl} close={() => this.onGrowlClose()}>
+          testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
+        </Growl>
         <div className="main__section">
           <div className="in-down">
             <h1>

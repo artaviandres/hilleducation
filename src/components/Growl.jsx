@@ -8,17 +8,18 @@ export default class Growl extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.props.isEnabled === true
-          ? <AlertContainer position="top-right">
-              <Alert type={this.props.type}>
-                <a onClick={this.props.close}><MdClose /></a>
-                {this.props.children}
-              </Alert>
-            </AlertContainer>
-          : null
-        }
+      <div className="growl__container">
+        <AlertContainer position="top-right">
+          <Alert type={this.props.type}>
+            <a onClick={this.props.close}><MdClose /></a>
+            {this.props.children}
+          </Alert>
+        </AlertContainer>
         <style>{`
+          .growl__container {
+            visibility: ${this.props.isEnabled === true ? 'visible' : 'hidden'};
+            transition: visibility 2s, linear;
+          }
           .alert a {
             border: none;
             padding: 0;

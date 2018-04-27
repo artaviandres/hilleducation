@@ -9,10 +9,8 @@ import Modal from './Modal';
 import Growl from './Growl';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
-import People from '../assets/images/people.jpg';
 import Logo from '../assets/images/logo-hea.svg';
 import Stats from '../assets/images/stats.svg';
-import Gradient from '../assets/images/gradient.png';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -25,7 +23,7 @@ class Landing extends React.Component {
       hover: false,
       activeDot: 1,
       showModal: false,
-      growl: true,
+      growl: false,
     };
   }
 
@@ -134,15 +132,7 @@ class Landing extends React.Component {
             </a>
           </div>
         </div>
-        <div className="contactContainer">
-          <div className="contactContainer_1" />
-          <div className="contactContainer_2">
-            <div>
-              <h1>Contact us today so that<br /> we can plan a seminar<br /> for your school district!</h1>
-              <Button reverse={true}>CONTACT US</Button>
-            </div>
-          </div>
-        </div>
+        {/* CONTACT US BLOCK!! */}
         <Modal
           show={this.state.showModal}
           onToggleModal={() => this.closeModal()}
@@ -191,37 +181,6 @@ class Landing extends React.Component {
             height: 500px;
             width: 100%;
             margin-top: 50px;
-          }
-
-          .contactContainer {
-            height: 600px;
-            width: 100%;
-            background-image: url("${People}");
-            background-size: 100% 600px;
-            display: flex;
-            margin-top: 30px;
-          }
-
-          .contactContainer_1 {
-            height: 100%;
-            width: 50%;
-          }
-
-          .contactContainer_2 {
-            height: 100%;
-            width: 50%;
-            background-image: url("${Gradient}");
-            background-size: 100% 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          .contactContainer_2 h1 {
-            color: ${colors.white};
-            padding: 0 85px;
-            font-size: 44px;
-            font-weight: 500;
           }
 
           .section {

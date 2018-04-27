@@ -6,7 +6,7 @@ import colors from '../variables';
 
 export default class Header extends React.Component {
   checkUserStatus = () => {
-    if(this.props.userData.length === 0) {
+    if(this.props.userData && this.props.userData.length === 0) {
       return <Button click={this.props.onToggleModal}>LOGIN</Button>
     } else {
       return <Button click={this.props.logout}>LOGOUT</Button>

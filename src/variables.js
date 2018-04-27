@@ -9,6 +9,7 @@ const colors = {
     inputGray: '#A6A6A6',
     inputFontColor: '#808080',
     sectionGray: '#FAFAFA',
+    noPicture: '#333333',
 };
 
 export default colors;

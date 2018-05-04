@@ -4,7 +4,7 @@ import Footer from './Footer';
 import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
-import Temp from '../assets/images/temp.svg';
+import HundredsOf from '../assets/images/ABOUT_US-02.svg';
 import colors from '../variables';
 
 export default class AboutUs extends React.Component {
@@ -21,7 +21,7 @@ export default class AboutUs extends React.Component {
           </div>
         </div>
         <div className="section__2">
-          <img src={Temp} />
+          <img src={HundredsOf} />
         </div>
         <div className="section__3">
           <div className="section__3-picture">
@@ -92,9 +92,9 @@ export default class AboutUs extends React.Component {
           }
 
           .section__2 img {
-            width: 50%;
+            width: 70%;
             min-width: 600px;
-            max-width: 700px;
+            max-width: 780px;
           }
 
           .section__3 {
@@ -104,18 +104,20 @@ export default class AboutUs extends React.Component {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            align-items: center;
           }
 
           .section__3-picture {
-            width: 40%;
+            width: 50%;
             height: 100%;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
+            margin-right: 50px;
           }
 
           .section__3-info {
-            width: 60%;
+            width: 50%;
             height: 100%;
             display: inline-flex;
             justify-content: center;

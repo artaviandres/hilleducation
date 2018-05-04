@@ -17,10 +17,10 @@ export default class Header extends React.Component {
       <div className="header">
         <div className="header__container">
           <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" /></a>
-          <a style={{ border: 'none'}}>Home</a>
-          <a>About us</a>
-          <a>Contact us</a>
-          <a>HEA Associates</a>
+          <a href="/" style={{ border: 'none'}}>Home</a>
+          <a href="/aboutUs">About us</a>
+          <a href="/contactUs">Contact us</a>
+          <a href="/associates">HEA Associates</a>
           {this.checkUserStatus()}
         </div>
         <style jsx>{`

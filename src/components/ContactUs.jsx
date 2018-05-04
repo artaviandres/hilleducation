@@ -103,7 +103,7 @@ export default class ContactUs extends React.Component {
           }
 
           .mail__info p {
-            font-size: 12px;
+            font-size: 12.3px;
             margin-bottom: 0;
           }
 

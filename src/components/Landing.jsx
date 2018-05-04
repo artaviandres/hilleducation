@@ -5,8 +5,8 @@ import Quotes from '../assets/images/Quotes-01.svg';
 import Button from './Button';
 import Header from './Header';
 import Footer from './Footer';
-import Modal from './Modal';
 import Growl from './Growl';
+import ContactUsBlock from './ContactUsBlock';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import Logo from '../assets/images/logo-hea.svg';
@@ -22,25 +22,8 @@ class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
-      showModal: false,
       growl: false,
     };
-  }
-
-  openModal = () => {
-    this.setState({
-      showModal: true,
-    });
-  }
-
-  closeModal = () => {
-    this.setState({
-      showModal: false,
-    });
-  }
-
-  logout = () => {
-    this.props.actions.logout();
   }
 
   onGrowlClose = () => {
@@ -54,8 +37,8 @@ class Landing extends React.Component {
       <div className="landing__container">
         <Header
           onToggleModal={() => this.openModal()}
-          userData={this.props.user}
           logout={() => this.logout()}
+          selected="home"
         />
         <Growl type="danger" isEnabled={this.state.growl} close={() => this.onGrowlClose()}>
           testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
@@ -132,12 +115,7 @@ class Landing extends React.Component {
             </a>
           </div>
         </div>
-        {/* CONTACT US BLOCK!! */}
-        <Modal
-          show={this.state.showModal}
-          onToggleModal={() => this.closeModal()}
-          onLogin={this.props.actions.addUser}
-        />
+        <ContactUsBlock />
         <Footer />
         <style jsx>{`
           .landing__container {

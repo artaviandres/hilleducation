@@ -25,19 +25,26 @@ export default class Button extends React.Component {
             border-radius: 20px;
           }
 
+          button:focus {
+            outline: 0;
+          }
+
           .regular {
             background-color: ${colors.blue};
             color: ${colors.white};
+            border: none;
           }
 
           .regular:hover {
             background-color: ${colors.white};
-            color: ${colors.blue};
+            color: ${colors.black};
+            border: 1px solid ${colors.black};
           }
 
           .reversed {
             background-color: ${colors.white};
-            color: ${colors.blue};
+            color: ${colors.black};
+            border: 1px solid ${colors.black};
           }
 
           .reversed:hover {

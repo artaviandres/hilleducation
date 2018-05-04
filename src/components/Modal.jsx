@@ -157,7 +157,7 @@ export default class Modal extends React.Component {
                 <a className="modal__close" onClick={this.props.onToggleModal}><MdClose size={20} /></a>
                 <h1>Welcome</h1>
                 <img src={Logo} width="250px" />
-                <form onSubmit={this.submitLogin} style={{ width: '340' + 'px' }}>
+                <form onSubmit={this.submitLogin} className="modal__form">
                   <Input
                     type="text"
                     id="input-email"
@@ -198,7 +198,7 @@ export default class Modal extends React.Component {
                 <a className="modal__back" onClick={() => this.goBackForgot()}><MdArrowLeft size={20} /></a>
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
                 <h1>Forgot Password?</h1>
-                <form onSubmit={this.resetPassword} style={{ width: '340' + 'px' }}>
+                <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
                   <Input
                     type="text"
                     id="input-email-forgot"
@@ -330,7 +330,7 @@ export default class Modal extends React.Component {
           }
 
           .modal__wrapper img {
-            margin: 25px 0;
+            margin: 15px 0;
           }
 
           .forgot__container {
@@ -349,6 +349,12 @@ export default class Modal extends React.Component {
 
           .forgot__container p {
             margin-bottom: 5px;
+          }
+
+          .modal__form {
+            width: 350px;
+            height: 300px;
+            padding: 20px 40px;
           }
         `}</style>
       </div>

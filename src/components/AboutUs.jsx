@@ -1,4 +1,6 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
 import ContactUsBlock from './ContactUsBlock';
@@ -6,13 +8,14 @@ import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
 import HundredsOf from '../assets/images/ABOUT_US-02.svg';
 import colors from '../variables';
+import * as UserActions from '../actions/user';
 
-export default class AboutUs extends React.Component {
+class AboutUs extends React.Component {
   render() {
     const infoData = ["Educator in Michigan and Texas.", "Classroom teacher.", "Counselor.", "College Administrator", "Coach", "Member; Texas Teacher Retirement System.", "In the retirement planning business 20+ years.", "Focus on retirement planning for educator/school personnel."];
     return (
       <div>
-        <Header />
+        <Header selected="aboutUs" />
         <div className="section__1">
           <div className="divider" />
           <div className="section__1-text">
@@ -182,3 +185,17 @@ export default class AboutUs extends React.Component {
     );
   }
 }
+
+function mapStatetoProps(state, props) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(UserActions, dispatch)
+  }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(AboutUs);

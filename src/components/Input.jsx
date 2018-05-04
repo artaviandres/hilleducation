@@ -59,7 +59,7 @@ export default class Input extends React.Component {
             border: 0;
             position: absolute;
             margin-top: 33px;
-            margin-left: 300px;
+            margin-left: 240px;
           }
 
           input:focus {

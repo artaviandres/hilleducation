@@ -1,4 +1,6 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './Button';
@@ -6,12 +8,13 @@ import ContactUsImage from '../assets/images/CONTACT_US.jpg';
 import Mail from '../assets/images/mail.svg';
 import Phone from '../assets/images/phone.svg';
 import colors from '../variables';
+import * as UserActions from '../actions/user';
 
-export default class ContactUs extends React.Component {
+class ContactUs extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header selected="contactUs" />
         <div className="section__1">
           <div className="divider" />
           <div className="section__1-text">
@@ -185,3 +188,17 @@ export default class ContactUs extends React.Component {
     );
   }
 }
+
+function mapStatetoProps(state, props) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(UserActions, dispatch)
+  }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(ContactUs);

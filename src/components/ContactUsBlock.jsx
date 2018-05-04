@@ -17,10 +17,11 @@ export default class ContactUsBlock extends React.Component {
         </div>
         <style jsx>{`
           .contactContainer {
-            height: 600px;
-            width: 100%;
-            background-image: url("${People}");
-            background-size: 100% 600px;
+            width: 100vw;
+            height: 580px;
+            background: url(${People});
+            background-size: 100%;
+            background-repeat: no-repeat;
             display: flex;
             margin-top: 30px;
           }
@@ -51,3 +52,10 @@ export default class ContactUsBlock extends React.Component {
     );
   }
 }
+
+// height: 600px;
+//             width: 100%;
+//             background-image: url("${People}");
+//             background-size: 100% 600px;
+//             display: flex;
+//             margin-top: 30px;

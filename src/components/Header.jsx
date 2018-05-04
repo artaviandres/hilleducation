@@ -1,15 +1,42 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import firebase from 'firebase';
 import Button from './Button';
+import Modal from './Modal';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
+import * as UserActions from '../actions/user';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+    };
+  }
+
+  openModal = () => {
+    this.setState({
+      showModal: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      showModal: false,
+    });
+  }
+
+  logout = () => {
+    this.props.actions.logout();
+  }
+
   checkUserStatus = () => {
-    if(this.props.userData && this.props.userData.length === 0) {
-      return <Button click={this.props.onToggleModal}>LOGIN</Button>
+    if(this.props.user && this.props.user.length === 0) {
+      return <Button click={() => this.openModal()} reverse={true}>LOG IN</Button>
     } else {
-      return <Button click={this.props.logout}>LOGOUT</Button>
+      return <Button click={() => this.logout()} reverse={true}>LOGOUT</Button>
     }
   }
   render() {
@@ -17,12 +44,17 @@ export default class Header extends React.Component {
       <div className="header">
         <div className="header__container">
           <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" /></a>
-          <a href="/" style={{ border: 'none'}}>Home</a>
-          <a href="/aboutUs">About us</a>
-          <a href="/contactUs">Contact us</a>
-          <a href="/associates">HEA Associates</a>
+          <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
+          <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
+          <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
+          <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a>
           {this.checkUserStatus()}
         </div>
+        <Modal
+          show={this.state.showModal}
+          onToggleModal={() => this.closeModal()}
+          onLogin={this.props.actions.addUser}
+        />
         <style jsx>{`
           .header__container {
             display: flex;
@@ -34,7 +66,7 @@ export default class Header extends React.Component {
           
           a {
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
             color: ${colors.black};
             padding-right: 20px;
             padding-left: 20px;
@@ -42,11 +74,29 @@ export default class Header extends React.Component {
           }
           
           a:hover {
-            text-decoration: underline;
-            text-decoration-color: ${colors.blue};
+            color: ${colors.blue};
+            text-decoration: none;
+          }
+
+          .selected {
+            color: ${colors.blue};
           }
         `}</style>
       </div>
     );
   }
 }
+
+function mapStatetoProps(state, props) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(UserActions, dispatch)
+  }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(Header);

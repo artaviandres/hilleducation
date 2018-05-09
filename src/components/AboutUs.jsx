@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
+import BlueBackgroundImg from './BlueBackgroundImg';
 import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
@@ -16,13 +17,11 @@ class AboutUs extends React.Component {
     return (
       <div>
         <Header selected="aboutUs" />
-        <div className="section__1">
-          <div className="divider" />
-          <div className="section__1-text">
-            <h1>About us</h1>
-            <p>Hill Education Associates have held hundreds of education seminars <br />for public employees affected by WEP/GPO</p>
-          </div>
-        </div>
+        <BlueBackgroundImg
+          image={AboutUsImage}
+          title="About Us"
+          subtitle="Hill Education Associates have held hundreds of education seminars for public employees affected by WEP/GPO"
+        />
         <div className="section__2">
           <img src={HundredsOf} />
         </div>
@@ -49,30 +48,6 @@ class AboutUs extends React.Component {
         <ContactUsBlock />
         <Footer />
         <style jsx>{`
-          .section__1 {
-            width: 100vw;
-            height: 480px;
-            background: url(${AboutUsImage});
-            background-size: 100%;
-            background-repeat: no-repeat;
-            display: inline-flex;
-            align-items: center;
-            padding-left: 200px;
-          }
-
-          .section__1-text {
-            display: inline-flex;
-            flex-direction: column;
-            color: white;
-          }
-
-          .divider {
-            background-color: white;
-            width: 3px;
-            height: 150px;
-            margin-right: 30px;
-          }
-
           .divider-blue {
             background-color: ${colors.blue};
             width: 3px;

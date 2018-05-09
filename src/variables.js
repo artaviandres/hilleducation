@@ -11,6 +11,7 @@ const colors = {
     sectionGray: '#FAFAFA',
     noPicture: '#333333',
     inputBg: '#E5E5E5',
+    downloadableBorder: '#CCCCCC',
 };
 
 export default colors;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './Button';
+import BlueBackgroundImg from './BlueBackgroundImg';
 import ContactUsImage from '../assets/images/CONTACT_US.jpg';
 import Mail from '../assets/images/mail.svg';
 import Phone from '../assets/images/phone.svg';
@@ -15,13 +16,11 @@ class ContactUs extends React.Component {
     return (
       <div>
         <Header selected="contactUs" />
-        <div className="section__1">
-          <div className="divider" />
-          <div className="section__1-text">
-            <h1>Contact us</h1>
-            <p>Feel free to get in touch with us today so that we <br/> can plan a seminar for your school district! </p>
-          </div>
-        </div>
+        <BlueBackgroundImg
+          image={ContactUsImage}
+          title="Contact us"
+          subtitle="Feel free to get in touch with us today so that we can plan a seminar for your school district!"
+        />
         <div className="contact__form">
           <form>
             <div className="contact__form-info">

@@ -7,6 +7,7 @@ import './index.css';
 import Landing from './components/Landing';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import HEA from './components/HEA';
 
 import { Provider } from 'react-redux';
 import Store from './store';
@@ -19,7 +20,8 @@ ReactDOM.render(
       <div>
         <Route path="/" exact component={Landing} />
         <Route path="/aboutUs" exact component={AboutUs} />
-        <Route path="/contactUs" exact component={ContactUs} /> 
+        <Route path="/contactUs" exact component={ContactUs} />
+        <Route path="/associates" exact component={HEA} />
       </div>
     </Provider>
   </BrowserRouter>,

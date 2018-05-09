@@ -5,6 +5,7 @@
   "dependencies": {
     "firebase": "^4.12.1",
     "firebase-tools": "^3.18.2",
+    "js-file-download": "^0.4.1",
     "react": "^16.2.0",
     "react-bs-notifier": "^5.0.0",
     "react-dom": "^16.2.0",

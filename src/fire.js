@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 var config = {
     apiKey: "AIzaSyACOimZRn0kH2sG6cSVpCboik-_2AiFavY",
     authDomain: "hilleducation-35f3a.firebaseapp.com",

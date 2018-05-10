@@ -8,6 +8,7 @@ import Landing from './components/Landing';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import HEA from './components/HEA';
+import Admin from './components/Admin';
 
 import { Provider } from 'react-redux';
 import Store from './store';
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/aboutUs" exact component={AboutUs} />
         <Route path="/contactUs" exact component={ContactUs} />
         <Route path="/associates" exact component={HEA} />
+        <Route path="/admin" exact component={Admin} />
       </div>
     </Provider>
   </BrowserRouter>,

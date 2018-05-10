@@ -48,6 +48,7 @@ class Header extends React.Component {
           <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
           <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
           <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a>
+          <a href="/admin" className={this.props.selected === "admin" ? "selected" : null}>Administrator</a>
           {this.checkUserStatus()}
         </div>
         <Modal

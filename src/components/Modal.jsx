@@ -270,6 +270,7 @@ export default class Modal extends React.Component {
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 1000;
           }
 
           body {

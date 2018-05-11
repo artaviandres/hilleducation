@@ -12,8 +12,16 @@ import Admin from './components/Admin';
 
 import { Provider } from 'react-redux';
 import Store from './store';
+import { loadState, saveState } from './localStorage';
 
 const StoreInstance = Store();
+
+StoreInstance.subscribe(() => {
+  saveState({
+    user: StoreInstance.getState().user,
+    admins: StoreInstance.getState().admins,
+  });
+});
 
 ReactDOM.render(
   <BrowserRouter>

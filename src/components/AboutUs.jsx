@@ -33,8 +33,10 @@ class AboutUs extends React.Component {
             <h2>Led by Dennis Hill</h2>
             <div className="divider-horizontal" />
             <ul>
-              {infoData.map(item => 
-                <li><div className="check__container"><img src={Check} /></div>{item}</li>
+              {infoData.map(item => {
+                const itemPosition = infoData.indexOf(item);
+                return <li key={itemPosition}><div className="check__container"><img src={Check} /></div>{item}</li>                
+               }
               )}
             </ul>
           </div>
@@ -163,7 +165,8 @@ class AboutUs extends React.Component {
 
 function mapStatetoProps(state, props) {
   return {
-    user: state.user
+    user: state.user,
+    admins: state.admins,
   }
 }
 

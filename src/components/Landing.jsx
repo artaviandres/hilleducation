@@ -403,7 +403,8 @@ class Landing extends React.Component {
 
 function mapStatetoProps(state, props) {
   return {
-    user: state.user
+    user: state.user,
+    admins: state.admins,
   }
 }
 

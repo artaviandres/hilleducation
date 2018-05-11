@@ -79,7 +79,10 @@ export default class Modal extends React.Component {
             break;
         }
       });
-      loginPromise.then((response) => this.props.onLogin(response));
+      loginPromise.then((response) => {
+        this.props.onLogin(response)
+        window.location.reload();
+      });
     } else {
       this.setState({
         showError: true,
@@ -190,13 +193,14 @@ export default class Modal extends React.Component {
                   </Button>
                 </form>
                 <div className="forgot__container">
-                  <p>Forgot Password?</p>
+                  <p>Reset Password</p>
                   <a onClick={() => this.goToForgot()}>Click Here</a>
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">
                 <a className="modal__back" onClick={() => this.goBackForgot()}><MdArrowLeft size={20} /></a>
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
+                <img src={Logo} width="250px" />
                 <h1>Forgot Password?</h1>
                 <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
                   <Input
@@ -289,7 +293,7 @@ export default class Modal extends React.Component {
           }
 
           .modal__wrapper--forgot {
-            height: 500px;
+            height: 650px;
             width: 450px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
@@ -301,7 +305,9 @@ export default class Modal extends React.Component {
           }
 
           .modal__wrapper--forgot h1 {
-            margin-top: 0;
+            font-weight: 600;
+            color: ${colors.black};
+            margin-top: 40px;
           }
 
           .danger__container {
@@ -312,10 +318,9 @@ export default class Modal extends React.Component {
           }
 
           .danger__icon {
-            width: 20%;
+            width: 5%;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
             margin-right: 15px;
           }
 

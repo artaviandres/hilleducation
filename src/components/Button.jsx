@@ -5,7 +5,7 @@ export default class Button extends React.Component {
   render() {
     return (
       <div className="button__container">
-        <button onClick={this.props.click} className={this.props.reverse ? "reversed" : "regular"} style={{ width: this.props.width, marginTop: this.props.marginTop }}>{this.props.children}</button>
+        <button type="button" onClick={this.props.click} className={this.props.reverse ? "reversed" : "regular"} style={{ width: this.props.width, marginTop: this.props.marginTop }}>{this.props.children}</button>
         <style jsx>{`
           .button__container {
             display: flex;

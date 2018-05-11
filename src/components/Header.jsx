@@ -13,6 +13,8 @@ class Header extends React.Component {
     super(props);
     this.state = {
       showModal: false,
+      admin: false,
+      user: [],
     };
   }
 
@@ -30,6 +32,21 @@ class Header extends React.Component {
 
   logout = () => {
     this.props.actions.logout();
+    this.setState({
+      admin: false,
+    });
+  }
+
+  componentDidMount() {
+    if (this.props.user.length > 0 && this.props.admins) {
+      this.props.admins.map(item => {
+        if (item === this.props.user[0].uid) {
+          this.setState({
+            admin: true,
+          });
+        }
+      })
+    }
   }
 
   checkUserStatus = () => {
@@ -39,6 +56,7 @@ class Header extends React.Component {
       return <Button click={() => this.logout()} reverse={true}>LOGOUT</Button>
     }
   }
+
   render() {
     return (
       <div className="header">
@@ -47,8 +65,9 @@ class Header extends React.Component {
           <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
           <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
           <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
-          <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a>
-          <a href="/admin" className={this.props.selected === "admin" ? "selected" : null}>Administrator</a>
+          {this.props.user.length > 0 ? <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a> : null}
+          {/* validation needed, if in admin, show this */}
+          {this.state.admin === true ? <a href="/admin" className={this.props.selected === "admin" ? "selected" : null}>Administrator</a> : null}
           {this.checkUserStatus()}
         </div>
         <Modal
@@ -90,7 +109,8 @@ class Header extends React.Component {
 
 function mapStatetoProps(state, props) {
   return {
-    user: state.user
+    user: state.user,
+    admins: state.admins,
   }
 }
 

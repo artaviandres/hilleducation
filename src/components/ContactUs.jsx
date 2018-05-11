@@ -81,7 +81,7 @@ class ContactUs extends React.Component {
             height: 600px;
           }
 
-          form {
+          .contact__form form {
             width: 550px;
             height: 500px;
             box-shadow: 0 0 30px ${colors.gray};
@@ -138,7 +138,7 @@ class ContactUs extends React.Component {
             margin-bottom: 0;
           }
 
-          form input {
+          .contact__form form input {
             width: 100%;
             height: 40px;
             background-color: ${colors.inputBg};
@@ -148,15 +148,15 @@ class ContactUs extends React.Component {
             padding-left: 20px;
           }
 
-          form input::placeholder {
+          .contact__form form input::placeholder {
             color: ${colors.inputGray};
           }
 
-          form input:focus {
+          .contact__form form input:focus {
             outline: none;
           }
 
-          form textarea {
+          .contact__form form textarea {
             width: 100%;
             height: 150px;
             resize: none;
@@ -168,11 +168,11 @@ class ContactUs extends React.Component {
             padding-top: 15px;
           }
 
-          form textarea:focus {
+          .contact__form form textarea:focus {
             outline: none;
           }
 
-          form textarea::placeholder {
+          .contact__form form textarea::placeholder {
             color: ${colors.inputGray};
           }
 
@@ -190,7 +190,8 @@ class ContactUs extends React.Component {
 
 function mapStatetoProps(state, props) {
   return {
-    user: state.user
+    user: state.user,
+    admins: state.admins,
   }
 }
 

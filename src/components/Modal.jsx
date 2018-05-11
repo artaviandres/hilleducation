@@ -79,7 +79,10 @@ export default class Modal extends React.Component {
             break;
         }
       });
-      loginPromise.then((response) => this.props.onLogin(response));
+      loginPromise.then((response) => {
+        this.props.onLogin(response)
+        window.location.reload();
+      });
     } else {
       this.setState({
         showError: true,
@@ -312,10 +315,9 @@ export default class Modal extends React.Component {
           }
 
           .danger__icon {
-            width: 20%;
+            width: 5%;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
             margin-right: 15px;
           }
 

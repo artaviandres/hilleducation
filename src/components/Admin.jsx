@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as UserActions from '../actions/user';
 
+import Header from './Header';
+
 class Admin extends React.Component {
   state = {
     existingUsers: [],
@@ -21,6 +23,7 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
+        <Header selected="admin" />
         Hey! here are the existing users:
         <table></table>
       </div>
@@ -30,7 +33,8 @@ class Admin extends React.Component {
 
 function mapStatetoProps(state, props) {
   return {
-    user: state.user
+    user: state.user,
+    admins: state.admins,
   }
 }
 

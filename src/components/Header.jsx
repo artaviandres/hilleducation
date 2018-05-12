@@ -12,7 +12,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: true,
+      showModal: false,
       admin: false,
       user: [],
     };

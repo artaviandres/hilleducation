@@ -14,7 +14,7 @@ export default class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalType: 'harambe',
+      modalType: 'login',
       showError: false,
       showSuccess: false,
       message: '',
@@ -269,6 +269,7 @@ export default class Modal extends React.Component {
             border: none;
             padding: 0;
             color: ${colors.darkGray} !important;
+            margin-top: 70px;
           }
 
           .modal__container {

@@ -203,12 +203,21 @@ export default class Modal extends React.Component {
                 <h1>Reset Password</h1>
                 <p>We can help you reset your password using the email address linked to your account</p>
                 <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
-                  <Input
+                  {/* <Input
                     type="text"
                     id="input-email-forgot"
                     name="Email"
                     change={(e) => this.setState({ email: e.target.value })}
                     required="true"
+                  /> */}
+                  <input
+                    type="text"
+                    id="input-email-forgot"
+                    name="Email"
+                    change={(e) => this.setState({ email: e.target.value })}
+                    required="true"
+                    className="forgot__input"
+                    placeholder="Email"
                   />
                   {this.state.showError
                     ? <div className="danger__container">
@@ -376,6 +385,17 @@ export default class Modal extends React.Component {
             width: 350px;
             height: 300px;
             padding: 20px 40px;
+          }
+
+          .forgot__input {
+            background-color: #D6D6D6;
+            color: ${colors.inputGray};
+            border: none;
+            margin-left: 35px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            width: 80%;
+            height: 40px;
           }
         `}</style>
       </div>

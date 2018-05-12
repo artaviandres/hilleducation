@@ -42,7 +42,7 @@ export default class HEA extends React.Component {
           <div className="downloadable__container">
             <div className="downloadable__logo">
               <img src={Logo} />
-              <Button click={() => window.location = LogoDownload} reverse={true} width="250px">DOWNLOAD LOGO</Button>
+              <Button click={() => window.location = LogoDownload} type="reversed" width="250px">DOWNLOAD LOGO</Button>
             </div>
             <div className="downloadable__assets">
               <div

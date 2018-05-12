@@ -181,7 +181,7 @@ class Landing extends React.Component {
             width: 50%;
             height: 100%;
             background-image: url("${Couple}");
-            background-size: 100% 500px;
+            background-size: 100% 100%;
           }
 
           .main__section {

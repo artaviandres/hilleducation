@@ -29,15 +29,21 @@ export default class BlueBackgroundImg extends React.Component {
             color: white;
           }
 
+          .section__1-text h1 {
+            font-weight: 600;
+            font-size: 48px;
+          }
+
           .divider {
             background-color: white;
             width: 3px;
-            height: 150px;
+            height: 190px !important;
             margin-right: 30px;
           }
 
           .section__1-text p {
-            width: 500px;
+            width: 700px;
+            font-size: 22px;
           }
         `}</style>
       </div>

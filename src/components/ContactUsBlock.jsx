@@ -11,8 +11,10 @@ export default class ContactUsBlock extends React.Component {
         <div className="contactContainer_1" />
         <div className="contactContainer_2">
           <div>
-            <h1>Contact us today so that<br /> we can plan a seminar<br /> for your school district!</h1>
-            <Button reverse={true}>CONTACT US</Button>
+            <h1>Contact us today so that we can plan a seminar for your school district!</h1>
+            <div className="contactButton">
+              <Button type="contactBlock" width="200px"><a href="/contactUs">CONTACT US</a></Button>
+            </div>
           </div>
         </div>
         <style jsx>{`
@@ -37,7 +39,6 @@ export default class ContactUsBlock extends React.Component {
             background-image: url("${Gradient}");
             background-size: 100% 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
           }
 
@@ -46,6 +47,19 @@ export default class ContactUsBlock extends React.Component {
             padding: 0 85px;
             font-size: 44px;
             font-weight: 500;
+          }
+
+          .contactButton {
+            position: absolute;
+            margin-left: 85px;
+            margin-top: 20px;
+          }
+
+          .contactButton a {
+            border: none;
+            color: inherit;
+            height: 100%;
+            padding: 0;
           }
         `}</style>
       </div>

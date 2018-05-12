@@ -40,7 +40,7 @@ class ContactUs extends React.Component {
             <input type="text" placeholder="Full name" />
             <input type="email" placeholder="Email address" />
             <textarea placeholder="How can we help you?" />
-            <Button reverse={true}>SUBMIT</Button>
+            <Button type="reversed">SUBMIT</Button>
           </form>
         </div>
         <div className="contact__map">

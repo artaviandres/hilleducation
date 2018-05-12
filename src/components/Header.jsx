@@ -12,7 +12,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: true,
+      showModal: false,
       admin: false,
       user: [],
     };
@@ -51,9 +51,9 @@ class Header extends React.Component {
 
   checkUserStatus = () => {
     if(this.props.user && this.props.user.length === 0) {
-      return <Button click={() => this.openModal()} reverse={true}>LOG IN</Button>
+      return <Button click={() => this.openModal()} type="reversed">LOG IN</Button>
     } else {
-      return <Button click={() => this.logout()} reverse={true}>LOGOUT</Button>
+      return <Button click={() => this.logout()} type="reversed">LOGOUT</Button>
     }
   }
 

@@ -14,7 +14,7 @@ export default class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalType: 'login',
+      modalType: 'harambe',
       showError: false,
       showSuccess: false,
       message: '',
@@ -198,10 +198,10 @@ export default class Modal extends React.Component {
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">
-                <a className="modal__back" onClick={() => this.goBackForgot()}><MdArrowLeft size={20} /></a>
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
                 <img src={Logo} width="250px" />
-                <h1>Forgot Password?</h1>
+                <h1>Reset Password</h1>
+                <p>We can help you reset your password using the email address linked to your account</p>
                 <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
                   <Input
                     type="text"
@@ -234,6 +234,9 @@ export default class Modal extends React.Component {
                     SUBMIT
                   </Button>
                 </form>
+                <div className="back__container">
+                  <a className="modal__back" onClick={() => this.goBackForgot()}><MdArrowLeft size={20} style={{ marginTop: -2 + 'px', marginRight: 5 + 'px' }}/>Go Back</a>
+                </div>
               </div>
           }
         <style>{`
@@ -252,16 +255,20 @@ export default class Modal extends React.Component {
             padding: 0;
             position: absolute;
             margin-left: 200px;
-            margin-top: -220px;
+            margin-top: -300px;
+          }
+
+          .back__container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .modal__back {
             cursor: pointer;
             border: none;
             padding: 0;
-            position: absolute;
-            margin-left: -200px;
-            margin-top: -220px;
+            color: ${colors.darkGray} !important;
           }
 
           .modal__container {
@@ -308,6 +315,13 @@ export default class Modal extends React.Component {
             font-weight: 600;
             color: ${colors.black};
             margin-top: 40px;
+          }
+
+          .modal__wrapper--forgot p {
+            text-align: center;
+            color: ${colors.darkGray};
+            padding: 0 25px;
+            font-size: 18px;
           }
 
           .danger__container {

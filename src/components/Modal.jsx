@@ -397,6 +397,10 @@ export default class Modal extends React.Component {
             width: 80%;
             height: 40px;
           }
+
+          .forgot__input:focus {
+            outline: 0;
+          }
         `}</style>
       </div>
     );

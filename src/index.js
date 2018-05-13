@@ -12,7 +12,7 @@ import Admin from './components/Admin';
 
 import { Provider } from 'react-redux';
 import Store from './store';
-import { loadState, saveState } from './localStorage';
+import { saveState } from './localStorage';
 
 const StoreInstance = Store();
 

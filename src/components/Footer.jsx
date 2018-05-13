@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
     return (
       <div>
         <div className="footerContainer">
-          <img src={Logo} />
+          <img src={Logo} alt="logo" />
         </div>
         <style jsx>{`
           .footerContainer {

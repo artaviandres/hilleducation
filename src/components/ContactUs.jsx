@@ -26,13 +26,13 @@ class ContactUs extends React.Component {
             <div className="contact__form-info">
               <div className="mail__info">
                 <div className="icon">
-                  <img src={Mail} width="20px" />
+                  <img src={Mail} width="20px" alt="mail" />
                 </div>
                 <p>Email: DennisHill@hea.net</p>
               </div>
               <div className="phone__info">
                 <div className="icon">
-                  <img src={Phone} width="15px" />
+                  <img src={Phone} width="15px" alt="phone" />
                 </div>
                 <p>Phone: 71 3333 4500</p>
               </div>
@@ -45,7 +45,7 @@ class ContactUs extends React.Component {
         </div>
         <div className="contact__map">
           <p>333 Grogans Mill, The Woodlands, Texas 77380</p>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.8578284886758!2d-95.47263858477267!3d30.15548048184199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864736b9031b05b7%3A0x79124dd4b087135c!2sGrogans+Mill+Rd%2C+Spring%2C+TX+77380%2C+EE.+UU.!5e0!3m2!1ses!2scr!4v1525044822818" style={{ width: 100 + 'vw', height: 500 + 'px' }} frameBorder="0" allowFullScreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.8578284886758!2d-95.47263858477267!3d30.15548048184199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864736b9031b05b7%3A0x79124dd4b087135c!2sGrogans+Mill+Rd%2C+Spring%2C+TX+77380%2C+EE.+UU.!5e0!3m2!1ses!2scr!4v1525044822818" title="map" style={{ width: 100 + 'vw', height: 500 + 'px' }} frameBorder="0" allowFullScreen></iframe>
         </div>
         <Footer />
         <style jsx>{`

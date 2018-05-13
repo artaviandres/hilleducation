@@ -1,7 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import firebase from 'firebase';
 import Button from './Button';
 import Modal from './Modal';
 import Logo from '../assets/images/logo-hea.svg';
@@ -39,7 +38,7 @@ class Header extends React.Component {
 
   componentDidMount() {
     if (this.props.user.length > 0 && this.props.admins) {
-      this.props.admins.map(item => {
+      this.props.admins.forEach(item => {
         if (item === this.props.user[0].uid) {
           this.setState({
             admin: true,
@@ -61,7 +60,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="header__container">
-          <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" /></a>
+          <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" alt="logo" /></a>
           <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
           <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
           <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>

@@ -8,7 +8,6 @@ import Input from './Input';
 import Button from './Button';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
-import fire from '../fire';
 
 export default class Modal extends React.Component {
   constructor(props) {
@@ -77,6 +76,10 @@ export default class Modal extends React.Component {
               message: 'The user entered a wrong password',
             });
             break;
+          default:
+            this.setState({
+              message: 'Unknown error',
+            });
         }
       });
       loginPromise.then((response) => {
@@ -159,7 +162,7 @@ export default class Modal extends React.Component {
             ? <div className="modal__wrapper">
                 <a className="modal__close" onClick={this.props.onToggleModal}><MdClose size={20} /></a>
                 <h1>Welcome</h1>
-                <img src={Logo} width="250px" />
+                <img src={Logo} width="250px" alt="logo" />
                 <form onSubmit={this.submitLogin} className="modal__form">
                   <Input
                     type="text"
@@ -199,17 +202,10 @@ export default class Modal extends React.Component {
               </div>
             : <div className="modal__wrapper--forgot">
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
-                <img src={Logo} width="250px" />
+                <img src={Logo} width="250px" alt="logo" />
                 <h1>Reset Password</h1>
-                <p>We can help you reset your password using the email address linked to your account</p>
+                <p>We can help you reset your password using <br/> the email address linked to your account</p>
                 <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
-                  {/* <Input
-                    type="text"
-                    id="input-email-forgot"
-                    name="Email"
-                    change={(e) => this.setState({ email: e.target.value })}
-                    required="true"
-                  /> */}
                   <input
                     type="text"
                     id="input-email-forgot"
@@ -278,7 +274,7 @@ export default class Modal extends React.Component {
             border: none;
             padding: 0;
             color: ${colors.darkGray} !important;
-            margin-top: 70px;
+            margin-top: 0px;
           }
 
           .modal__container {
@@ -321,17 +317,21 @@ export default class Modal extends React.Component {
             justify-content: center;
           }
 
+          .modal__wrapper--forgot img {
+            margin-top: 40px;
+          }
+
           .modal__wrapper--forgot h1 {
             font-weight: 600;
             color: ${colors.black};
-            margin-top: 40px;
+            margin-top: 75px;
           }
 
           .modal__wrapper--forgot p {
             text-align: center;
             color: ${colors.darkGray};
             padding: 0 25px;
-            font-size: 18px;
+            font-size: 15px;
           }
 
           .danger__container {

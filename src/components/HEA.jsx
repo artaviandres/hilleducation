@@ -41,7 +41,7 @@ export default class HEA extends React.Component {
         <div className="downloadable__wrapper">
           <div className="downloadable__container">
             <div className="downloadable__logo">
-              <img src={Logo} />
+              <img src={Logo} alt="logo" />
               <Button click={() => window.location = LogoDownload} type="reversed" width="250px">DOWNLOAD LOGO</Button>
             </div>
             <div className="downloadable__assets">
@@ -56,7 +56,7 @@ export default class HEA extends React.Component {
                   border: this.state.hover === 1 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
                   boxShadow: this.state.hover === 1 ? '0' : '0 0 22px #E6E6E6'
                 }}>
-                  <img src={Flyers} width="75px" />
+                  <img src={Flyers} width="75px" alt="flyers" />
                 </div>
                 <p>Flyers</p>
               </div>
@@ -71,7 +71,7 @@ export default class HEA extends React.Component {
                   border: this.state.hover === 2 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
                   boxShadow: this.state.hover === 2 ? '0' : '0 0 22px #E6E6E6'
                 }}>
-                  <img src={Presentations} width="70px" />
+                  <img src={Presentations} width="70px" alt="presentations" />
                 </div>
                 <p>Presentations</p>                
               </div>
@@ -85,7 +85,7 @@ export default class HEA extends React.Component {
                   border: this.state.hover === 3 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
                   boxShadow: this.state.hover === 3 ? '0' : '0 0 22px #E6E6E6'
                 }}>
-                  <img src={Videos} width="60px" />
+                  <img src={Videos} width="60px" alt="videos" />
                 </div>
                 <p>Videos</p>                
               </div>
@@ -161,19 +161,3 @@ export default class HEA extends React.Component {
     );
   }
 }
-
-
-{/* <div className="main__section--block_1">
-              <div>
-                <img src={Stats} className="stats" />
-              </div>
-            </div> */}
-
-// .main__section--block_1 {
-//   height: 100%;
-//   width: 30%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-

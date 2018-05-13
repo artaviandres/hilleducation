@@ -1,11 +1,8 @@
 import React from 'react';
-import { AlertList, Alert, AlertContainer } from "react-bs-notifier";
+import { Alert, AlertContainer } from "react-bs-notifier";
 import MdClose from 'react-icons/lib/md/close';
 
 export default class Growl extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="growl__container">

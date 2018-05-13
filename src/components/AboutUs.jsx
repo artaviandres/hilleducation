@@ -23,7 +23,7 @@ class AboutUs extends React.Component {
           subtitle="Hill Education Associates have held hundreds of education seminars for public employees affected by WEP/GPO"
         />
         <div className="section__2">
-          <img src={HundredsOf} />
+          <img src={HundredsOf} alt="hundreds" />
         </div>
         <div className="section__3">
           <div className="section__3-picture">
@@ -35,7 +35,7 @@ class AboutUs extends React.Component {
             <ul>
               {infoData.map(item => {
                 const itemPosition = infoData.indexOf(item);
-                return <li key={itemPosition}><div className="check__container"><img src={Check} /></div>{item}</li>                
+                return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>                
                }
               )}
             </ul>

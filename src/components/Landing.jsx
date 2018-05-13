@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import FaCircle from 'react-icons/lib/fa/circle';
 import Quotes from '../assets/images/Quotes-01.svg';
 import Button from './Button';
@@ -9,7 +8,6 @@ import Growl from './Growl';
 import ContactUsBlock from './ContactUsBlock';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
-import Logo from '../assets/images/logo-hea.svg';
 import Stats from '../assets/images/stats.svg';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
@@ -61,7 +59,7 @@ class Landing extends React.Component {
           >
             <div className="main__section--block_1">
               <div>
-                <img src={Stats} className="stats" />
+                <img src={Stats} className="stats" alt="stats" />
               </div>
             </div>
             <div className="main__section--block_2">
@@ -88,7 +86,7 @@ class Landing extends React.Component {
           <div className="testimonials">
             <div className="testimonials__wrapper wrapper__1">
               <div className="testimonials__card">
-                <img src={Quotes} />
+                <img src={Quotes} alt="quotes" />
                 <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
                 <div className="testimonials__card-hr" />
                 <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>
@@ -96,7 +94,7 @@ class Landing extends React.Component {
             </div>
             <div className="testimonials__wrapper wrapper__2">
               <div className="testimonials__card">
-                <img src={Quotes} />
+                <img src={Quotes} alt="quotes" />
                 <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
                 <div className="testimonials__card-hr" />
                 <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>

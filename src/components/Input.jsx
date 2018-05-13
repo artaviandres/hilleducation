@@ -13,7 +13,6 @@ export default class Input extends React.Component {
 
   toggleVisibility() {
     const input = document.getElementById(this.props.id);
-    let counter = 0;
     if(input.type === 'password') {
       input.type = 'text';
     } else {

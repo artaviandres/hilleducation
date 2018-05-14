@@ -37,6 +37,7 @@ class Landing extends React.Component {
           onToggleModal={() => this.openModal()}
           logout={() => this.logout()}
           selected="home"
+          transparent
         />
         <Growl type="danger" isEnabled={this.state.growl} close={() => this.onGrowlClose()}>
           testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
@@ -185,12 +186,13 @@ class Landing extends React.Component {
           .main__section {
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 650px;
             width: 100%;
             background-image: url("${PictureBack}");
-            background-size: 100% 600px;
+            background-size: 100% 100%;
             justify-content: center;
             align-items: center;
+            margin-top: -100px;
           }
 
           .main__section h1 {

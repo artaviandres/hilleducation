@@ -71,8 +71,8 @@ export default class Button extends React.Component {
           }
 
           .contactBlock:hover {
-            background-color: ${colors.white};
-            color: ${colors.blue};
+            background-color: ${colors.blue};
+            color: ${colors.white};
             border: 1px solid ${colors.blue};
           }
         `}</style>

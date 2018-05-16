@@ -65,6 +65,7 @@ export default class Button extends React.Component {
           }
 
           .contactBlock {
+            cursor: pointer;
             background-color: transparent;
             color: ${colors.white};
             border: 1px solid ${colors.white}

@@ -82,6 +82,7 @@ class Header extends React.Component {
             justify-content: center;
             align-items: center;
             background-color: ${this.props.transparent ? 'transparent' : 'white'};
+            z-index: 1000;
           }
           
           a {

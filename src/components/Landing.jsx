@@ -43,16 +43,6 @@ class Landing extends React.Component {
           testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
         </Growl>
         <div className="main__section">
-          <div className="in-down">
-            <h1>
-              Protect your retirement savings
-            </h1>
-            <p>
-              Social Security benefits of million of public school employees accross <br />
-              America are negatively affected by social security law (WEP/GPO).
-            </p>
-            <Button>ABOUT US</Button>
-          </div>
           <div
             className="main__section--block"
             onMouseEnter={() => this.setState({ hover: true })}
@@ -64,7 +54,9 @@ class Landing extends React.Component {
               </div>
             </div>
             <div className="main__section--block_2">
-              <p>Our national network of associates provides free seminars<br /> for public school employees to inform and educate you<br /> about the impact of WEP/GPO on your retirement income<br /> so that you can better prepare for retirement.</p>
+              <h2>Social Security benefits of millions of public school employees across America are negatively affected by social security law (WEP/GPO).</h2>
+              <p>Our national network of associates provides free seminars for public school employees to inform and educate you about the impact of WEP/GPO on your retirement income so that you can better prepare for retirement.</p>
+              <Button type="white"><a href="/aboutUs">ABOUT US</a></Button>
             </div>
           </div>
         </div>
@@ -186,7 +178,7 @@ class Landing extends React.Component {
           .main__section {
             display: flex;
             flex-direction: column;
-            height: 650px;
+            height: 670px;
             width: 100%;
             background-image: url("${PictureBack}");
             background-size: 100% 100%;
@@ -209,23 +201,24 @@ class Landing extends React.Component {
           }
 
           .main__section--block {
-            height: 200px;
+            height: 270px;
             width: 50%;
             min-width: 500px;
             max-width: 720px;
             background-color: white;
             position: absolute;
-            margin-top: 305px;
+            margin-top: 335px;
             box-shadow: 0 0 18px #BDBDBD;
             display: flex;
+            flex-direction: column;
           }
 
           .main__section--block_1 {
-            height: 100%;
-            width: 30%;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: -60px;
           }
 
           .main__section--block_1 div {
@@ -240,6 +233,7 @@ class Landing extends React.Component {
             align-items: center;
             width: 110px;
             height: 110px;
+            background-color: white;
           }
 
           .stats {
@@ -248,15 +242,33 @@ class Landing extends React.Component {
           }
 
           .main__section--block_2 {
-            height: 100%;
-            width: 70%;
+            width: 100%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .main__section--block_2 a {
+            border: none;
+            color: inherit;
+            height: 100%;
+            padding: 0;
+          }
+
+          .main__section--block_2 h2 {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 10px;
+            padding: 0 30px;
           }
 
           .main__section--block_2 p {
             color: black;
             font-size: 16px;
+            font-weight: 100;
+            text-align: center;
+            padding: 0 50px;
           }
 
           .testimonialsContainer {

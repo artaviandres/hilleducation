@@ -5,7 +5,7 @@ export default class Button extends React.Component {
   render() {
     return (
       <div className="button__container">
-        <button onClick={this.props.click} className={this.props.type === "reversed" ? "reversed" : this.props.type === "white" ? "whiteAndBlue" : this.props.type === "contactBlock" ? "contactBlock" : "regular"} style={{ width: this.props.width, marginTop: this.props.marginTop }}>{this.props.children}</button>
+        <button onClick={this.props.click} className={this.props.type === "reversed" ? "reversed" : this.props.type === "white" ? "whiteAndBlue" : this.props.type === "transparentMenu" ? "transparentMenu" : this.props.type === "contactBlock" ? "contactBlock" : "regular"} style={{ width: this.props.width, marginTop: this.props.marginTop }}>{this.props.children}</button>
         <style jsx>{`
           .button__container {
             display: flex;
@@ -64,16 +64,28 @@ export default class Button extends React.Component {
             border: 1px solid ${colors.blue};
           }
 
-          .contactBlock {
+          .transparentMenu {
             cursor: pointer;
             background-color: transparent;
             color: ${colors.white};
             border: 1px solid ${colors.white}
           }
 
-          .contactBlock:hover {
+          .transparentMenu:hover {
             background-color: ${colors.blue};
             color: ${colors.white};
+            border: 1px solid ${colors.blue};
+          }
+
+          .contactBlock {
+            background-color: transparent;
+            color: ${colors.white};
+            border: 1px solid ${colors.white}
+          }
+
+          .contactBlock:hover {
+            background-color: ${colors.white};
+            color: ${colors.blue};
             border: 1px solid ${colors.blue};
           }
         `}</style>

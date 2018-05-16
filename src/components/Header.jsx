@@ -51,9 +51,9 @@ class Header extends React.Component {
 
   checkUserStatus = () => {
     if(this.props.user && this.props.user.length === 0) {
-      return <Button click={() => this.openModal()} type={this.props.selected === 'home' ? 'contactBlock' : 'reversed'}>LOG IN</Button>
+      return <Button click={() => this.openModal()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOG IN</Button>
     } else {
-      return <Button click={() => this.logout()} type={this.props.selected === 'home' ? 'contactBlock' : 'reversed'}>LOGOUT</Button>
+      return <Button click={() => this.logout()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOGOUT</Button>
     }
   }
 

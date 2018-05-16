@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Button from './Button';
 import Modal from './Modal';
 import Logo from '../assets/images/logo-hea.svg';
+import LogoWhite from '../assets/images/logo-white.svg'
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 
@@ -60,12 +61,11 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="header__container">
-          <a href="/" style={{ border: 'none'}}><img src={Logo} width="200px" alt="logo" /></a>
+          <a href="/" style={{ border: 'none'}}><img src={this.props.transparent ? LogoWhite : Logo} width="200px" alt="logo" /></a>
           <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
           <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
           <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
           {this.props.user.length > 0 ? <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a> : null}
-          {/* validation needed, if in admin, show this */}
           {this.state.admin === true ? <a href="/admin" className={this.props.selected === "admin" ? "selected" : null}>Administrator</a> : null}
           {this.checkUserStatus()}
         </div>

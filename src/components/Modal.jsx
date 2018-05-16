@@ -8,6 +8,7 @@ import Input from './Input';
 import Button from './Button';
 import Logo from '../assets/images/logo-hea.svg';
 import colors from '../variables';
+import fire from '../fire';
 
 export default class Modal extends React.Component {
   constructor(props) {

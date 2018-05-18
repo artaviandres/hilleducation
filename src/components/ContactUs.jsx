@@ -19,9 +19,10 @@ class ContactUs extends React.Component {
     content: '',
   }
 
-  submitContact = () => {
+  submitContact = (e) => {
+    e.preventDefault();
     emailjs.send("default_service","template_LdwxOUUM",{from_name: this.state.name, message_html: this.state.content, reply_to: this.state.mail}, 'user_kCRwRozcLUM6fPoa7V0hs')
-    .then((success) => {alert('Email sent correctly.')})
+    .then((success) => {console.log('Email sent correctly.')})
     .catch((err) => {alert('there has been an error, please try again later.')})
   }
 
@@ -59,7 +60,7 @@ class ContactUs extends React.Component {
             <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
             <input type="email" placeholder="Email address" onChange={this.updateState} id="mail" />
             <textarea placeholder="How can we help you?" onChange={this.updateState} id="content" />
-            <Button reverse={true} click={() => this.submitContact()}>SUBMIT</Button>
+            <Button reverse={true} click={this.submitContact}>SUBMIT</Button>
           </form>
         </div>
         <div className="contact__map">

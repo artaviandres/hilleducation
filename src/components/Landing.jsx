@@ -1,10 +1,10 @@
 import React from 'react';
 import FaCircle from 'react-icons/lib/fa/circle';
-import Quotes from '../assets/images/Quotes-01.svg';
 import Button from './Button';
 import Header from './Header';
 import Footer from './Footer';
 import Growl from './Growl';
+import Testimonial from './Testimonial';
 import ContactUsBlock from './ContactUsBlock';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
@@ -28,6 +28,68 @@ class Landing extends React.Component {
     this.setState({
       growl: false,
     });
+  }
+
+  onRenderTestimonials = () => {
+    const { activeDot } = this.state;
+    if (activeDot === 1) {
+      return (
+        <React.Fragment>
+          <div className="testimonials__wrapper wrapper__1">
+            <Testimonial
+              text="Teachers and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+          <div className="testimonials__wrapper wrapper__2">
+            <Testimonial
+              text="Teachers and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+        </React.Fragment>
+      );
+    } else if (activeDot === 2) {
+      return (
+        <React.Fragment>
+          <div className="testimonials__wrapper wrapper__1">
+            <Testimonial
+              text="andres and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+          <div className="testimonials__wrapper wrapper__2">
+            <Testimonial
+              text="andres and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <div className="testimonials__wrapper wrapper__1">
+            <Testimonial
+              text="3 and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+          <div className="testimonials__wrapper wrapper__2">
+            <Testimonial
+              text="3 and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
+              author="Jan Crow, retired, Assistant Principal;"
+              subAuthor="Cy Fair ISD"
+            />
+          </div>
+        </React.Fragment>
+      );
+    }
   }
 
   render() {
@@ -76,24 +138,11 @@ class Landing extends React.Component {
         <div className="testimonialsContainer">
           <h1>Testimonials</h1>
           <div className="testimonials__underline" />
-          <div className="testimonials">
-            <div className="testimonials__wrapper wrapper__1">
-              <div className="testimonials__card">
-                <img src={Quotes} alt="quotes" />
-                <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
-                <div className="testimonials__card-hr" />
-                <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>
+            <div>
+              <div className="testimonials">
+                {this.onRenderTestimonials()}
               </div>
             </div>
-            <div className="testimonials__wrapper wrapper__2">
-              <div className="testimonials__card">
-                <img src={Quotes} alt="quotes" />
-                <p>Teachers and all other school personnel will gain<br /> valuable knowledge regarding WEP/GPO in order to<br /> plan for their future and retirement in this seminar. </p>
-                <div className="testimonials__card-hr" />
-                <p className="testimonials__author">Jan Crow, retired, Assistant Principal; <br />Cy Fair ISD</p>
-              </div>
-            </div>
-          </div>
           <div className="dotsContainer">
             <a onClick={() => this.setState({ activeDot: 1 })}>
               <FaCircle size={12} color={this.state.activeDot === 1 ? '#4D4D4D' : '#BFBFBF'} />
@@ -315,30 +364,6 @@ class Landing extends React.Component {
           .wrapper__2 {
             justify-content: flex-start;
             margin-left: 15px;
-          }
-
-          .testimonials__card {
-            background-color: #FCFCFC;
-            height: 75%;
-            width: 420px;
-            box-shadow: 0 0 20px #E6E6E6;
-            padding: 40px;
-          }
-
-          .testimonials__card img {
-            width: 45px;
-          }
-
-          .testimonials__card p {
-            font-size: 14px;
-            font-weight: 100;
-          }
-
-          .testimonials__card-hr {
-            width: 40px;
-            height: 1px;
-            margin-top: 50px;
-            background-color: black;
           }
 
           .testimonials__author {

@@ -171,15 +171,17 @@ export default class Modal extends React.Component {
                     name="Email"
                     change={(e) => this.setState({ email: e.target.value })}
                     required="true"
+                    className="login__input"
+                    placeholder="Email"
                   />
                   <Input
                     type="password"
                     id="input-password"
                     name="Password"
-                    maxLength={12}
-                    marginTop="30px"
                     change={(e) => this.setState({ password: e.target.value })}
                     required="true"
+                    className="login__input"
+                    placeholder="Password"
                   />
                   {this.state.showError
                     ? <div className="danger__container">
@@ -365,7 +367,7 @@ export default class Modal extends React.Component {
           }
 
           .forgot__container {
-            margin-top: 50px;
+            margin-top: 20px;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -386,6 +388,7 @@ export default class Modal extends React.Component {
             width: 350px;
             height: 300px;
             padding: 20px 40px;
+            margin-top: 40px;
           }
 
           .forgot__input {
@@ -401,6 +404,20 @@ export default class Modal extends React.Component {
 
           .forgot__input:focus {
             outline: 0;
+          }
+
+          .login__input {
+            background-color: #D6D6D6;
+            color: ${colors.inputGray};
+            border: none;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            width: 100%;
+            height: 40px;
+          }
+
+          .login__input:focus {
+            outline: 0
           }
         `}</style>
       </div>

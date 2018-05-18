@@ -60,7 +60,7 @@ class ContactUs extends React.Component {
             <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
             <input type="email" placeholder="Email address" onChange={this.updateState} id="mail" />
             <textarea placeholder="How can we help you?" onChange={this.updateState} id="content" />
-            <Button reverse={true} click={this.submitContact}>SUBMIT</Button>
+            <Button type="white" click={this.submitContact}>SUBMIT</Button>
           </form>
         </div>
         <div className="contact__map">

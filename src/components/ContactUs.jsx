@@ -2,6 +2,8 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as emailjs from 'emailjs-com';
+import FaCheck from 'react-icons/lib/fa/check';
+import FaExclamation from 'react-icons/lib/fa/exclamation';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './Button';
@@ -17,13 +19,28 @@ class ContactUs extends React.Component {
     mail: '',
     name: '',
     content: '',
+    growl: false,
+    message: '',
+    type: 'success',
   }
 
   submitContact = (e) => {
     e.preventDefault();
     emailjs.send("default_service","template_LdwxOUUM",{from_name: this.state.name, message_html: this.state.content, reply_to: this.state.mail}, 'user_kCRwRozcLUM6fPoa7V0hs')
-    .then((success) => {console.log('Email sent correctly.')})
-    .catch((err) => {alert('there has been an error, please try again later.')})
+    .then((success) => {
+      this.setState({
+        growl: true,
+        message: 'Your message was sent successfully',
+        type: 'success',
+      });
+    })
+    .catch((err) => {
+      this.setState({
+        growl: true,
+        message: 'There was an error submitting your message, please try again later.',
+        type: 'danger',
+      })
+    })
   }
 
   updateState = (e) => {
@@ -60,12 +77,25 @@ class ContactUs extends React.Component {
             <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
             <input type="email" placeholder="Email address" onChange={this.updateState} id="mail" />
             <textarea placeholder="How can we help you?" onChange={this.updateState} id="content" />
+            <div className="growl__message" style={{
+              display: this.state.growl === true ? 'inline-flex' : 'none',
+              backgroundColor: this.state.type === 'success' ? '#d9ecdc' : '#F0B1B1',
+              marginBottom: this.state.growl === true ? '30' + 'px' : '0',
+              width: '80' + '%',
+              height: '50' + 'px',
+              borderRadius: '10' + 'px',
+              color: this.state.type === 'success' ? '#2a552a' : '#F15D5D',
+              marginLeft: '40' + 'px',
+              paddingTop: '10' + 'px',
+            }}>
+              {this.state.type === 'success' ? <FaCheck /> : <FaExclamation />} {this.state.message}
+            </div>
             <Button type="white" click={this.submitContact}>SUBMIT</Button>
           </form>
         </div>
         <div className="contact__map">
           <p>1095 Evergreen Circle, suite 200, The Woodlands, Texas 77380</p>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1724.7006673053786!2d-95.46479245326246!3d30.168527596611558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864736c44b9883f7%3A0x6e0e5e3efa23b1dc!2sEvergreen+Cir%2C+The+Woodlands%2C+TX+77380%2C+EE.+UU.!5e0!3m2!1ses!2scr!4v1526448586680" title="map" style={{ width: 100 + 'vw', height: 500 + 'px' }} frameBorder="0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1724.7006673053786!2d-95.46479245326246!3d30.168527596611558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864736c44b9883f7%3A0x6e0e5e3efa23b1dc!2sEvergreen+Cir%2C+The+Woodlands%2C+TX+77380%2C+EE.+UU.!5e0!3m2!1ses!2scr!4v1526448586680" title="map" style={{ width: 100 + 'vw', height: 500 + 'px' }} frameBorder="0"></iframe>
         </div>
         <Footer />
         <style jsx>{`
@@ -103,7 +133,7 @@ class ContactUs extends React.Component {
 
           .contact__form form {
             width: 550px;
-            height: 500px;
+            height: ${this.state.growl === true ? '570px' : '500px'};
             box-shadow: 0 0 30px ${colors.gray};
             padding: 20px 60px;
           }
@@ -201,6 +231,16 @@ class ContactUs extends React.Component {
             display: inline-flex;
             align-items: center;
             flex-direction: column;
+          }
+
+          .growl__message {
+            justify-content: center;
+            align-content: center;
+          }
+
+          .growl__message svg {
+            margin-top: 3px;
+            margin-right: 5px;
           }
         `}</style>
       </div>

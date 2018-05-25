@@ -21,14 +21,7 @@ class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
-      growl: false,
     };
-  }
-
-  onGrowlClose = () => {
-    this.setState({
-      growl: false,
-    });
   }
 
   onRenderTestimonials = () => {
@@ -95,9 +88,6 @@ class Landing extends React.Component {
           selected="home"
           transparent
         />
-        <Growl type="danger" isEnabled={this.state.growl} close={() => this.onGrowlClose()}>
-          testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
-        </Growl>
         <div className="main__section">
         {/* video */}
           <div

@@ -3,20 +3,22 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Button from './Button';
 import Modal from './Modal';
+import Growl from './Growl';
 import Logo from '../assets/images/logo-hea.svg';
 import LogoWhite from '../assets/images/logo-white.svg'
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showModal: false,
-      admin: false,
-      user: [],
-    };
-  }
+  state = {
+    showModal: false,
+    admin: false,
+    user: [],
+    content: '',
+    growl: false,
+    message: '',
+    type: 'danger',
+  };
 
   openModal = () => {
     this.setState({
@@ -49,12 +51,30 @@ class Header extends React.Component {
     }
   }
 
+  clickAssociates = () => {
+    if (this.props.user.length > 0) {
+      window.location = '/associates';
+    } else {
+      this.setState({
+        growl: true,
+        message: 'To be able to access this page, you need to log in first.',
+        type: 'danger',
+      });
+    }
+  }
+
   checkUserStatus = () => {
     if(this.props.user && this.props.user.length === 0) {
       return <Button click={() => this.openModal()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOG IN</Button>
     } else {
       return <Button click={() => this.logout()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOGOUT</Button>
     }
+  }
+
+  onGrowlClose = () => {
+    this.setState({
+      growl: false,
+    });
   }
 
   render() {
@@ -65,7 +85,14 @@ class Header extends React.Component {
           <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
           <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
           <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
-          {this.props.user.length > 0 ? <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a> : null}
+          {/* {this.props.user.length > 0 ? <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a> : null} */}
+          <a
+            href="#"
+            onClick={() => this.clickAssociates()}
+            className={this.props.selected === "associates" ? "selected" : null}
+          >
+            HEA Associates
+          </a>
           {this.checkUserStatus()}
         </div>
         <Modal
@@ -73,6 +100,9 @@ class Header extends React.Component {
           onToggleModal={() => this.closeModal()}
           onLogin={this.props.actions.addUser}
         />
+        <Growl type={this.state.type} isEnabled={this.state.growl} close={() => this.onGrowlClose()}>
+          {this.state.message}
+        </Growl>
         <style jsx>{`
           .header__container {
             display: flex;

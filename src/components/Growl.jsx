@@ -24,7 +24,7 @@ export default class Growl extends React.Component {
           .alert svg {
             color: black;
             position: absolute;
-            margin-left: 245px;
+            margin-left: 430px;
             top: 3px;
           }
         `}</style>

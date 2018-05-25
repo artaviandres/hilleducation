@@ -62,16 +62,16 @@ class ContactUs extends React.Component {
           <form>
             <div className="contact__form-info">
               <div className="mail__info">
-                <div className="icon">
+                <div className="icon" style={{ width: 40 + 'px' }}>
                   <img src={Mail} width="20px" alt="mail" />
                 </div>
-                <p>Email: DennisHill@hea.net</p>
+                <p style={{ marginLeft: 10 + 'px' }}>Email: <br />Dhill@hilleducationassociates.com</p>
               </div>
               <div className="phone__info">
                 <div className="icon">
                   <img src={Phone} width="15px" alt="phone" />
                 </div>
-                <p>Phone: 71 3333 4500</p>
+                <p style={{ marginLeft: 10 + 'px' }}>Phone: <br />713-333-4500</p>
               </div>
             </div>
             <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
@@ -151,23 +151,23 @@ class ContactUs extends React.Component {
             display: inline-flex;
             align-items: center;
             height: 100%;
-            width: 50%;
+            width: 70%;
           }
 
           .mail__info p {
-            font-size: 12.3px;
+            font-size: 11px;
             margin-bottom: 0;
+            padding-left: 5px;
           }
 
           .icon {
-            height: 40px;
-            width: 40px;
+            height: 40px !important;
+            width: 40px !important;
             background-color: white;
             box-shadow: 0 0 3px #BDBDBD;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
             border-radius: 50%;
           }
 
@@ -178,9 +178,10 @@ class ContactUs extends React.Component {
           .phone__info {
             display: inline-flex;
             align-items: center;
+            justify-items: flex-end;
             height: 100%;
-            width: 50%;
-            margin-left: 35px;
+            width: 200px !important;
+            margin-left: 10px;
           }
 
           .phone__info p {

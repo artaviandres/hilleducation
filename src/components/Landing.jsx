@@ -9,6 +9,7 @@ import ContactUsBlock from './ContactUsBlock';
 import PictureBack from '../assets/images/feature_back.jpg';
 import Couple from '../assets/images/couple.jpg';
 import Stats from '../assets/images/stats.svg';
+// import LandingVideo from '../assets/landing.mp4';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -37,16 +38,16 @@ class Landing extends React.Component {
         <React.Fragment>
           <div className="testimonials__wrapper wrapper__1">
             <Testimonial
-              text="Teachers and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
+              text="You were able to help plan around the portion of social security that was lost due to my Teacher Retirement plan. Thanks for all your help!"
+              author="David Schuelke"
+              subAuthor="Tomball ISD Assistant Superintendent, retired"
             />
           </div>
           <div className="testimonials__wrapper wrapper__2">
             <Testimonial
-              text="Teachers and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
+              text="Extremely important information to know"
+              author="Nancy Philbrick, Klein Collins"
+              subAuthor="School Secretary"
             />
           </div>
         </React.Fragment>
@@ -56,16 +57,16 @@ class Landing extends React.Component {
         <React.Fragment>
           <div className="testimonials__wrapper wrapper__1">
             <Testimonial
-              text="andres and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
+              text="I would recommend this seminar to teachers and faculty!"
+              author="Paula Alexander"
+              subAuthor="Krimmel Intermediate, teacher"
             />
           </div>
           <div className="testimonials__wrapper wrapper__2">
             <Testimonial
-              text="andres and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
+              text="I learned a lot about retirement and social security that I was unaware of"
+              author="James Fobbs"
+              subAuthor="Wunderlich Elementary, Administrator"
             />
           </div>
         </React.Fragment>
@@ -75,16 +76,9 @@ class Landing extends React.Component {
         <React.Fragment>
           <div className="testimonials__wrapper wrapper__1">
             <Testimonial
-              text="3 and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
-            />
-          </div>
-          <div className="testimonials__wrapper wrapper__2">
-            <Testimonial
-              text="3 and all other school personnel will gain valuable knowledge regarding WEP/GPO in order to plan for their future and retirement in this seminar."
-              author="Jan Crow, retired, Assistant Principal;"
-              subAuthor="Cy Fair ISD"
+              text="I gained more knowledge than I expected from the seminar. The information is extremely important for public employees to know!"
+              author="Otila Gonzales"
+              subAuthor="Klein Oak High School, AP Secretary"
             />
           </div>
         </React.Fragment>
@@ -105,6 +99,7 @@ class Landing extends React.Component {
           testing testing testing testing testing testing testing testing<br /> testing testing testing testing testing testing testing testing 
         </Growl>
         <div className="main__section">
+        {/* video */}
           <div
             className="main__section--block"
             onMouseEnter={() => this.setState({ hover: true })}
@@ -118,7 +113,7 @@ class Landing extends React.Component {
             <div className="main__section--block_2">
               <h2>Social Security benefits of millions of public school employees across America are negatively affected by social security law (WEP/GPO).</h2>
               <p>Our national network of associates provides free seminars for public school employees to inform and educate you about the impact of WEP/GPO on your retirement income so that you can better prepare for retirement.</p>
-              <Button type="white"><a href="/aboutUs">ABOUT US</a></Button>
+              <Button type="white"><a href="/aboutUs" style={{ marginTop: 15 + 'px' }}>ABOUT US</a></Button>
             </div>
           </div>
         </div>
@@ -229,11 +224,8 @@ class Landing extends React.Component {
             flex-direction: column;
             height: 670px;
             width: 100%;
-            background-image: url("${PictureBack}");
-            background-size: 100% 100%;
             justify-content: center;
             align-items: center;
-            margin-top: -100px;
           }
 
           .main__section h1 {
@@ -250,10 +242,10 @@ class Landing extends React.Component {
           }
 
           .main__section--block {
-            height: 270px;
-            width: 50%;
+            height: 300px;
+            width: 100%;
             min-width: 500px;
-            max-width: 720px;
+            max-width: 900px;
             background-color: white;
             position: absolute;
             margin-top: 335px;
@@ -305,11 +297,12 @@ class Landing extends React.Component {
           }
 
           .main__section--block_2 h2 {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 18px;
+            font-family: GothamProBold;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 25px;
             padding: 0 30px;
+            text-transform: uppercase;
           }
 
           .main__section--block_2 p {
@@ -317,7 +310,7 @@ class Landing extends React.Component {
             font-size: 16px;
             font-weight: 100;
             text-align: center;
-            padding: 0 50px;
+            padding: 0 100px;
           }
 
           .testimonialsContainer {
@@ -431,6 +424,15 @@ class Landing extends React.Component {
             -moz-animation-duration: 1s;
             -o-animation-duration: 1s;
             animation-duration: 1s;
+          }
+
+          video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1000;
+            width: 100% !important;
+            min-width: 1300px;
           }
         `}</style>
       </div>

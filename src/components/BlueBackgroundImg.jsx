@@ -31,7 +31,8 @@ export default class BlueBackgroundImg extends React.Component {
 
           .section__1-text h1 {
             font-weight: 600;
-            font-size: 48px;
+            font-size: 36px;
+            text-transform: uppercase;
           }
 
           .divider {
@@ -42,8 +43,8 @@ export default class BlueBackgroundImg extends React.Component {
           }
 
           .section__1-text p {
-            width: 700px;
-            font-size: 22px;
+            width: 600px;
+            font-size: 18px;
           }
         `}</style>
       </div>

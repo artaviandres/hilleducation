@@ -10,22 +10,21 @@ export default class ContactUsBlock extends React.Component {
       <div className="contactContainer">
         <div className="contactContainer_1" />
         <div className="contactContainer_2">
-          <div>
+          <div className="contactContainer_2-wrapper">
             <h1>Contact us today so that we can plan a seminar for your school district!</h1>
             <div className="contactButton">
-              <Button type="contactBlock" width="200px"><a href="/contactUs">CONTACT US</a></Button>
+              <Button type="contactBlock" width="200px"><a href="/contactUs" style={{ paddingTop: 15 + 'px' }}>CONTACT US</a></Button>
             </div>
           </div>
         </div>
         <style jsx>{`
           .contactContainer {
             width: 100vw;
-            height: 580px;
+            height: 400px;
             background: url(${People});
             background-size: 100%;
             background-repeat: no-repeat;
             display: flex;
-            margin-top: 30px;
           }
 
           .contactContainer_1 {
@@ -42,10 +41,14 @@ export default class ContactUsBlock extends React.Component {
             align-items: center;
           }
 
+          .contactContainer_2-wrapper {
+            margin-top: -50px;
+          }
+
           .contactContainer_2 h1 {
             color: ${colors.white};
             padding: 0 85px;
-            font-size: 44px;
+            font-size: 36px;
             font-weight: 500;
           }
 

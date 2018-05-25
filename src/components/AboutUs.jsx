@@ -7,23 +7,32 @@ import BlueBackgroundImg from './BlueBackgroundImg';
 import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
-import HundredsOf from '../assets/images/ABOUT_US-02.svg';
+import HundredsOf from '../assets/images/ABOUT_US.svg';
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 
 class AboutUs extends React.Component {
   render() {
-    const infoData = ["Educator in Michigan and Texas.", "Classroom teacher.", "Counselor.", "College Administrator", "Coach", "Member; Texas Teacher Retirement System.", "In the retirement planning business 20+ years.", "Focus on retirement planning for educator/school personnel."];
+    const infoData = ["Educator in Michigan and Texas", "Classroom teacher", "Counselor", "College Administrator", "Coach", "Member; Texas Teacher Retirement System", "In the retirement planning business 20+ years", "Focus on retirement planning for educator/school personnel"];
     return (
       <div>
         <Header selected="aboutUs" />
         <BlueBackgroundImg
           image={AboutUsImage}
           title="About Us"
-          subtitle="Hill Education Associates have held hundreds of education seminars for public employees affected by WEP/GPO"
+          subtitle="Hill Education Associates is a growing national network of financial
+          advisors who have made it their mission to educate public
+          employees about the impact of WEP/GPO on their retirement."
         />
         <div className="section__2">
           <img src={HundredsOf} alt="hundreds" />
+        </div>
+        <div className="section__largeText">
+          <p>
+            Dennis Hill has spent a lifetime guiding, coaching and leading people to better themselves. As a school counselor in the 60's and 70's, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, with both teams and individuals, culminating in several individual and team state championships in the state of Michigan. Today, Dennis is honored to be a member of the Michigan Sports Hall of Fame.
+            <br /><br />
+            Over the last 20+ years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of  more than 10 years. If you talk to Dennis, however, he is probably most proud of his love of 55 years, Virginia, and their four children and their many grandchildren.
+          </p>
         </div>
         <div className="section__3">
           <div className="section__3-picture">
@@ -72,8 +81,9 @@ class AboutUs extends React.Component {
           }
 
           .section__2 img {
-            width: 70%;
-            min-width: 600px;
+            width: 50%;
+            margin-top: -100px;
+            min-width: 400px;
             max-width: 780px;
           }
 
@@ -156,6 +166,15 @@ class AboutUs extends React.Component {
           .section__4 p {
             font-size: 18px;
             margin: 0;
+          }
+
+          .section__largeText {
+            width: 60%;
+            min-width: 600px;
+            text-align: justify;
+            margin: -80px auto 80px auto;
+            font-family: GothamProLight;
+            font-size: 16px;
           }
         `}</style>
       </div>

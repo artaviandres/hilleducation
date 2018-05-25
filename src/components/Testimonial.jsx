@@ -9,13 +9,13 @@ const Testimonial = (props) => {
         <p>{props.text}</p>
         <div className="testimonials__card-hr" />
         <p className="testimonials__author">{props.author}</p>
-        <p className="testimonials__author">{props.subAuthor}</p>
+        <p className="testimonials__subauthor">{props.subAuthor}</p>
       </div>
       <style jsx>{`
         .testimonials__card {
           background-color: #FCFCFC;
-          height: 75%;
-          width: 420px;
+          height: 280px;
+          width: 500px;
           box-shadow: 0 0 20px #E6E6E6;
           padding: 40px;
         }
@@ -28,6 +28,15 @@ const Testimonial = (props) => {
           font-size: 14px;
           font-weight: 100;
           margin-bottom: 0;
+        }
+
+        .testimonials__author {
+          margin-top: 10px;
+          font-family: GothamProBold;
+        }
+
+        .testimonials__subauthor {
+          font-family: GothamProBold;
         }
 
         .testimonials__card-hr {

@@ -11,6 +11,7 @@ export default class Button extends React.Component {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: ${this.props.width};
           }
           button {
             border: none;

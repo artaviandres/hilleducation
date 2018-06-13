@@ -38,7 +38,10 @@ export default class HEA extends React.Component {
 
         {/* border: ${this.state.hover ? '2px solid' + colors.blue : '1px solid #D8D8D8'};
             box-shadow: ${this.state.hover ? '0' : '0 0 22px #E6E6E6'}; */}
-        <div className="downloadable__wrapper">
+
+        {/* old display for downloadable attachments */}
+
+        {/* <div className="downloadable__wrapper">
           <div className="downloadable__container">
             <div className="downloadable__logo">
               <img src={Logo} alt="logo" />
@@ -91,17 +94,131 @@ export default class HEA extends React.Component {
               </div>
             </div>
           </div>
+        </div> */}
+
+        <div className="downloadable__wrapper">
+          <div className="downloadable" style={{ flexDirection: 'column' }}>
+            <img src={Logo} alt="logo" width="350px" />
+            <Button click={() => window.location = LogoDownload} type="reversed" width="250px">DOWNLOAD LOGO</Button>
+          </div>
+          <div className="downloadable">
+            <div className="downloadable-beta__icon">
+              <div
+                  style={{ borderRight: 'none',  }}
+                  onMouseEnter={() => this.setState({ hover: 1 })}
+                  onMouseLeave={() => this.setState({ hover: null })}
+                  onClick={() => window.location = FlyersDownload}
+                  className="downloadable__assets-item"
+                >
+                  <div style={{
+                    border: this.state.hover === 1 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
+                    boxShadow: this.state.hover === 1 ? '0' : '0 0 22px #E6E6E6'
+                  }}>
+                    <img src={Flyers} width="75px" alt="flyers" />
+                  </div>
+                </div>
+            </div>
+            <div className="downloadable-beta__info">
+              <h3>Flyers</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+              </p>
+              <Button type="reversed" width="250px">SEE ALL FLYERS</Button>
+            </div>
+          </div>
+          <div className="downloadable">
+            <div className="downloadable-beta__icon">
+              <div
+                  style={{ borderRight: 'none' }}
+                  onMouseEnter={() => this.setState({ hover: 2 })}
+                  onMouseLeave={() => this.setState({ hover: null })}
+                  onClick={() => window.location = PresentationDownload}
+                  className="downloadable__assets-item"
+                >
+                  <div style={{
+                    border: this.state.hover === 2 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
+                    boxShadow: this.state.hover === 2 ? '0' : '0 0 22px #E6E6E6'
+                  }}>
+                    <img src={Presentations} width="70px" alt="presentations" />
+                  </div>             
+                </div>
+            </div>
+            <div className="downloadable-beta__info">
+              <h3>Presentations</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+              </p>
+              <Button type="reversed" width="250px" onClick={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+            </div>
+          </div>
+          <div className="downloadable">
+            <div className="downloadable-beta__icon">
+              <div
+                onMouseEnter={() => this.setState({ hover: 3 })}
+                onMouseLeave={() => this.setState({ hover: null })}
+                className="downloadable__assets-item"
+                onClick={() => alert('No videos available at the moment.')}
+              >
+                <div style={{
+                  border: this.state.hover === 3 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
+                  boxShadow: this.state.hover === 3 ? '0' : '0 0 22px #E6E6E6'
+                }}>
+                  <img src={Videos} width="60px" alt="videos" />
+                </div>               
+              </div>
+            </div>
+            <div className="downloadable-beta__info">
+              <h3>Videos</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+              </p>
+              <Button type="reversed" width="250px" onClick={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+            </div>
+          </div>
         </div>
         <ContactUsBlock />
         <Footer />
         <style jsx>{`
           .downloadable__wrapper {
             width: 100vw;
-            height: 650px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+          }
+
+          .downloadable {
+            height: 250px;
+            width: 65%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid ${colors.downloadableBorder};
+          }
+
+          .downloadable-beta__icon {
+            height: 100%;
+            width: 25%;
+          }
+
+          .downloadable-beta__info {
+            height: 100%;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          .downloadable-beta__info h3 {
+            font-family: GothamPro;
+            font-weight: 900;
+            font-size: 18px;
+          }
+
+          .downloadable-beta__info p {
+            font-family: GothamProLight;
+            font-size: 14px;
+            color: ${colors.darkGray};
           }
 
           .downloadable__container {
@@ -131,9 +248,8 @@ export default class HEA extends React.Component {
           }
 
           .downloadable__assets-item {
-            width: 33.4%;
+            width: 100%;
             height: 100%;
-            border: 1px solid ${colors.downloadableBorder};
             display: inline-flex;
             align-items: center;
             justify-content: center;

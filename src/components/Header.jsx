@@ -83,8 +83,8 @@ class Header extends React.Component {
         <div className="header__container">
           <a href="/" style={{ border: 'none'}}><img src={this.props.transparent ? LogoWhite : Logo} width="200px" alt="logo" /></a>
           <a href="/" style={{ border: 'none'}} className={this.props.selected === "home" ? "selected" : null}>Home</a>
-          <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About us</a>
-          <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact us</a>
+          <a href="/aboutUs" className={this.props.selected === "aboutUs" ? "selected" : null}>About Us</a>
+          <a href="/contactUs" className={this.props.selected === "contactUs" ? "selected" : null}>Contact Us</a>
           {/* {this.props.user.length > 0 ? <a href="/associates" className={this.props.selected === "associates" ? "selected" : null}>HEA Associates</a> : null} */}
           <a
             href="#"

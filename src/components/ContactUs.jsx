@@ -18,6 +18,7 @@ class ContactUs extends React.Component {
   state = {
     mail: '',
     name: '',
+    phone: '',
     content: '',
     growl: false,
     message: '',
@@ -26,7 +27,7 @@ class ContactUs extends React.Component {
 
   submitContact = (e) => {
     e.preventDefault();
-    emailjs.send("default_service","template_LdwxOUUM",{from_name: this.state.name, message_html: this.state.content, reply_to: this.state.mail}, 'user_kCRwRozcLUM6fPoa7V0hs')
+    emailjs.send("default_service","template_LdwxOUUM",{from_name: [this.state.name + ' (Phone number: ' + this.state.phone + ')'], message_html: this.state.content, reply_to: this.state.mail}, 'user_kCRwRozcLUM6fPoa7V0hs')
     .then((success) => {
       this.setState({
         growl: true,
@@ -56,7 +57,7 @@ class ContactUs extends React.Component {
         <BlueBackgroundImg
           image={ContactUsImage}
           title="Contact us"
-          subtitle="Feel free to get in touch with us today so that we can plan a seminar for your school district!"
+          subtitle="Please contact us today so we can plan a seminar for your school district!"
         />
         <div className="contact__form">
           <form>
@@ -65,17 +66,18 @@ class ContactUs extends React.Component {
                 <div className="icon" style={{ width: 40 + 'px' }}>
                   <img src={Mail} width="20px" alt="mail" />
                 </div>
-                <p style={{ marginLeft: 10 + 'px' }}>Email: <br />Dhill@hilleducationassociates.com</p>
+                <p style={{ marginLeft: 10 + 'px' }}>Email: <br />info@hilleducationassociates.com</p>
               </div>
               <div className="phone__info">
                 <div className="icon">
                   <img src={Phone} width="15px" alt="phone" />
                 </div>
-                <p style={{ marginLeft: 10 + 'px' }}>Phone: <br />713-333-4500</p>
+                <p style={{ marginLeft: 10 + 'px' }}>Phone: <br />888-522-3420</p>
               </div>
             </div>
             <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
             <input type="email" placeholder="Email address" onChange={this.updateState} id="mail" />
+            <input type="text" placeholder="Phone Number" onChange={this.updateState} id="phone" />
             <textarea placeholder="How can we help you?" onChange={this.updateState} id="content" />
             <div className="growl__message" style={{
               display: this.state.growl === true ? 'inline-flex' : 'none',
@@ -133,7 +135,7 @@ class ContactUs extends React.Component {
 
           .contact__form form {
             width: 550px;
-            height: ${this.state.growl === true ? '570px' : '500px'};
+            height: ${this.state.growl === true ? '610px' : '540px'};
             box-shadow: 0 0 30px ${colors.gray};
             padding: 20px 60px;
           }
@@ -232,6 +234,17 @@ class ContactUs extends React.Component {
             display: inline-flex;
             align-items: center;
             flex-direction: column;
+            margin-top: ${this.state.growl === true ? '20px' : '0'};
+          }
+
+          .growl__message {
+            justify-content: center;
+            align-content: center;
+          }
+
+          .growl__message svg {
+            margin-top: 3px;
+            margin-right: 5px;
           }
 
           .growl__message {

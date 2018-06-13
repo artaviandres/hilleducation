@@ -29,7 +29,7 @@ class AboutUs extends React.Component {
         </div>
         <div className="section__largeText">
           <p>
-            Dennis Hill has spent a lifetime guiding, coaching and leading people to better themselves. As a school counselor in the 60's and 70's, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, with both teams and individuals, culminating in several individual and team state championships in the state of Michigan. Today, Dennis is honored to be a member of the Michigan Sports Hall of Fame.
+            Dennis Hill has spent a lifetime guiding, coaching and leading people to better themselves. As a school counselor in the 70's and 80's, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, with both teams and individuals, culminating in several individual and team state championships in the state of Michigan. Today, Dennis is honored to be a member of the Michigan Sports Hall of Fame.
             <br /><br />
             Over the last 20+ years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of  more than 10 years. If you talk to Dennis, however, he is probably most proud of his love of 55 years, Virginia, and their four children and their many grandchildren.
           </p>
@@ -52,9 +52,12 @@ class AboutUs extends React.Component {
         </div>
         <div className="section__4">
           <div className="divider-blue" />
-          <p>Hill Education Associates provides critical information for you to<br />
+          {/* <p>Hill Education Associates provides critical information for you to<br />
           understand how you and your spouse will be affected by WEP/GPO<br />
-          and methods to better prepare for your retirement.</p>
+          and methods to better prepare for your retirement.</p> */}
+          <p>Hill Education Associates provides critical information for <br />
+          public school employees and their spouses to understand how they will <br />
+          be affected by WEP/GPO and methods to better prepare for retirement.</p>
         </div>
         <ContactUsBlock />
         <Footer />

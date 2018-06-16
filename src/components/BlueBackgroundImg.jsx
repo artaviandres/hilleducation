@@ -43,7 +43,7 @@ export default class BlueBackgroundImg extends React.Component {
           }
 
           .section__1-text p {
-            width: 600px;
+            width: ${this.props.width ? this.props.width : '600px'};
             font-size: 18px;
           }
         `}</style>

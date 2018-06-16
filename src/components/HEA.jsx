@@ -11,6 +11,7 @@ import Logo from '../assets/images/logo-hea.svg';
 import Flyers from '../assets/images/flyers.svg';
 import Presentations from '../assets/images/presentations.svg';
 import Videos from '../assets/images/videos.svg';
+import Check from '../assets/images/check.svg';
 
 import LogoDownload from '../assets/downloadables/LOGO.zip';
 import FlyersDownload from '../assets/downloadables/FLYERS.zip';
@@ -27,75 +28,61 @@ export default class HEA extends React.Component {
   }
 
   render() {
+    const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
+    const secondRow = ['Marketing Support', 'Business Development support', 'Formula charts for calculating Pension & SS benefits', 'Webinars', 'On site seminar support'];
+
     return (
       <div>
         <Header selected="associates" />
         <BlueBackgroundImg
           image={HeaAssociatesImg}
-          title="HEA Associates"
-          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra"
+          title="WELCOME TO THE HEA ASSOCIATES WORKSTATION"
+          subtitle="This section of the website has been designed to provide you with the tool kid you will need to successfully communicate with school administrators, principals, teachers, and other public school employees."
+          width="1000px"
         />
-
-        {/* border: ${this.state.hover ? '2px solid' + colors.blue : '1px solid #D8D8D8'};
-            box-shadow: ${this.state.hover ? '0' : '0 0 22px #E6E6E6'}; */}
-
-        {/* old display for downloadable attachments */}
-
-        {/* <div className="downloadable__wrapper">
-          <div className="downloadable__container">
-            <div className="downloadable__logo">
-              <img src={Logo} alt="logo" />
-              <Button click={() => window.location = LogoDownload} type="reversed" width="250px">DOWNLOAD LOGO</Button>
-            </div>
-            <div className="downloadable__assets">
-              <div
-                style={{ borderRight: 'none',  }}
-                onMouseEnter={() => this.setState({ hover: 1 })}
-                onMouseLeave={() => this.setState({ hover: null })}
-                onClick={() => window.location = FlyersDownload}
-                className="downloadable__assets-item"
-              >
-                <div style={{
-                  border: this.state.hover === 1 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
-                  boxShadow: this.state.hover === 1 ? '0' : '0 0 22px #E6E6E6'
-                }}>
-                  <img src={Flyers} width="75px" alt="flyers" />
-                </div>
-                <p>Flyers</p>
+        <div className="introduction__wrapper">
+          <p className="introduction__wrapper-bold">WEP/GPO has a significant impact on all public school employees.</p>
+          <p>
+            As a financial advisor, you are already prepared to help guide them toward a successful financial retirement.
+            Our objective is to pair your expertise with these materials to equip you with the
+            knowledge and skills necessary to hold a successful educational seminar in your area.
+          </p>
+          <p>
+            You will be able to convince school administrators of the importance of this information as well as
+            accurately convey this issue to the school employees.
+          </p>
+          <p>
+            You will also find pertinent information specific to the circumstances of your particular state. The
+            impact of WEP/GPO will vary by state and, in some instances, by country.
+          </p>
+          <p>
+            Our goal is to help you get a room full of attentive seminar attendees for you to convert into clients of your business.
+          </p>
+        </div>
+        <div className="workstation__wrapper">
+          <div className="workstation__wrapper-title">
+            <h1>The workstation includes</h1>
+            <div className="divider-red" />
+            <div className="workstation__lists">
+              <div className="workstation__first">
+                <ul>
+                  {firstRow.map((item) => {
+                    const itemPosition = firstRow.indexOf(item);
+                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>
+                  })}
+                </ul>
               </div>
-              <div
-                style={{ borderRight: 'none' }}
-                onMouseEnter={() => this.setState({ hover: 2 })}
-                onMouseLeave={() => this.setState({ hover: null })}
-                onClick={() => window.location = PresentationDownload}
-                className="downloadable__assets-item"
-              >
-                <div style={{
-                  border: this.state.hover === 2 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
-                  boxShadow: this.state.hover === 2 ? '0' : '0 0 22px #E6E6E6'
-                }}>
-                  <img src={Presentations} width="70px" alt="presentations" />
-                </div>
-                <p>Presentations</p>                
-              </div>
-              <div
-                onMouseEnter={() => this.setState({ hover: 3 })}
-                onMouseLeave={() => this.setState({ hover: null })}
-                className="downloadable__assets-item"
-                onClick={() => alert('No videos available at the moment.')}
-              >
-                <div style={{
-                  border: this.state.hover === 3 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
-                  boxShadow: this.state.hover === 3 ? '0' : '0 0 22px #E6E6E6'
-                }}>
-                  <img src={Videos} width="60px" alt="videos" />
-                </div>
-                <p>Videos</p>                
+              <div className="workstation__second">
+                <ul>
+                  {secondRow.map((item) => {
+                    const itemPosition = secondRow.indexOf(item);
+                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>
+                  })}
+                </ul>
               </div>
             </div>
           </div>
-        </div> */}
-
+        </div>
         <div className="downloadable__wrapper">
           <div className="downloadable" style={{ flexDirection: 'column' }}>
             <img src={Logo} alt="logo" width="350px" />
@@ -271,6 +258,91 @@ export default class HEA extends React.Component {
 
           .downloadable__assets-item p {
             margin-top: 15px;
+          }
+
+          .introduction__wrapper {
+            width: 50%;
+            min-width: 600px;
+            text-align: justify;
+            margin: 80px auto 80px auto;
+            font-family: GothamProLight;
+            font-size: 16px;
+          }
+
+          .introduction__wrapper-bold {
+            font-family: GothamPro;
+            font-weight: bolder;
+          }
+
+          .workstation__wrapper {
+            background-color: ${colors.sectionGray};
+            width: 100%;
+            height: 450px;
+          }
+
+          .workstation__wrapper-title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .workstation__wrapper h1 {
+            font-size: 28px;
+            font-weight: bolder;
+            margin-top: 45px;
+            margin-bottom: 20px;
+          }
+
+          .divider-red {
+            background-color: ${colors.blue};
+            width: 90px;
+            height: 3px;
+          }
+
+          .check__container {
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            box-shadow: 0 0 3px #BDBDBD;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            border-radius: 50%;
+          }
+
+          .check__container img {
+            padding-top: 2px;
+            width: 15px;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+          }
+
+          ul li {
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            width: 100%;
+          }
+
+          .workstation__lists {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 60px;
+          }
+
+          .workstation__first {
+            width: 400px;
+          }
+
+          .workstation__second {
+            width: 450px;
           }
         `}</style>
       </div>

@@ -1,5 +1,13 @@
 import React from 'react';
 
+import FaAngleDown from 'react-icons/lib/fa/angle-down';
+import FaAngleUp from 'react-icons/lib/fa/angle-up';
+
+import {
+  Accordion,
+  AccordionItem,
+} from 'react-accessible-accordion';
+
 import Header from './Header';
 import BlueBackgroundImg from './BlueBackgroundImg';
 import Footer from './Footer';
@@ -24,12 +32,43 @@ export default class HEA extends React.Component {
     super(props);
     this.state = {
       hover: null,
+      accordion: true,
     };
   }
 
   render() {
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
     const secondRow = ['Marketing Support', 'Business Development support', 'Formula charts for calculating Pension & SS benefits', 'Webinars', 'On site seminar support'];
+    const flyers = [
+      {
+        id: 1,
+        text: 'How social security retirement benefits of millions of public school employees are affected by WEP/GPO',
+      },
+      {
+        id: 2,
+        text: 'Led by Denis Hill',
+      },
+      {
+        id: 3,
+        text: 'Are you looking for a low cost business modal that will put you in front of hundreds/thousands of investors?',
+      },
+      {
+        id: 4,
+        text: 'We provide a proven business for you to get in front on hundreds of potential clients',
+      },
+      {
+        id: 5,
+        text: 'Maximize TRS and SS benefits',
+      },
+      {
+        id: 6,
+        text: 'Agent strategy to approach school district',
+      },
+      {
+        id: 7,
+        text: 'Agent support provided by Hill Education Associates',
+      },
+    ];
 
     return (
       <div>
@@ -110,8 +149,28 @@ export default class HEA extends React.Component {
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
               </p>
-              <Button type="reversed" width="250px">SEE ALL FLYERS</Button>
+              <Button type="reversed" width="250px" click={() => this.setState({ accordion: !this.state.accordion })}>SEE ALL FLYERS {this.state.accordion === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
             </div>
+          </div>
+          <div className="accordion__wrapper">
+            {flyers.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className="accordion__item"
+                  style={{
+                    backgroundColor: item.id % 2 === 0 ? colors.sectionGray : colors.white,
+                    borderBottom: item.id === flyers.length ? `1px solid ${colors.gray}` : null,
+                  }}
+                >
+                  <p>{item.id}. {item.text} </p>
+                  <div className="accordion__item-buttons">
+                    <Button type="reversed">Preview</Button>
+                    <Button type="reversed">Download</Button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <div className="downloadable">
             <div className="downloadable-beta__icon">
@@ -163,7 +222,6 @@ export default class HEA extends React.Component {
             </div>
           </div>
         </div>
-        <ContactUsBlock />
         <Footer />
         <style jsx>{`
           .downloadable__wrapper {
@@ -343,6 +401,36 @@ export default class HEA extends React.Component {
 
           .workstation__second {
             width: 450px;
+          }
+
+          .accordion__wrapper {
+            display: ${this.state.accordion === false ? 'none' : 'flex'};
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .accordion__item {
+            width: 65%;
+            height: 130px;
+            padding: 20px 100px;
+            border-right: 1px solid ${colors.gray};
+            border-left: 1px solid ${colors.gray};
+          }
+
+          .accordion__item p {
+            font-size: 16px;
+            font-weight: bolder;
+          }
+
+          .accordion__item-buttons {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+          }
+
+          .accordion__item-buttons button {
+            margin-right: 30px;
           }
         `}</style>
       </div>

@@ -65,9 +65,9 @@ class Header extends React.Component {
 
   checkUserStatus = () => {
     if(this.props.user && this.props.user.length === 0) {
-      return <Button click={() => this.openModal()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOG IN</Button>
+      return <Button click={() => this.openModal()} type={'reversed'}>LOG IN</Button>
     } else {
-      return <Button click={() => this.logout()} type={this.props.selected === 'home' ? 'transparentMenu' : 'reversed'}>LOGOUT</Button>
+      return <Button click={() => this.logout()} type={'reversed'}>LOGOUT</Button>
     }
   }
 
@@ -117,7 +117,7 @@ class Header extends React.Component {
           a {
             cursor: pointer;
             font-weight: 500;
-            color: ${this.props.selected === 'home' ? colors.white : colors.black};
+            color: ${colors.black};
             padding-right: 20px;
             padding-left: 20px;
             border-left: 1px solid ${colors.gray};

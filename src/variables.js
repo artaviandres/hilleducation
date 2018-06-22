@@ -12,6 +12,7 @@ const colors = {
     noPicture: '#333333',
     inputBg: '#E5E5E5',
     downloadableBorder: '#CCCCCC',
+    red: '#D4472C',
 };
 
 export default colors;

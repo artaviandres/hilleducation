@@ -1,15 +1,13 @@
 import React from 'react';
-import FaCircle from 'react-icons/lib/fa/circle';
 import Button from './Button';
 import Header from './Header';
 import Footer from './Footer';
-import Growl from './Growl';
+import FaCircle from 'react-icons/lib/fa/circle';
 import Testimonial from './Testimonial';
 import ContactUsBlock from './ContactUsBlock';
-import PictureBack from '../assets/images/feature_back.jpg';
-import Couple from '../assets/images/couple.jpg';
-import Stats from '../assets/images/stats.svg';
-// import LandingVideo from '../assets/landing.mp4';
+import LogoWhite from '../assets/images/logo_full_white.svg';
+import PictureMain from '../assets/images/HOME_PAGE_PICTURE.jpg';
+import LandingVideo from '../assets/video_home_hea.mp4';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -21,62 +19,84 @@ class Landing extends React.Component {
     this.state = {
       hover: false,
       activeDot: 1,
+      testimonials: [
+        {
+          id: 1,
+          text: "You were able to help plan around the portion of social security that was lost due to my Teacher Retirement plan. Thanks for all your help!",
+          author: "David Schuelke",
+          subAuthor: "Tomball ISD Assistant Superintendent, retired",
+        },
+        {
+          id: 2,
+          text: "Extremely important information to know",
+          author: "Nancy Philbrick, Klein Collins",
+          subAuthor: "School Secretary",
+        },
+        {
+          id: 3,
+          text: "I would recommend this seminar to teachers and faculty!",
+          author: "Paula Alexander",
+          subAuthor: "Krimmel Intermediate, teacher",
+        },
+        {
+          id: 4,
+          text: "I learned a lot about retirement and social security that I was unaware of",
+          author: "James Fobbs",
+          subAuthor: "Wunderlich Elementary, Administrator",
+        },
+        {
+          id: 5,
+          text: "I gained more knowledge than I expected from the seminar. The information is extremely important for public employees to know!",
+          author: "Otila Gonzales",
+          subAuthor: "Klein Oak High School, AP Secretary",
+        },
+      ]
     };
   }
 
   onRenderTestimonials = () => {
-    const { activeDot } = this.state;
-    if (activeDot === 1) {
-      return (
-        <React.Fragment>
-          <div className="testimonials__wrapper wrapper__1">
+    const { activeDot, testimonials } = this.state;
+    return testimonials.map((item) => {
+      if (item.id === activeDot) {
+        return (
+          <React.Fragment key={item.id}>
             <Testimonial
-              text="You were able to help plan around the portion of social security that was lost due to my Teacher Retirement plan. Thanks for all your help!"
-              author="David Schuelke"
-              subAuthor="Tomball ISD Assistant Superintendent, retired"
+              author={item.author}
+              subAuthor={item.subAuthor}
+              text={item.text}
+              onToggleTestimonials={this.onToggleTestimonials}
             />
-          </div>
-          <div className="testimonials__wrapper wrapper__2">
-            <Testimonial
-              text="Extremely important information to know"
-              author="Nancy Philbrick, Klein Collins"
-              subAuthor="School Secretary"
-            />
-          </div>
-        </React.Fragment>
-      );
-    } else if (activeDot === 2) {
-      return (
-        <React.Fragment>
-          <div className="testimonials__wrapper wrapper__1">
-            <Testimonial
-              text="I would recommend this seminar to teachers and faculty!"
-              author="Paula Alexander"
-              subAuthor="Krimmel Intermediate, teacher"
-            />
-          </div>
-          <div className="testimonials__wrapper wrapper__2">
-            <Testimonial
-              text="I learned a lot about retirement and social security that I was unaware of"
-              author="James Fobbs"
-              subAuthor="Wunderlich Elementary, Administrator"
-            />
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <div className="testimonials__wrapper wrapper__1">
-            <Testimonial
-              text="I gained more knowledge than I expected from the seminar. The information is extremely important for public employees to know!"
-              author="Otila Gonzales"
-              subAuthor="Klein Oak High School, AP Secretary"
-            />
-          </div>
-        </React.Fragment>
-      );
+          </React.Fragment>
+        );
+      }
+    });
+  }
+
+  onToggleTestimonials = status => {
+    const { activeDot, testimonials } = this.state;
+    if (status === 'prev' && activeDot > 1) {
+      this.setState({
+        activeDot: activeDot - 1,
+      })
+    } else if (status === 'next' && activeDot < testimonials.length) {
+      this.setState({
+        activeDot: activeDot + 1,
+      });
     }
+  }
+
+  onRenderDots = () => {
+    const { activeDot, testimonials } = this.state;
+    return testimonials.map((item) => {
+      return (
+        <a
+          className={item.id === 1 ? "testimonials__dots first__dot" : "testimonials__dots"}
+          onClick={() => this.setState({ activeDot: item.id })}
+        >
+          <FaCircle size={12} color={activeDot === item.id ? '#4D4D4D' : '#BFBFBF'} />
+        </a>
+      );
+    })
   }
 
   render() {
@@ -86,80 +106,137 @@ class Landing extends React.Component {
           onToggleModal={() => this.openModal()}
           logout={() => this.logout()}
           selected="home"
-          transparent
         />
-        <div className="main__section">
-        {/* video */}
-          <div
-            className="main__section--block"
-            onMouseEnter={() => this.setState({ hover: true })}
-            onMouseLeave={() => this.setState({ hover: false })}
-          >
-            <div className="main__section--block_1">
-              <div>
-                <img src={Stats} className="stats" alt="stats" />
-              </div>
-            </div>
-            <div className="main__section--block_2">
-              <h2>Social Security benefits of millions of public school employees across America are negatively affected by social security law (WEP/GPO).</h2>
-              <p>Our national network of associates provides free seminars for public school employees to inform and educate you about the impact of WEP/GPO on your retirement income so that you can better prepare for retirement.</p>
-              <Button type="white"><a href="/aboutUs" style={{ marginTop: 15 + 'px' }}>ABOUT US</a></Button>
-            </div>
-          </div>
+        <div className="section__main">
+          <img src={LogoWhite} width="450px" />
+          <div className="section__main-divider" />
+          <p className="section__main-text">
+            Our national network of associates provides free seminar for public school
+            employees and their spouses to inform and educate them about the impact of WEP/GPO
+            on their retirement income so that they can better prepare for their future.
+          </p>
+          <Button type="reversed" width="250px">WATCH VIDEO</Button>
         </div>
-        <div className="section">
-          <div className="section__1">
-            <div>
-              <h1 className="section__text-header">Maximize TRS <br />& SS Benefits</h1>
-              <p className="section__text-paragraph">
-                If you are married or have a partner, this<br />
-                information is vital for you to understand the ways<br />
-                in which WEP/GPO will affect you in retirement.
-              </p>
-            </div>
-          </div>
-          <div className="section__2" />
+        <div className="section__video">
+          <video controls>
+            <source src={LandingVideo} type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
         </div>
-        <div className="testimonialsContainer">
-          <h1>Testimonials</h1>
-          <div className="testimonials__underline" />
-            <div>
-              <div className="testimonials">
-                {this.onRenderTestimonials()}
-              </div>
-            </div>
-          <div className="dotsContainer">
-            <a onClick={() => this.setState({ activeDot: 1 })}>
-              <FaCircle size={12} color={this.state.activeDot === 1 ? '#4D4D4D' : '#BFBFBF'} />
-            </a>
-            <a onClick={() => this.setState({ activeDot: 2 })}>
-              <FaCircle size={12} color={this.state.activeDot === 2 ? '#4D4D4D' : '#BFBFBF'} />
-            </a>
-            <a onClick={() => this.setState({ activeDot: 3 })}>
-              <FaCircle size={12} color={this.state.activeDot === 3 ? '#4D4D4D' : '#BFBFBF'} />
-            </a>
+        <div className="section__socialSec">
+          <p className="section__socialSec-bold">
+            The Social Security benefits of millions of public school employees across America
+            are negatively affected by the <br /> Windfall Elimination Provision (WEP) and/or
+            Government Pension Offset (GPO).
+          </p>
+          <div className="section__socialSec-divider" />
+          <p className="section__socialSec-light">
+            If you are married or have a partner, this information is vital for you to understand
+            the ways in which WEP/GPO will affect you in retirement.
+          </p>
+        </div>
+        <div className="section__testimonials">
+          {this.onRenderTestimonials()}
+          <div className="section__dots">
+            {this.onRenderDots()}
           </div>
         </div>
         <ContactUsBlock />
         <Footer />
         <style jsx>{`
+          .section__main {
+            width: 100vw;
+            height: 600px;
+            background: url(${PictureMain}) 50% 50%;
+            background-size: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .section__main-divider {
+            width: 100px;
+            background-color: ${colors.red};
+            height: 2px;
+            margin-bottom: 30px;
+            margin-top: 5px;
+          }
+          .section__main-text {
+            color: ${colors.white};
+            font-family: GothamProLight;
+            padding: 0 300px;
+            font-size: 18px;
+            text-align: center;
+          }
+
+          .section__video {
+            height: 700px;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .section__video video {
+            width: 100%;
+            padding: 0 175px;
+          }
+
+          .section__socialSec {
+            height: 200px;
+            width: 100vw;
+            padding: 0 175px;
+          }
+
+          .section__socialSec-bold {
+            font-family: GothamPro;
+            font-weight: bolder;
+            font-size: 18px;
+          }
+
+          .section__socialSec-divider {
+            width: 70px;
+            background-color: red;
+            height: 3px;
+            margin-bottom: 15px;
+          }
+
+          .section__socialSec-light {
+            font-family: GothamProLight;
+            font-size: 16px;
+          }
+
+          .section__testimonials {
+            width: 100vw;
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .testimonial__card {
+            width: 60%;
+            background-color: red;
+            height: 400px;
+          }
+
+          .section__dots {
+            margin-top: 30px;
+          }
+
+          .testimonials__dots {
+            padding: 0;
+            border: none;
+            margin-left: 5px;
+          }
+
+          .first__dot {
+            margin-left: 0 !important;
+          }
+
           .landing__container {
             width: 100vw;
             overflow-x: hidden;
-          }
-          .section__text {
-            text-align: left;
-            width: 100%;
-          }
-
-          .section__text-header {
-            font-size: 40px;
-          }
-
-          .section__text-paragraph {
-            color: ${colors.darkGray};
-            font-weight: 200;
-            font-size: 18px;
           }
 
           hr {
@@ -178,129 +255,6 @@ class Landing extends React.Component {
           .dotsContainer a {
             border: none;
             padding: 0;
-          }
-
-          .contact-image {
-            height: 500px;
-            width: 100%;
-            margin-top: 50px;
-          }
-
-          .section {
-            display: flex;
-            width: 100%;
-            height: 500px;
-            margin-top: 180px;
-            background-color: ${colors.sectionGray};
-          }
-
-          .section__1 {
-            width: 50%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          .section__2 {
-            width: 50%;
-            height: 100%;
-            background-image: url("${Couple}");
-            background-size: 100% 100%;
-          }
-
-          .main__section {
-            display: flex;
-            flex-direction: column;
-            height: 670px;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
-          }
-
-          .main__section h1 {
-            color: white;
-            font-weight: 1000;
-            font-size: 3em;
-            margin: 0;
-          }
-
-          .main__section p {
-            color: white;
-            font-weight: 100;
-            font-size: 20px;
-          }
-
-          .main__section--block {
-            height: 300px;
-            width: 100%;
-            min-width: 500px;
-            max-width: 900px;
-            background-color: white;
-            position: absolute;
-            margin-top: 335px;
-            box-shadow: 0 0 18px #BDBDBD;
-            display: flex;
-            flex-direction: column;
-          }
-
-          .main__section--block_1 {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: -60px;
-          }
-
-          .main__section--block_1 div {
-            border-radius: 50%;
-            border: ${this.state.hover ? '2px solid' + colors.blue : '1px solid #D8D8D8'};
-            box-shadow: ${this.state.hover ? '0' : '0 0 22px #E6E6E6'};
-            -webkit-transition: all 0.25s ease;
-            -moz-transition: all 0.25s ease;
-            transition: all 0.20s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 110px;
-            height: 110px;
-            background-color: white;
-          }
-
-          .stats {
-            height: 60px;
-            width: 60px;
-          }
-
-          .main__section--block_2 {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-
-          .main__section--block_2 a {
-            border: none;
-            color: inherit;
-            height: 100%;
-            padding: 0;
-          }
-
-          .main__section--block_2 h2 {
-            font-size: 18px;
-            font-family: GothamProBold;
-            text-align: center;
-            margin-top: 25px;
-            padding: 0 30px;
-            text-transform: uppercase;
-          }
-
-          .main__section--block_2 p {
-            color: black;
-            font-size: 16px;
-            font-weight: 100;
-            text-align: center;
-            padding: 0 100px;
           }
 
           .testimonialsContainer {
@@ -414,15 +368,6 @@ class Landing extends React.Component {
             -moz-animation-duration: 1s;
             -o-animation-duration: 1s;
             animation-duration: 1s;
-          }
-
-          video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1000;
-            width: 100% !important;
-            min-width: 1300px;
           }
         `}</style>
       </div>

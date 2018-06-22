@@ -32,7 +32,7 @@ export default class HEA extends React.Component {
     super(props);
     this.state = {
       hover: null,
-      accordion: true,
+      accordion: false,
     };
   }
 

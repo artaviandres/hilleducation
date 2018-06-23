@@ -180,6 +180,7 @@ class Landing extends React.Component {
           .section__video video {
             width: 100%;
             padding: 0 175px;
+            max-width: 1500px;
           }
 
           .section__socialSec {

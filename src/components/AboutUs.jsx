@@ -7,7 +7,7 @@ import BlueBackgroundImg from './BlueBackgroundImg';
 import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
-import HundredsOf from '../assets/images/ABOUT_US.svg';
+import HundredsOf from '../assets/images/About_us_red.svg';
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 

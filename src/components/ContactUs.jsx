@@ -118,13 +118,6 @@ class ContactUs extends React.Component {
             color: white;
           }
 
-          .divider {
-            background-color: white;
-            width: 3px;
-            height: 150px;
-            margin-right: 30px;
-          }
-
           .contact__form {
             display: inline-flex;
             justify-content: center;

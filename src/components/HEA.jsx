@@ -125,7 +125,7 @@ export default class HEA extends React.Component {
         <div className="downloadable__wrapper">
           <div className="downloadable" style={{ flexDirection: 'column' }}>
             <img src={Logo} alt="logo" width="350px" />
-            <Button click={() => window.location = LogoDownload} type="reversed" width="250px">DOWNLOAD LOGO</Button>
+            <Button click={() => window.location = LogoDownload} type="redReversed" width="250px">DOWNLOAD LOGO</Button>
           </div>
           <div className="downloadable">
             <div className="downloadable-beta__icon">
@@ -149,7 +149,9 @@ export default class HEA extends React.Component {
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
               </p>
-              <Button type="reversed" width="250px" click={() => this.setState({ accordion: !this.state.accordion })}>SEE ALL FLYERS {this.state.accordion === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
+              <div className="downloadable-beta__info-button">
+                <Button type="redReversed" width="250px" click={() => this.setState({ accordion: !this.state.accordion })}>SEE ALL FLYERS {this.state.accordion === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
+              </div>
             </div>
           </div>
           <div className="accordion__wrapper">
@@ -165,8 +167,8 @@ export default class HEA extends React.Component {
                 >
                   <p>{item.id}. {item.text} </p>
                   <div className="accordion__item-buttons">
-                    <Button type="reversed">Preview</Button>
-                    <Button type="reversed">Download</Button>
+                    <Button type="blueBorder">Preview</Button>
+                    <Button type="redReversed">Download</Button>
                   </div>
                 </div>
               );
@@ -194,7 +196,9 @@ export default class HEA extends React.Component {
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
               </p>
-              <Button type="reversed" width="250px" onClick={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+              <div className="downloadable-beta__info-button">
+                <Button type="redReversed" width="250px" click={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+              </div>
             </div>
           </div>
           <div className="downloadable">
@@ -218,7 +222,9 @@ export default class HEA extends React.Component {
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
               </p>
-              <Button type="reversed" width="250px" onClick={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+              <div className="downloadable-beta__info-button">
+                <Button type="redReversed" width="250px" click={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+              </div>
             </div>
           </div>
         </div>
@@ -353,7 +359,7 @@ export default class HEA extends React.Component {
           }
 
           .divider-red {
-            background-color: ${colors.blue};
+            background-color: ${colors.red};
             width: 90px;
             height: 3px;
           }
@@ -431,6 +437,10 @@ export default class HEA extends React.Component {
 
           .accordion__item-buttons button {
             margin-right: 30px;
+          }
+
+          .downloadable-beta__info-button {
+            width: 225px;
           }
         `}</style>
       </div>

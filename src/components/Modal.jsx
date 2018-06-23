@@ -69,7 +69,7 @@ export default class Modal extends React.Component {
             break;
           case 'auth/user-not-found':
             this.setState({
-              message: 'The user does not exist in our database. Please contact hill@education.com for further instructions.'
+              message: 'The user does not exist in our database. Please contact info@hilleducationassociates.com for further instructions.'
             });
             break;
           case 'auth/wrong-password':

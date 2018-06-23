@@ -5,7 +5,22 @@ export default class Button extends React.Component {
   render() {
     return (
       <div className="button__container">
-        <button onClick={this.props.click} className={this.props.type === "reversed" ? "reversed" : this.props.type === "white" ? "whiteAndBlue" : this.props.type === "transparentMenu" ? "transparentMenu" : this.props.type === "contactBlock" ? "contactBlock" : "regular"} style={{ width: this.props.width, marginTop: this.props.marginTop }}>{this.props.children}</button>
+        <button
+          onClick={this.props.click}
+          className={
+            this.props.type === "reversed" ? "reversed"
+            : this.props.type === "white" ? "whiteAndBlue"
+            : this.props.type === "transparentMenu" ? "transparentMenu"
+            : this.props.type === "contactBlock" ? "contactBlock"
+            : this.props.type === "red" ? "red"
+            : this.props.type === "redReversed" ? "redReversed"
+            : this.props.type === "blueBorder" ? "blueBorder"
+            : "regular"
+          }
+          style={{ width: this.props.width, marginTop: this.props.marginTop }}
+        >
+          {this.props.children}
+        </button>
         <style jsx>{`
           .button__container {
             display: flex;
@@ -86,6 +101,42 @@ export default class Button extends React.Component {
           .contactBlock:hover {
             background-color: ${colors.white};
             color: ${colors.blue};
+            border: 1px solid ${colors.blue};
+          }
+
+          .red {
+            background-color: ${colors.red};
+            color: ${colors.white};
+            border: 1px solid ${colors.red};
+          }
+
+          .red:hover {
+            background-color: ${colors.white};
+            color: ${colors.red};
+            border: 1px solid ${colors.red};
+          }
+
+          .redReversed {
+            background-color: ${colors.white};
+            color: ${colors.red};
+            border: 1px solid ${colors.red};
+          }
+
+          .redReversed:hover {
+            background-color: ${colors.red};
+            color: ${colors.white};
+            border: 1px solid ${colors.red};
+          }
+
+          .blueBorder {
+            background-color: ${colors.white};
+            color: ${colors.blue};
+            border: 1px solid ${colors.blue};
+          }
+
+          .blueBorder:hover {
+            background-color: ${colors.blue};
+            color: ${colors.white};
             border: 1px solid ${colors.blue};
           }
         `}</style>

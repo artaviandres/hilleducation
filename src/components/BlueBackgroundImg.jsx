@@ -1,4 +1,5 @@
 import React from 'react';
+import colors from '../variables';
 
 export default class BlueBackgroundImg extends React.Component {
   render() {
@@ -36,7 +37,7 @@ export default class BlueBackgroundImg extends React.Component {
           }
 
           .divider {
-            background-color: white;
+            background-color: ${colors.red};
             width: 3px;
             height: 190px !important;
             margin-right: 30px;

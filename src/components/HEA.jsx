@@ -220,7 +220,6 @@ export default class HEA extends React.Component {
                 onMouseEnter={() => this.setState({ hover: 3 })}
                 onMouseLeave={() => this.setState({ hover: null })}
                 className="downloadable__assets-item"
-                onClick={() => alert('No videos available at the moment.')}
               >
                 <div style={{
                   border: this.state.hover === 3 ? '2px solid' + colors.blue : '1px solid #D8D8D8',
@@ -236,7 +235,7 @@ export default class HEA extends React.Component {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
               </p>
               <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => window.location = PresentationDownload}>DOWNLOAD</Button>
+                <Button type="redReversed" width="250px" click={() => window.open('https://www.youtube.com/watch?v=iUbkrJIgTJw', '_blank')}>WATCH VIDEO</Button>
               </div>
             </div>
           </div>

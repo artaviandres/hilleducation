@@ -92,6 +92,7 @@ class Landing extends React.Component {
         <a
           className={item.id === 1 ? "testimonials__dots first__dot" : "testimonials__dots"}
           onClick={() => this.setState({ activeDot: item.id })}
+          key={item.id}
         >
           <FaCircle size={12} color={activeDot === item.id ? '#4D4D4D' : '#BFBFBF'} />
         </a>
@@ -124,16 +125,18 @@ class Landing extends React.Component {
           </video>
         </div>
         <div className="section__socialSec">
-          <p className="section__socialSec-bold">
-            The Social Security benefits of millions of public school employees across America
-            are negatively affected by the <br /> Windfall Elimination Provision (WEP) and/or
-            Government Pension Offset (GPO).
-          </p>
-          <div className="section__socialSec-divider" />
-          <p className="section__socialSec-light">
-            If you are married or have a partner, this information is vital for you to understand
-            the ways in which WEP/GPO will affect you in retirement.
-          </p>
+          <div className="section__socialSec__wrapper">
+            <p className="section__socialSec-bold">
+              The Social Security benefits of millions of public school employees across America
+              are negatively affected by the Windfall Elimination Provision (WEP) and/or
+              Government Pension Offset (GPO).
+            </p>
+            <div className="section__socialSec-divider" />
+            <p className="section__socialSec-light">
+              If you are married or have a partner, this information is vital for you to understand
+              the ways in which WEP/GPO will affect you in retirement.
+            </p>
+          </div>
         </div>
         <div className="section__testimonials">
           {this.onRenderTestimonials()}
@@ -146,7 +149,7 @@ class Landing extends React.Component {
         <style jsx>{`
           .section__main {
             width: 100vw;
-            height: 600px;
+            height: 88vh;
             background: url(${PictureMain}) 50% 50%;
             background-size: 100%;
             display: flex;
@@ -187,6 +190,16 @@ class Landing extends React.Component {
             height: 200px;
             width: 100vw;
             padding: 0 175px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .section__socialSec__wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 1000px;
           }
 
           .section__socialSec-bold {

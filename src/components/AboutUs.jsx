@@ -35,26 +35,25 @@ class AboutUs extends React.Component {
           </p>
         </div>
         <div className="section__3">
-          <div className="section__3-picture">
-            <div className="picture" />
-          </div>
-          <div className="section__3-info">
-            <h2>Led by Dennis Hill</h2>
-            <div className="divider-horizontal" />
-            <ul>
-              {infoData.map(item => {
-                const itemPosition = infoData.indexOf(item);
-                return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>                
-               }
-              )}
-            </ul>
+          <h2>Led by Dennis Hill</h2>
+          <div className="divider-horizontal" />
+          <div className="section__3-wrapper">
+            <div className="section__3-picture">
+              <div className="picture" />
+            </div>
+            <div className="section__3-info">
+              <ul>
+                {infoData.map(item => {
+                  const itemPosition = infoData.indexOf(item);
+                  return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>                
+                }
+                )}
+              </ul>
+            </div>
           </div>
         </div>
         <div className="section__4">
-          <div className="divider-blue" />
-          {/* <p>Hill Education Associates provides critical information for you to<br />
-          understand how you and your spouse will be affected by WEP/GPO<br />
-          and methods to better prepare for your retirement.</p> */}
+          <div className="divider-red" />
           <p>Hill Education Associates provides critical information for <br />
           public school employees and their spouses to understand how they will <br />
           be affected by WEP/GPO and methods to better prepare for retirement.</p>
@@ -62,8 +61,8 @@ class AboutUs extends React.Component {
         <ContactUsBlock />
         <Footer />
         <style jsx>{`
-          .divider-blue {
-            background-color: ${colors.blue};
+          .divider-red {
+            background-color: ${colors.red};
             width: 3px;
             height: 110px;
             margin-right: 30px;
@@ -72,7 +71,8 @@ class AboutUs extends React.Component {
           .divider-horizontal {
             height: 2px;
             width: 60px;
-            background-color: ${colors.blue};
+            margin-bottom: 50px;
+            background-color: ${colors.red};
           }
 
           .section__2 {
@@ -93,11 +93,18 @@ class AboutUs extends React.Component {
           .section__3 {
             background-color: ${colors.sectionGray};
             width: 100vw;
-            height: 480px;
+            height: 550px;
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+          }
+
+          .section__3-wrapper {
+            width: 100%;
+            display: flex;
             align-items: center;
+            justify-content: center;
           }
 
           .section__3-picture {

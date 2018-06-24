@@ -194,7 +194,7 @@ export default class Modal extends React.Component {
                       </div>
                     : null
                   }
-                  <Button width="337px" marginTop="25px" type="white">
+                  <Button width="337px" marginTop="25px" type="redReversed">
                     LOG IN
                   </Button>
                 </form>
@@ -238,7 +238,7 @@ export default class Modal extends React.Component {
                           </div>
                         : null
                   }
-                  <Button width="337px" marginTop="25px" type="white">
+                  <Button width="337px" marginTop="25px" type="redReversed">
                     SUBMIT
                   </Button>
                 </form>

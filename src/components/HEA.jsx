@@ -11,7 +11,6 @@ import {
 import Header from './Header';
 import BlueBackgroundImg from './BlueBackgroundImg';
 import Footer from './Footer';
-import ContactUsBlock from './ContactUsBlock';
 import Button from './Button';
 
 import HeaAssociatesImg from '../assets/images/HEA_ASSOCIATES.jpg';
@@ -22,8 +21,16 @@ import Videos from '../assets/images/videos.svg';
 import Check from '../assets/images/check.svg';
 
 import LogoDownload from '../assets/downloadables/LOGO.zip';
-import FlyersDownload from '../assets/downloadables/FLYERS.zip';
 import PresentationDownload from '../assets/downloadables/PRESENTATION.key';
+
+// flyers
+import Flyer1 from '../assets/flyers/FLYER 1.png';
+import Flyer2 from '../assets/flyers/FLYER 2.png';
+import Flyer3 from '../assets/flyers/FLYER 3.png';
+import Flyer4 from '../assets/flyers/FLYER 4.png';
+import Flyer5 from '../assets/flyers/FLYER 5.png';
+import Flyer6 from '../assets/flyers/FLYER 6.png';
+import Flyer7 from '../assets/flyers/FLYER 7.png';
 
 import colors from '../variables';
 
@@ -43,30 +50,37 @@ export default class HEA extends React.Component {
       {
         id: 1,
         text: 'How social security retirement benefits of millions of public school employees are affected by WEP/GPO',
+        url: Flyer1,
       },
       {
         id: 2,
         text: 'Led by Denis Hill',
+        url: Flyer2,
       },
       {
         id: 3,
         text: 'Are you looking for a low cost business modal that will put you in front of hundreds/thousands of investors?',
+        url: Flyer3,
       },
       {
         id: 4,
         text: 'We provide a proven business for you to get in front on hundreds of potential clients',
+        url: Flyer4,
       },
       {
         id: 5,
         text: 'Maximize TRS and SS benefits',
+        url: Flyer5,
       },
       {
         id: 6,
         text: 'Agent strategy to approach school district',
+        url: Flyer6,
       },
       {
         id: 7,
         text: 'Agent support provided by Hill Education Associates',
+        url: Flyer7,
       },
     ];
 
@@ -133,7 +147,6 @@ export default class HEA extends React.Component {
                   style={{ borderRight: 'none',  }}
                   onMouseEnter={() => this.setState({ hover: 1 })}
                   onMouseLeave={() => this.setState({ hover: null })}
-                  onClick={() => window.location = FlyersDownload}
                   className="downloadable__assets-item"
                 >
                   <div style={{
@@ -167,8 +180,8 @@ export default class HEA extends React.Component {
                 >
                   <p>{item.id}. {item.text} </p>
                   <div className="accordion__item-buttons">
-                    <Button type="blueBorder">Preview</Button>
-                    <Button type="redReversed">Download</Button>
+                    <Button type="redReversed" width="200" click={() => window.open(item.url, '_blank')}>Download</Button>
+                    {/* <a href={item.url} target="_blank">Download</a> */}
                   </div>
                 </div>
               );

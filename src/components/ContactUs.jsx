@@ -92,7 +92,7 @@ class ContactUs extends React.Component {
             }}>
               {this.state.type === 'success' ? <FaCheck /> : <FaExclamation />} {this.state.message}
             </div>
-            <Button type="white" click={this.submitContact}>SUBMIT</Button>
+            <Button type="redReversed" width="250px" click={this.submitContact}>SUBMIT</Button>
           </form>
         </div>
         <div className="contact__map">

@@ -117,7 +117,7 @@ export default class Button extends React.Component {
           }
 
           .redReversed {
-            background-color: ${colors.white};
+            background-color: transparent;
             color: ${colors.red};
             border: 1px solid ${colors.red};
           }

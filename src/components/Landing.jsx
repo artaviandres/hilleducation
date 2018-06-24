@@ -116,7 +116,7 @@ class Landing extends React.Component {
             employees and their spouses to inform and educate them about the impact of WEP/GPO
             on their retirement income so that they can better prepare for their future.
           </p>
-          <Button type="red" width="250px" click={() => window.scrollBy(0, 650)}>WATCH VIDEO</Button>
+          <Button type="red" width="250px" click={() => window.scrollBy(0, 800)}>WATCH VIDEO</Button>
         </div>
         <div className="section__video">
           <video controls>

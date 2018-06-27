@@ -7,14 +7,14 @@ import colors from '../variables';
 const Testimonial = (props) => {
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <a className="left__arrow" onClick={() => props.onToggleTestimonials('prev')}><FaLeft color={'#E6E6E6'} size={50} /></a>
+      <a className="left__arrow" onClick={() => props.onToggleTestimonials('prev')}><FaLeft color={colors.gray} size={50} /></a>
       <div className="testimonials__card">
         <img src={Quotes} alt="quotes" />
         <p className="testimonials__text">{props.text}</p>
         <p className="testimonials__author">{props.author}</p>
         <p className="testimonials__subauthor">{props.subAuthor}</p>
       </div>
-      <a className="right__arrow" onClick={() => props.onToggleTestimonials('next')}><FaRight color={'#E6E6E6'} size={50} /></a>
+      <a className="right__arrow" onClick={() => props.onToggleTestimonials('next')}><FaRight color={colors.gray} size={50} /></a>
       <style jsx>{`
         .testimonials__card {
           background-color: #FCFCFC;
@@ -22,7 +22,7 @@ const Testimonial = (props) => {
           width: 60%;
           max-width: 950px;
           min-width: 650px;
-          box-shadow: 0 0 20px #E6E6E6;
+          box-shadow: 0 0 80px ${colors.gray};
           padding: 40px;
           display: flex;
           flex-direction: column;

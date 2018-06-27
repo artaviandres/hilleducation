@@ -13,7 +13,7 @@ import * as UserActions from '../actions/user';
 
 class AboutUs extends React.Component {
   render() {
-    const infoData = ["Educator in Michigan and Texas", "Classroom teacher", "Counselor", "College Administrator", "Coach", "Member; Texas Teacher Retirement System", "In the retirement planning business 20+ years", "Focus on retirement planning for educator/school personnel"];
+    const infoData = ["Educator in Michigan and Texas", "Classroom teacher", "Counselor", "College Administrator", "Coach", "Member; Texas Teacher Retirement System", "In the retirement planning business 20+ years", "Emphasis on retirement planning for educators/school personnel"];
     return (
       <div>
         <Header selected="aboutUs" />
@@ -29,9 +29,9 @@ class AboutUs extends React.Component {
         </div>
         <div className="section__largeText">
           <p>
-            Dennis Hill has spent a lifetime guiding, coaching and leading people to better themselves. As a school counselor in the 70's and 80's, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, with both teams and individuals, culminating in several individual and team state championships in the state of Michigan. Today, Dennis is honored to be a member of the Michigan Sports Hall of Fame.
+            Dennis Hill has spent a lifetime guiding, coaching, and leading people to better themselves. As a school counselor in the 70’s and 80’s, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, both of teams and individuals, culminating in several state championships in the state of Michigan. In 1973, Dennis was honored to be selected as “Coach of the Year” by the Michigan High School Coaches Association.
             <br /><br />
-            Over the last 20+ years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of  more than 10 years. If you talk to Dennis, however, he is probably most proud of his love of 55 years, Virginia, and their four children and their many grandchildren.
+            For more than 20 years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of more than 10 years. If you ask Dennis, he is most proud of his love of 55 years, Virginia, their four children, and 11 grandchildren. 
           </p>
         </div>
         <div className="section__3">

@@ -91,7 +91,7 @@ class Header extends React.Component {
             onClick={() => this.clickAssociates()}
             className={this.props.selected === "associates" ? "selected" : null}
           >
-            HEA Associates
+            Associates
           </a>
           {this.checkUserStatus()}
         </div>

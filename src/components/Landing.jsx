@@ -28,7 +28,7 @@ class Landing extends React.Component {
         },
         {
           id: 2,
-          text: "Extremely important information to know",
+          text: "Extremely important information to know.",
           author: "Nancy Philbrick, Klein Collins",
           subAuthor: "School Secretary",
         },
@@ -40,7 +40,7 @@ class Landing extends React.Component {
         },
         {
           id: 4,
-          text: "I learned a lot about retirement and social security that I was unaware of",
+          text: "I learned a lot about retirement and social security that I was unaware of.",
           author: "James Fobbs",
           subAuthor: "Wunderlich Elementary, Administrator",
         },
@@ -109,12 +109,12 @@ class Landing extends React.Component {
           selected="home"
         />
         <div className="section__main">
-          <img src={LogoWhite} width="450px" />
+          <img src={LogoWhite} width="600px" />
           <div className="section__main-divider" />
           <p className="section__main-text">
-            Our national network of associates provides free seminar for public school
-            employees and their spouses to inform and educate them about the impact of WEP/GPO
-            on their retirement income so that they can better prepare for their future.
+          Our national network of associates provides free seminars for public school employees and their
+          spouses to inform and educate them about the impact of WEP/GPO on their retirement income so that
+          they can better prepare for their future. 
           </p>
           <Button type="red" width="250px" click={() => window.scrollBy(0, 800)}>WATCH VIDEO</Button>
         </div>

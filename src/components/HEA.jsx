@@ -25,7 +25,6 @@ import PresentationDownload from '../assets/downloadables/PRESENTATION.key';
 
 // flyers
 import Flyer1 from '../assets/flyers/FLYER 1.png';
-import Flyer2 from '../assets/flyers/FLYER 2.png';
 import Flyer3 from '../assets/flyers/FLYER 3.png';
 import Flyer4 from '../assets/flyers/FLYER 4.png';
 import Flyer5 from '../assets/flyers/FLYER 5.png';
@@ -54,31 +53,26 @@ export default class HEA extends React.Component {
       },
       {
         id: 2,
-        text: 'Led by Denis Hill',
-        url: Flyer2,
-      },
-      {
-        id: 3,
-        text: 'Are you looking for a low cost business modal that will put you in front of hundreds/thousands of investors?',
+        text: 'Are you looking for a low cost business model that will put you in front of hundreds/thousands of investors?',
         url: Flyer3,
       },
       {
-        id: 4,
-        text: 'We provide a proven business for you to get in front on hundreds of potential clients',
+        id: 3,
+        text: 'We provide a proven business model for you to get in front of hundreds of potential clients',
         url: Flyer4,
       },
       {
-        id: 5,
+        id: 4,
         text: 'Maximize TRS and SS benefits',
         url: Flyer5,
       },
       {
-        id: 6,
+        id: 5,
         text: 'Agent strategy to approach school district',
         url: Flyer6,
       },
       {
-        id: 7,
+        id: 6,
         text: 'Agent support provided by Hill Education Associates',
         url: Flyer7,
       },
@@ -89,8 +83,8 @@ export default class HEA extends React.Component {
         <Header selected="associates" />
         <BlueBackgroundImg
           image={HeaAssociatesImg}
-          title="WELCOME TO THE HEA ASSOCIATES WORKSTATION"
-          subtitle="This section of the website has been designed to provide you with the tool kid you will need to successfully communicate with school administrators, principals, teachers, and other public school employees."
+          title="WELCOME TO THE ASSOCIATES WORKSTATION"
+          subtitle="This section of the website has been designed to provide you with the tool kit you will need to successfully communicate with school administrators, principals, teachers, and other public school employees."
           width="1000px"
         />
         <div className="introduction__wrapper">
@@ -101,15 +95,14 @@ export default class HEA extends React.Component {
             knowledge and skills necessary to hold a successful educational seminar in your area.
           </p>
           <p>
-            You will be able to convince school administrators of the importance of this information as well as
-            accurately convey this issue to the school employees.
+            You will be able to convince school administrators of the importance of this information as well as accurately convey this issue to school employees.
           </p>
           <p>
             You will also find pertinent information specific to the circumstances of your particular state. The
             impact of WEP/GPO will vary by state and, in some instances, by country.
           </p>
           <p>
-            Our goal is to help you get a room full of attentive seminar attendees for you to convert into clients of your business.
+            Our goal is to help you get a room full of attentive seminar attendees for you to convert into clients.
           </p>
         </div>
         <div className="workstation__wrapper">

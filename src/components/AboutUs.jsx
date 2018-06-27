@@ -23,6 +23,7 @@ class AboutUs extends React.Component {
           subtitle="Hill Education Associates is a growing national network of financial
           advisors who have made it their mission to educate public
           employees about the impact of WEP/GPO on their retirement."
+          width="750px"
         />
         <div className="section__2">
           <img src={HundredsOf} alt="hundreds" />
@@ -45,7 +46,7 @@ class AboutUs extends React.Component {
               <ul>
                 {infoData.map(item => {
                   const itemPosition = infoData.indexOf(item);
-                  return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>                
+                  return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div><p>{item}</p></li>                
                 }
                 )}
               </ul>
@@ -100,6 +101,10 @@ class AboutUs extends React.Component {
             justify-content: center;
           }
 
+          .section__3 h2 {
+            font-family: GothamProBold;
+          }
+
           .section__3-wrapper {
             width: 100%;
             display: flex;
@@ -127,6 +132,11 @@ class AboutUs extends React.Component {
           .section__3-info h2 {
             font-size: 24px;
             font-weight: 1000;
+          }
+
+          .section__3-info p {
+            font-size: 18px;
+            margin-bottom: 0;
           }
 
           .picture {
@@ -174,7 +184,7 @@ class AboutUs extends React.Component {
           }
 
           .section__4 p {
-            font-size: 18px;
+            font-size: 20px;
             margin: 0;
           }
 
@@ -183,8 +193,8 @@ class AboutUs extends React.Component {
             min-width: 600px;
             text-align: justify;
             margin: -80px auto 80px auto;
-            font-family: GothamProLight;
-            font-size: 16px;
+            font-family: GothamPro;
+            font-size: 19px;
           }
         `}</style>
       </div>

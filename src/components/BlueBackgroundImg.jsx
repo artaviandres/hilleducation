@@ -31,7 +31,7 @@ export default class BlueBackgroundImg extends React.Component {
           }
 
           .section__1-text h1 {
-            font-weight: 600;
+            font-family: GothamProBold;
             font-size: 36px;
             text-transform: uppercase;
           }
@@ -45,7 +45,7 @@ export default class BlueBackgroundImg extends React.Component {
 
           .section__1-text p {
             width: ${this.props.width ? this.props.width : '600px'};
-            font-size: 18px;
+            font-size: 20px;
           }
         `}</style>
       </div>

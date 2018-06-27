@@ -49,22 +49,22 @@ const Testimonial = (props) => {
 
         .testimonials__text {
           margin-bottom: 30px;
-          font-size: 18px;
-          font-family: GothamProLight;
+          font-size: 20px;
+          font-family: GothamPro;
           text-align: center;
         }
 
         .testimonials__author {
           font-family: GothamProBold;
           color: ${colors.red};
-          font-size: 18px;
+          font-size: 20px;
           margin-bottom: 0;
         }
 
         .testimonials__subauthor {
           font-family: GothamPro;
           font-weight: bolder;
-          font-size: 16px;
+          font-size: 18px;
           color: ${colors.red};
           margin-bottom: 0;
         }

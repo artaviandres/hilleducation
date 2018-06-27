@@ -114,7 +114,7 @@ export default class HEA extends React.Component {
                 <ul>
                   {firstRow.map((item) => {
                     const itemPosition = firstRow.indexOf(item);
-                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>
+                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div><p>{item}</p></li>
                   })}
                 </ul>
               </div>
@@ -122,7 +122,7 @@ export default class HEA extends React.Component {
                 <ul>
                   {secondRow.map((item) => {
                     const itemPosition = secondRow.indexOf(item);
-                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div>{item}</li>
+                    return <li key={itemPosition}><div className="check__container"><img src={Check} alt="check" /></div><p>{item}</p></li>
                   })}
                 </ul>
               </div>
@@ -268,12 +268,12 @@ export default class HEA extends React.Component {
           .downloadable-beta__info h3 {
             font-family: GothamPro;
             font-weight: 900;
-            font-size: 18px;
+            font-size: 20px;
           }
 
           .downloadable-beta__info p {
             font-family: GothamProLight;
-            font-size: 14px;
+            font-size: 18px;
             color: ${colors.darkGray};
           }
 
@@ -334,13 +334,12 @@ export default class HEA extends React.Component {
             min-width: 600px;
             text-align: justify;
             margin: 80px auto 80px auto;
-            font-family: GothamProLight;
-            font-size: 16px;
+            font-family: GothamPro;
+            font-size: 18px;
           }
 
           .introduction__wrapper-bold {
-            font-family: GothamPro;
-            font-weight: bolder;
+            font-family: GothamProBold;
           }
 
           .workstation__wrapper {
@@ -358,7 +357,7 @@ export default class HEA extends React.Component {
 
           .workstation__wrapper h1 {
             font-size: 28px;
-            font-weight: bolder;
+            font-family: GothamProBold;
             margin-top: 45px;
             margin-bottom: 20px;
           }
@@ -404,6 +403,11 @@ export default class HEA extends React.Component {
             justify-content: center;
             width: 100%;
             margin-top: 60px;
+            font-size: 18px;
+          }
+
+          .workstation__lists p {
+            margin-bottom: 0;
           }
 
           .workstation__first {

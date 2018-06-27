@@ -30,8 +30,9 @@ export default class Button extends React.Component {
           button {
             border: none;
             cursor: pointer;
+            font-family: GothamPro;
+            font-weight: bolder;
             font-size: 16px;
-            font-weight: 400;
             height: 40px;
             outline: 0;
             width: 150px;

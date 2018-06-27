@@ -7,7 +7,7 @@ import Testimonial from './Testimonial';
 import ContactUsBlock from './ContactUsBlock';
 import LogoWhite from '../assets/images/logo_full_white.svg';
 import PictureMain from '../assets/images/HOME_PAGE_PICTURE.jpg';
-import LandingVideo from '../assets/video_home_hea.mp4';
+import LandingVideo from '../assets/landing_final_video.mp4';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -112,9 +112,9 @@ class Landing extends React.Component {
           <img src={LogoWhite} width="600px" />
           <div className="section__main-divider" />
           <p className="section__main-text">
-          Our national network of associates provides free seminars for public school employees and their
-          spouses to inform and educate them about the impact of WEP/GPO on their retirement income so that
-          they can better prepare for their future. 
+          The Social Security benefits of millions of public school employees across America are negatively affected by the Windfall Elimination Provision (WEP) and/or Government Pension Offset (GPO).
+          Our national network of associates provides free seminar for public school employees and their spouses to inform and educate them about the impact of WEP/GPO on their retirement income so that they can better prepare for their future.
+
           </p>
           <Button type="red" width="250px" click={() => window.scrollBy(0, 800)}>WATCH VIDEO</Button>
         </div>
@@ -126,12 +126,12 @@ class Landing extends React.Component {
         </div>
         <div className="section__socialSec">
           <div className="section__socialSec__wrapper">
-            <p className="section__socialSec-bold">
+            {/* <p className="section__socialSec-bold">
               The Social Security benefits of millions of public school employees across America
               are negatively affected by the Windfall Elimination Provision (WEP) and/or
               Government Pension Offset (GPO).
-            </p>
-            <div className="section__socialSec-divider" />
+            </p> */}
+            {/* <div className="section__socialSec-divider" /> */}
             <p className="section__socialSec-light">
               If you are married or have a partner, this information is vital for you to understand
               the ways in which WEP/GPO will affect you in retirement.
@@ -166,9 +166,9 @@ class Landing extends React.Component {
           }
           .section__main-text {
             color: ${colors.white};
-            font-family: GothamProLight;
-            padding: 0 300px;
-            font-size: 18px;
+            font-family: GothamPro;
+            padding: 0 170px;
+            font-size: 20px;
             text-align: center;
           }
 
@@ -187,7 +187,7 @@ class Landing extends React.Component {
           }
 
           .section__socialSec {
-            height: 200px;
+            height: 130px;
             width: 100vw;
             padding: 0 175px;
             display: flex;
@@ -216,8 +216,9 @@ class Landing extends React.Component {
           }
 
           .section__socialSec-light {
-            font-family: GothamProLight;
-            font-size: 16px;
+            font-family: GothamProBold;
+            font-size: 22px;
+            text-align: center;
           }
 
           .section__testimonials {

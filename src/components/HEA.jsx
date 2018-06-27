@@ -153,7 +153,7 @@ export default class HEA extends React.Component {
             <div className="downloadable-beta__info">
               <h3>Flyers</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+                Flyers for communicating with school administation, seminar attendees and financial advisors
               </p>
               <div className="downloadable-beta__info-button">
                 <Button type="redReversed" width="250px" click={() => this.setState({ accordion: !this.state.accordion })}>SEE ALL FLYERS {this.state.accordion === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
@@ -200,7 +200,7 @@ export default class HEA extends React.Component {
             <div className="downloadable-beta__info">
               <h3>Presentations</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+                Powerpoint and Google slide presentations for seminars
               </p>
               <div className="downloadable-beta__info-button">
                 <Button type="redReversed" width="250px" click={() => window.location = PresentationDownload}>DOWNLOAD</Button>
@@ -225,7 +225,7 @@ export default class HEA extends React.Component {
             <div className="downloadable-beta__info">
               <h3>Videos</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus pharetra
+                For educational and trainining purposes
               </p>
               <div className="downloadable-beta__info-button">
                 <Button type="redReversed" width="250px" click={() => window.open('https://www.youtube.com/watch?v=iUbkrJIgTJw', '_blank')}>WATCH VIDEO</Button>

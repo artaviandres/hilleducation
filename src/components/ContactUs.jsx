@@ -59,23 +59,23 @@ class ContactUs extends React.Component {
           title="Contact us"
           subtitle="Please contact us today so we can plan a seminar for your school district!"
         />
+        <div className="contact__form-info">
+          <div className="mail__info">
+            <div className="icon" style={{ width: 40 + 'px' }}>
+              <img src={Mail} width="25px" alt="mail" />
+            </div>
+            <p style={{ marginLeft: 10 + 'px' }}>Email: <br />info@hilleducationassociates.com</p>
+          </div>
+          <div className="phone__info">
+            <div className="icon">
+              <img src={Phone} width="20px" alt="phone" />
+            </div>
+            <p style={{ marginLeft: 10 + 'px' }}>Phone: <br />888-522-3420</p>
+          </div>
+        </div>
         <div className="contact__form">
           <form>
-            <div className="contact__form-info">
-              <div className="mail__info">
-                <div className="icon" style={{ width: 40 + 'px' }}>
-                  <img src={Mail} width="20px" alt="mail" />
-                </div>
-                <p style={{ marginLeft: 10 + 'px' }}>Email: <br />info@hilleducationassociates.com</p>
-              </div>
-              <div className="phone__info">
-                <div className="icon">
-                  <img src={Phone} width="15px" alt="phone" />
-                </div>
-                <p style={{ marginLeft: 10 + 'px' }}>Phone: <br />888-522-3420</p>
-              </div>
-            </div>
-            <input type="text" placeholder="Full name" onChange={this.updateState} id="name" />
+            <input type="text" placeholder="Full name" onChange={this.updateState} id="name" style={{ marginTop: 10 + 'px'}} />
             <input type="email" placeholder="Email address" onChange={this.updateState} id="mail" />
             <input type="text" placeholder="Phone Number" onChange={this.updateState} id="phone" />
             <textarea placeholder="How can we help you?" onChange={this.updateState} id="content" />
@@ -123,41 +123,43 @@ class ContactUs extends React.Component {
             justify-content: center;
             align-items: center;
             width: 100vw;
-            height: 600px;
+            height: 650px;
           }
 
           .contact__form form {
             width: 550px;
-            height: ${this.state.growl === true ? '610px' : '540px'};
+            height: ${this.state.growl === true ? '530px' : '450px'};
             box-shadow: 0 0 30px ${colors.gray};
             padding: 20px 60px;
+            margin-top: 70px;
           }
 
           .contact__form-info {
-            height: 75px;
-            display: inline-flex;
+            display: flex;
             justify-content: center;
-            align-items: center;
             width: 100%;
-            margin-bottom: 30px;
+            position: absolute;
+            margin-top: 50px;
           }
 
           .mail__info {
             display: inline-flex;
             align-items: center;
+            margin-bottom: 10px;
+            margin-right: 30px;
             height: 100%;
-            width: 70%;
           }
 
           .mail__info p {
-            font-size: 11px;
+            font-size: 14px;
             margin-bottom: 0;
             padding-left: 5px;
+            height: 35px;
           }
 
           .icon {
-            height: 40px !important;
-            width: 40px !important;
+            height: 50px !important;
+            width: 50px !important;
             background-color: white;
             box-shadow: 0 0 3px #BDBDBD;
             display: inline-flex;
@@ -173,15 +175,13 @@ class ContactUs extends React.Component {
           .phone__info {
             display: inline-flex;
             align-items: center;
-            justify-items: flex-end;
             height: 100%;
-            width: 200px !important;
-            margin-left: 10px;
           }
 
           .phone__info p {
-            font-size: 12px;
+            font-size: 14px;
             margin-bottom: 0;
+            height: 35px;
           }
 
           .contact__form form input {
@@ -228,6 +228,10 @@ class ContactUs extends React.Component {
             align-items: center;
             flex-direction: column;
             margin-top: ${this.state.growl === true ? '20px' : '0'};
+          }
+
+          .contact__map p {
+            font-size: 18px;
           }
 
           .growl__message {

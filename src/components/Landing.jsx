@@ -7,7 +7,7 @@ import Testimonial from './Testimonial';
 import ContactUsBlock from './ContactUsBlock';
 import LogoWhite from '../assets/images/logo_full_white.svg';
 import PictureMain from '../assets/images/HOME_PAGE_PICTURE.jpg';
-import LandingVideo from '../assets/video_home_hea.mp4';
+import LandingVideo from '../assets/landing_video_final.mp4';
 import colors from '../variables';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

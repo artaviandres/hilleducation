@@ -21,7 +21,7 @@ import Videos from '../assets/images/videos.svg';
 import Check from '../assets/images/check.svg';
 
 import LogoDownload from '../assets/downloadables/LOGO.zip';
-import PresentationDownload from '../assets/downloadables/PRESENTATION.key';
+import PresentationDownload from '../assets/downloadables/TRS_PRESENTATION.zip';
 
 // flyers
 import Flyer1 from '../assets/flyers/FLYER 1.png';

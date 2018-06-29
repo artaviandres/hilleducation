@@ -32,7 +32,7 @@ class AboutUs extends React.Component {
           <p>
             Dennis Hill has spent a lifetime guiding, coaching, and leading people to better themselves. As a school counselor in the 70’s and 80’s, he was dedicated to helping young people find their way in life. As a wrestling coach, he distinguished himself as a builder of champions, both of teams and individuals, culminating in several state championships in the state of Michigan. In 1973, Dennis was honored to be selected as “Coach of the Year” by the Michigan High School Coaches Association.
             <br /><br />
-            For more than 20 years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of more than 10 years. If you ask Dennis, he is most proud of his love of 55 years, Virginia, their four children, and 11 grandchildren. 
+            For more than 20 years, Dennis has been dedicated to helping people prepare for retirement, with a special focus on public educators. Dennis and his associates have held hundreds of free education seminars for thousands of public employees over a period of more than 10 years. He has consistently been a top producer for the Leaders Group for the last 16 years. This success has made him a member of the President’s Club, and an elected member of the Director’s Council. If you ask Dennis, however, he is most proud of his love of 55 years, Virginia, their four children, and 11 grandchildren. 
           </p>
         </div>
         <div className="section__3">

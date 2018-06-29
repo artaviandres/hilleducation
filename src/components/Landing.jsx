@@ -29,14 +29,14 @@ class Landing extends React.Component {
         {
           id: 2,
           text: "Extremely important information to know.",
-          author: "Nancy Philbrick, Klein Collins",
-          subAuthor: "School Secretary",
+          author: "Nancy Philbrick",
+          subAuthor: "Klein Collins, School Secretary",
         },
         {
           id: 3,
           text: "I would recommend this seminar to teachers and faculty!",
           author: "Paula Alexander",
-          subAuthor: "Krimmel Intermediate, teacher",
+          subAuthor: "Krimmel Intermediate, Teacher",
         },
         {
           id: 4,
@@ -112,8 +112,8 @@ class Landing extends React.Component {
           <img src={LogoWhite} width="600px" />
           <div className="section__main-divider" />
           <p className="section__main-text">
-          The Social Security benefits of millions of public school employees across America are negatively affected by the Windfall Elimination Provision (WEP) and/or Government Pension Offset (GPO).
-          Our national network of associates provides free seminar for public school employees and their spouses to inform and educate them about the impact of WEP/GPO on their retirement income so that they can better prepare for their future.
+            The Social Security benefits of millions of public school employees across America are negatively affected by the Windfall Elimination Provision (WEP) and/or Government Pension Offset (GPO). <br /><br />
+            Our national network of associates provides free seminars for public school employees and their spouses to inform and educate them about the impact of WEP/GPO on their retirement income so that they can better prepare for their future.
 
           </p>
           <Button type="red" width="250px" click={() => window.scrollBy(0, 800)}>WATCH VIDEO</Button>

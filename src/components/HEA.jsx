@@ -44,7 +44,7 @@ export default class HEA extends React.Component {
 
   render() {
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
-    const secondRow = ['Marketing Support', 'Business Development support', 'Formula charts for calculating Pension & SS benefits', 'Webinars', 'On site seminar support'];
+    const secondRow = ['Marketing support', 'Business Development support', 'Formula charts for calculating Pension & SS benefits', 'Webinars', 'On site seminar support'];
     const flyers = [
       {
         id: 1,
@@ -99,7 +99,7 @@ export default class HEA extends React.Component {
           </p>
           <p>
             You will also find pertinent information specific to the circumstances of your particular state. The
-            impact of WEP/GPO will vary by state and, in some instances, by country.
+            impact of WEP/GPO will vary by state and, in some instances, by county.
           </p>
           <p>
             Our goal is to help you get a room full of attentive seminar attendees for you to convert into clients.
@@ -153,7 +153,7 @@ export default class HEA extends React.Component {
             <div className="downloadable-beta__info">
               <h3>Flyers</h3>
               <p>
-                Flyers for communicating with school administation, seminar attendees and financial advisors
+                Flyers for communicating with school administration, seminar attendees, and financial advisors
               </p>
               <div className="downloadable-beta__info-button">
                 <Button type="redReversed" width="250px" click={() => this.setState({ accordion: !this.state.accordion })}>SEE ALL FLYERS {this.state.accordion === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>

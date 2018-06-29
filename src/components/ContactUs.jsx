@@ -27,7 +27,7 @@ class ContactUs extends React.Component {
 
   submitContact = (e) => {
     e.preventDefault();
-    emailjs.send("default_service","template_LdwxOUUM",{from_name: [this.state.name + ' (Phone number: ' + this.state.phone + ')'], message_html: this.state.content, reply_to: this.state.mail}, 'user_kCRwRozcLUM6fPoa7V0hs')
+    emailjs.send("default_service","template_LdwxOUUM",{from_name: [this.state.name], message_html: this.state.content, reply_to: this.state.mail, user_phone: this.state.phone}, 'user_kCRwRozcLUM6fPoa7V0hs')
     .then((success) => {
       this.setState({
         growl: true,
@@ -139,7 +139,7 @@ class ContactUs extends React.Component {
             justify-content: center;
             width: 100%;
             position: absolute;
-            margin-top: 50px;
+            margin-top: ${this.state.growl === true ? '20px' : '50px'};
           }
 
           .mail__info {

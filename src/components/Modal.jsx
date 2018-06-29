@@ -21,6 +21,7 @@ export default class Modal extends React.Component {
       accounts: [],
       email: '',
       password: '',
+      emailReset: '',
       user: {},
     };
     this.submitRegister = this.submitRegister.bind(this);
@@ -104,9 +105,9 @@ export default class Modal extends React.Component {
   resetPassword(e) {
     e.preventDefault();
     const auth = firebase.auth();
-    auth.sendPasswordResetEmail(this.state.email)
+    auth.sendPasswordResetEmail(this.state.emailReset)
     .then((res) => {
-      this.setState({ showError: false, showSuccess: true, message: 'Email correctly sent to ' + this.state.email + ' , please check your inbox for further instructions' });
+      this.setState({ showError: false, showSuccess: true, message: 'Email correctly sent to ' + this.state.emailReset + ' , please check your inbox for further instructions' });
 
     })
     .catch((e) => {
@@ -119,7 +120,7 @@ export default class Modal extends React.Component {
             break;
           case 'auth/user-not-found':
             this.setState({
-              message: 'The user does not exist in our database. Please contact hill@education.com for further instructions.'
+              message: 'The user does not exist in our database. Please contact info@hilleducationassociates.com for further instructions.'
             });
             break;
           default:
@@ -213,13 +214,13 @@ export default class Modal extends React.Component {
                     type="text"
                     id="input-email-forgot"
                     name="Email"
-                    change={(e) => this.setState({ email: e.target.value })}
+                    onChange={(e) => this.setState({ emailReset: e.target.value })}
                     required="true"
                     className="forgot__input"
                     placeholder="Email"
                   />
                   {this.state.showError
-                    ? <div className="danger__container">
+                    ? <div className="danger__container__reset">
                         <div className="danger__icon">
                           <FaDanger />
                         </div>
@@ -228,7 +229,7 @@ export default class Modal extends React.Component {
                         </div>
                       </div>
                     : this.state.showSuccess
-                        ? <div className="danger__container">
+                        ? <div className="danger__container__reset">
                             <div className="danger__icon">
                               <FaCheck />
                             </div>
@@ -278,6 +279,7 @@ export default class Modal extends React.Component {
             padding: 0;
             color: ${colors.darkGray} !important;
             margin-top: 0px;
+            margin-top: ${this.state.message === 'The email address is badly formatted.' ? '0px' : '10px'};
           }
 
           .modal__container {
@@ -418,6 +420,14 @@ export default class Modal extends React.Component {
 
           .login__input:focus {
             outline: 0
+          }
+
+          .danger__container__reset {
+            display: flex;
+            margin-top: ${this.state.message === 'The email address is badly formatted.' ? '25px' : '5px'};
+            color: ${colors.inputFontColor};
+            width: 340px;
+            margin-left: ${this.state.message === 'The email address is badly formatted.' ? '45px' : '40px'}
           }
         `}</style>
       </div>

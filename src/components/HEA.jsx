@@ -3,10 +3,7 @@ import React from 'react';
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
 import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
-import {
-  Accordion,
-  AccordionItem,
-} from 'react-accessible-accordion';
+import firebase from 'firebase';
 
 import Header from './Header';
 import BlueBackgroundImg from './BlueBackgroundImg';
@@ -39,8 +36,24 @@ export default class HEA extends React.Component {
     this.state = {
       hover: null,
       accordion: false,
+      accordionVideo: false,
+      linkVideo: '',
     };
   }
+
+  // componentDidMount() {
+  //   this.getMetaData();
+  // }
+
+  // getMetaData = () => {
+  //   const storage = firebase.storage();
+  //   let storageRef = storage.ref('HEALOGO-H264 MOV 1920x1080 16x9 - converted with Clipchamp.mp4');
+  //   return storageRef.getMetadata().then((item) => {
+  //     this.setState({
+  //       linkVideo: item.downloadURLs[0],
+  //     });
+  //   });
+  // }
 
   render() {
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
@@ -228,7 +241,7 @@ export default class HEA extends React.Component {
                 For educational and trainining purposes
               </p>
               <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => window.open('https://www.youtube.com/watch?v=iUbkrJIgTJw', '_blank')}>WATCH VIDEO</Button>
+                <Button type="redReversed" width="250px" click={() => this.setState({ accordionVideo: !this.state.accordionVideo })}>WATCH VIDEO</Button>
               </div>
             </div>
           </div>

@@ -73,7 +73,7 @@ class AboutUs extends React.Component {
           .divider-horizontal {
             height: 2px;
             width: 60px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             background-color: ${colors.red};
           }
 
@@ -95,7 +95,7 @@ class AboutUs extends React.Component {
           .section__3 {
             background-color: ${colors.sectionGray};
             width: 100vw;
-            height: 650px;
+            height: 720px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
@@ -104,6 +104,7 @@ class AboutUs extends React.Component {
 
           .section__3 h2 {
             font-family: GothamProBold;
+            margin-top: -30px;
           }
 
           .section__3-wrapper {
@@ -119,7 +120,7 @@ class AboutUs extends React.Component {
             display: inline-flex;
             align-items: center;
             justify-content: flex-end;
-            margin-right: 50px;
+            margin-right: 75px;
           }
 
           .section__3-info {

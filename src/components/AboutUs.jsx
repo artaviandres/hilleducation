@@ -8,6 +8,7 @@ import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
 import HundredsOf from '../assets/images/About_us_red.svg';
+import DennisHill from '../assets/Dennis_Hill.jpg';
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 
@@ -94,7 +95,7 @@ class AboutUs extends React.Component {
           .section__3 {
             background-color: ${colors.sectionGray};
             width: 100vw;
-            height: 550px;
+            height: 650px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
@@ -140,9 +141,10 @@ class AboutUs extends React.Component {
           }
 
           .picture {
-            background-color: ${colors.noPicture};
-            width: 370px;
-            height: 370px;
+            background: url(${DennisHill}) 50% 50%;
+            background-size: 100%;
+            width: 400px;
+            height: 500px;
           }
 
           ul {

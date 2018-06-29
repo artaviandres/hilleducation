@@ -27,7 +27,7 @@ class ContactUs extends React.Component {
 
   submitContact = (e) => {
     e.preventDefault();
-    emailjs.send("default_service","template_LdwxOUUM",{from_name: [this.state.name], message_html: this.state.content, reply_to: this.state.mail, user_phone: this.state.phone}, 'user_kCRwRozcLUM6fPoa7V0hs')
+    emailjs.send("default_service","hill_education_associates",{from_name: [this.state.name], message_html: this.state.content, reply_to: this.state.mail, user_phone: this.state.phone}, 'user_8DdblAy8YslREm965lolS')
     .then((success) => {
       this.setState({
         growl: true,

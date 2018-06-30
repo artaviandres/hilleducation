@@ -41,19 +41,20 @@ export default class HEA extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.getMetaData();
-  // }
-
-  // getMetaData = () => {
-  //   const storage = firebase.storage();
-  //   let storageRef = storage.ref('HEALOGO-H264 MOV 1920x1080 16x9 - converted with Clipchamp.mp4');
-  //   return storageRef.getMetadata().then((item) => {
-  //     this.setState({
-  //       linkVideo: item.downloadURLs[0],
-  //     });
-  //   });
-  // }
+  downloadVideo = () => {
+    const storage = firebase.storage();
+    let storageRef = storage.ref('GPO FINAL.mp4');
+    storageRef.getDownloadURL().then((url) => {
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function(event) {
+        var blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    })
+    .catch((err) => console.log('error downloading video: ', err));
+  }
 
   render() {
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
@@ -241,7 +242,7 @@ export default class HEA extends React.Component {
                 For educational and trainining purposes
               </p>
               <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => this.setState({ accordionVideo: !this.state.accordionVideo })}>WATCH VIDEO</Button>
+                <Button type="redReversed" width="250px" click={() => this.downloadVideo()}>WATCH VIDEO</Button>
               </div>
             </div>
           </div>

@@ -3,18 +3,41 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
+import Shareholder from './Shareholder';
 import BlueBackgroundImg from './BlueBackgroundImg';
 import ContactUsBlock from './ContactUsBlock';
 import AboutUsImage from '../assets/images/ABOUT_US.jpg';
 import Check from '../assets/images/check.svg';
 import HundredsOf from '../assets/images/About_us_red.svg';
 import DennisHill from '../assets/Dennis_Hill.jpg';
+import CarlFiggins from '../assets/images/Carl_Figgins.jpg';
+import NickDupre from '../assets/images/Nick_Dupre.jpg';
 import colors from '../variables';
 import * as UserActions from '../actions/user';
 
 class AboutUs extends React.Component {
   render() {
     const infoData = ["Educator in Michigan and Texas", "Classroom teacher", "Counselor", "College Administrator", "Coach", "Member; Texas Teacher Retirement System", "In the retirement planning business 20+ years", "Emphasis on retirement planning for educators/school personnel"];
+    const shareHolders = [
+      {
+        title: 'Carl Figgins consults with and provides key support to Associates in the HEA organization, as well as school administrators.',
+        text: 'Carl is a US Army veteran and spent five years stationed at Fort Bragg located in North Carolina. He worked as a Technical Engineer Specialist and Radiation Safety Officer for the 20th Engineer Brigade. He received The Army Commendation Medal for his efforts and knowledge during the Warfighter mission at Fort Hood, Texas. Carl is also a licensed insurance agent.',
+        image: CarlFiggins,
+        margin: true,
+      },
+      {
+        title: 'Nick Dupre, JD – Attorney, consultant: ',
+        text: 'Nick is Board Certified in Estate Planning and Probate. His firm’s practice concentrates on probate, estate and gift tax planning, business planning and taxation, asset protection, estate administration, charitable organizations, real estate transactions, tax controversies, and intellectual property transactions.',
+        image: NickDupre,
+        margin: false
+      },
+      {
+        title: 'Melissa Hill ',
+        text: 'provides quality, state-specific marketing material to Hill Education associates nationwide. She currently resides in Boulder where she is finishing her last year at the University of Colorado. Melissa is fluent in English, Spanish and proficient in Portuguese.',
+        image: '',
+        margin: false,
+      },
+    ];
     return (
       <div>
         <Header selected="aboutUs" />
@@ -53,6 +76,11 @@ class AboutUs extends React.Component {
               </ul>
             </div>
           </div>
+        </div>
+        <div className="shareholders">
+          {shareHolders.map((item) => {
+            return <Shareholder title={item.title} text={item.text} image={item.image} margin={item.margin} />
+          })}
         </div>
         <div className="section__4">
           <div className="divider-red" />
@@ -180,10 +208,11 @@ class AboutUs extends React.Component {
 
           .section__4 {
             width: 100vw;
-            height: 300px;
+            height: 200px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 30px;
           }
 
           .section__4 p {
@@ -198,6 +227,10 @@ class AboutUs extends React.Component {
             margin: -80px auto 80px auto;
             font-family: GothamPro;
             font-size: 19px;
+          }
+
+          .shareholders {
+            margin-top: 50px;
           }
         `}</style>
       </div>

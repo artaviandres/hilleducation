@@ -89,7 +89,7 @@ class AboutUs extends React.Component {
           be affected by WEP/GPO and methods to better prepare for retirement.</p>
         </div>
         <ContactUsBlock />
-        <Footer />
+        <Footer legalInfo />
         <style jsx>{`
           .divider-red {
             background-color: ${colors.red};

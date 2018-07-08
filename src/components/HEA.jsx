@@ -37,23 +37,37 @@ export default class HEA extends React.Component {
       hover: null,
       accordion: false,
       accordionVideo: false,
+      videoUrl: '',
     };
   }
 
-  componentDidMount() {
-    // this.downloadVideo();
-  }
-
-  // downloadVideo = () => {
-  //   const storage = firebase.storage();
-  //   let storageRef = storage.ref('GPO FINAL.mp4');
-  //   storageRef.getDownloadURL().then((url) => {
-  //     console.log(url);
-  //   })
-  //   .catch((err) => console.log('error retrieving video: ', err));
+  // componentDidMount() {
+  //   this.downloadVideo();
   // }
 
+  toggleVideoWrapper = () => {
+    this.setState({
+      accordionVideo: !this.state.accordionVideo
+    });
+  }
+
+  downloadVideo = () => {
+    const storage = firebase.storage();
+    let storageRef = storage.ref('GPO FINAL.mp4');
+    storageRef.getDownloadURL().then((url) => {
+      this.setState({
+        videoUrl: url,
+      });
+    })
+    .catch((err) => console.log('error retrieving video: ', err));
+  }
+
   render() {
+    if (this.state.accordionVideo === true) {
+      this.downloadVideo();
+    } else {
+
+    }
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
     const secondRow = ['Marketing support', 'Business Development support', 'Formula charts for calculating Pension & SS benefits', 'Webinars', 'On site seminar support'];
     const flyers = [
@@ -236,17 +250,16 @@ export default class HEA extends React.Component {
                 For educational and trainining purposes
               </p>
               <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => this.setState({ accordionVideo: !this.state.accordionVideo })}>WATCH VIDEO {this.state.accordionVideo === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
+                <Button type="redReversed" width="250px" click={() =>  this.toggleVideoWrapper()}>WATCH VIDEO {this.state.accordionVideo === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
               </div>
             </div>
           </div>
           <div className="accordion__video">
-            {/* <video controls>
-              <source src="https://www.youtube.com/watch?v=iUbkrJIgTJw" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video> */}
-            <iframe width="65%" height="600px" src="https://drive.google.com/file/d/1sepkcSHGUFo-jPHE1obWulPTdUZsFE4Q/preview">
-            </iframe>
+            {this.state.accordionVideo === true ?
+              <iframe width="65%" height="600px" src={this.state.videoUrl}>
+              </iframe>
+              : null
+            }
           </div>
         </div>
         <Footer />

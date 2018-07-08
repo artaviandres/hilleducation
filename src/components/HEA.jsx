@@ -37,24 +37,21 @@ export default class HEA extends React.Component {
       hover: null,
       accordion: false,
       accordionVideo: false,
-      linkVideo: '',
     };
   }
 
-  downloadVideo = () => {
-    const storage = firebase.storage();
-    let storageRef = storage.ref('GPO FINAL.mp4');
-    storageRef.getDownloadURL().then((url) => {
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = function(event) {
-        var blob = xhr.response;
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    })
-    .catch((err) => console.log('error downloading video: ', err));
+  componentDidMount() {
+    // this.downloadVideo();
   }
+
+  // downloadVideo = () => {
+  //   const storage = firebase.storage();
+  //   let storageRef = storage.ref('GPO FINAL.mp4');
+  //   storageRef.getDownloadURL().then((url) => {
+  //     console.log(url);
+  //   })
+  //   .catch((err) => console.log('error retrieving video: ', err));
+  // }
 
   render() {
     const firstRow = ['Direct support from HEA Associates', 'E-flyers', 'Print flyers', 'Educational video library', 'Seminar presentations'];
@@ -214,11 +211,8 @@ export default class HEA extends React.Component {
             <div className="downloadable-beta__info">
               <h3>Presentations</h3>
               <p>
-                Powerpoint and Google slide presentations for seminars
+                Please contact us at <span>info@hilleducationassociates.com</span> for state-specific powerpoint presentations
               </p>
-              <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => window.location = PresentationDownload}>DOWNLOAD</Button>
-              </div>
             </div>
           </div>
           <div className="downloadable">
@@ -242,9 +236,17 @@ export default class HEA extends React.Component {
                 For educational and trainining purposes
               </p>
               <div className="downloadable-beta__info-button">
-                <Button type="redReversed" width="250px" click={() => this.downloadVideo()}>WATCH VIDEO</Button>
+                <Button type="redReversed" width="250px" click={() => this.setState({ accordionVideo: !this.state.accordionVideo })}>WATCH VIDEO {this.state.accordionVideo === false ? <FaAngleDown size={25} /> : <FaAngleUp size={25} />}</Button>
               </div>
             </div>
+          </div>
+          <div className="accordion__video">
+            {/* <video controls>
+              <source src="https://www.youtube.com/watch?v=iUbkrJIgTJw" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video> */}
+            <iframe width="65%" height="600px" src="https://drive.google.com/file/d/1sepkcSHGUFo-jPHE1obWulPTdUZsFE4Q/preview">
+            </iframe>
           </div>
         </div>
         <Footer />
@@ -277,6 +279,10 @@ export default class HEA extends React.Component {
             display: flex;
             flex-direction: column;
             justify-content: center;
+          }
+
+          .downloadable-beta__info span {
+            font-style: italic;
           }
 
           .downloadable-beta__info h3 {
@@ -460,6 +466,13 @@ export default class HEA extends React.Component {
 
           .accordion__item-buttons button {
             margin-right: 30px;
+          }
+
+          .accordion__video {
+            display: ${this.state.accordionVideo === false ? 'none' : 'flex'};
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
           }
 
           .downloadable-beta__info-button {

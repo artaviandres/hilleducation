@@ -24,18 +24,14 @@ class AboutUs extends React.Component {
         text: 'Carl is a US Army veteran and spent five years stationed at Fort Bragg located in North Carolina. He worked as a Technical Engineer Specialist and Radiation Safety Officer for the 20th Engineer Brigade. He received The Army Commendation Medal for his efforts and knowledge during the Warfighter mission at Fort Hood, Texas. Carl is also a licensed insurance agent.',
         image: CarlFiggins,
         margin: true,
+        height: '450px',
       },
       {
         title: 'Nick Dupre, JD – Attorney, consultant: ',
         text: 'Nick is Board Certified in Estate Planning and Probate. His firm’s practice concentrates on probate, estate and gift tax planning, business planning and taxation, asset protection, estate administration, charitable organizations, real estate transactions, tax controversies, and intellectual property transactions.',
         image: NickDupre,
-        margin: false
-      },
-      {
-        title: 'Melissa Hill ',
-        text: 'provides quality, state-specific marketing material to Hill Education associates nationwide. She currently resides in Boulder where she is finishing her last year at the University of Colorado. Melissa is fluent in English, Spanish and proficient in Portuguese.',
-        image: '',
         margin: false,
+        height: '450px',
       },
     ];
     return (
@@ -79,8 +75,12 @@ class AboutUs extends React.Component {
         </div>
         <div className="shareholders">
           {shareHolders.map((item) => {
-            return <Shareholder title={item.title} text={item.text} image={item.image} margin={item.margin} />
+            console.log(item);
+            return <Shareholder title={item.title} text={item.text} image={item.image} margin={item.margin} height={item.height} />
           })}
+          <div className="shareholders__melissa">
+            <p className="shareholder__light"><span className="shareholder__bold">Melissa Hill</span> provides quality, state-specific marketing material to Hill Education associates nationwide. She currently resides in Boulder where she is finishing her last year at the University of Colorado. Melissa is fluent in English, Spanish and proficient in Portuguese.</p>
+          </div>
         </div>
         <div className="section__4">
           <div className="divider-red" />
@@ -231,6 +231,11 @@ class AboutUs extends React.Component {
 
           .shareholders {
             margin-top: 50px;
+          }
+
+          .shareholders__melissa {
+            width: 850px;
+            margin: 20px auto 60px auto;
           }
         `}</style>
       </div>

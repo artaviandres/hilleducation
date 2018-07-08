@@ -200,15 +200,15 @@ export default class Modal extends React.Component {
                   </Button>
                 </form>
                 <div className="forgot__container">
-                  <p>Reset Password</p>
+                  <p>Create Password</p>
                   <a onClick={() => this.goToForgot()}>Click Here</a>
                 </div>
               </div>
             : <div className="modal__wrapper--forgot">
                 <a className="modal__close--forgot" onClick={() => this.closeForgot()}><MdClose size={20} /></a>
                 <img src={Logo} width="250px" alt="logo" />
-                <h1>Reset Password</h1>
-                <p>We can help you reset your password using <br/> the email address linked to your account</p>
+                <h1>Create Password</h1>
+                <p>We can help you create/reset your password using <br/> the email address linked to your account</p>
                 <form onSubmit={this.resetPassword} style={{ width: '350' + 'px', height: '200' + 'px' }}>
                   <input
                     type="text"

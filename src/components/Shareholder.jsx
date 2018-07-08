@@ -2,12 +2,15 @@ import React from 'react';
 
 export default class Shareholder extends React.Component {
   render() {
-    const { title, text, image, margin } = this.props;
+    const { title, text, image, margin, smallHeight } = this.props;
     return (
       <div className="shareholder__wrapper">
-        <div className="shareholder__picture">
-          {image ? <img src={image} /> : <div className="shareholder__placeholder" />}
-        </div>
+        {image ? 
+          <div className="shareholder__picture">
+            <img src={image} />
+          </div>
+          : null
+        }
         <div className="shareholder__text">
           {margin ?
             <React.Fragment>
@@ -23,6 +26,7 @@ export default class Shareholder extends React.Component {
             height: 450px;
             margin-bottom: 50px;
             display: flex;
+            justify-content: ${image ? null : 'center'};
           }
 
           .shareholder__picture {
